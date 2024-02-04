@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:nexus/Login.dart';
 import 'package:nexus/signup.dart';
@@ -74,11 +76,22 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage()));
                   },
+                  color:  Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50)
+                  ),
+                  child: Text(
+                    "Sign up",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18
+                    ),
+                  ),
                 )
                 
               ],
             )
-
             ],
           ),
         ),)
