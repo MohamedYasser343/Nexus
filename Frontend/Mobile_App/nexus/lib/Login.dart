@@ -86,25 +86,25 @@ class LoginPage extends StatefulWidget {
                   ),
           ],
           ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text("Don't have an account"),
-            Text("Sign up",
-            style: TextStyle(fontWeight: FontWeight.w600,
-            fontSize: 18),
-            )
-          ],
-        ),
-        child: Container(
-          padding: EdgeInsets.only(top: 100),
-          height: 200,
-          decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage(""),
-            fit: BoxFit.fitHeight,
-            )
-          ),
-        )
+        // child: Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: <Widget>[
+        //     Text("Don't have an account"),
+        //     Text("Sign up",
+        //     style: TextStyle(fontWeight: FontWeight.w600,
+        //     fontSize: 18),
+        //     )
+        //   ],
+        // ),
+        // child: Container(
+        //   padding: EdgeInsets.only(top: 100),
+        //   height: 200,
+        //   decoration: BoxDecoration(
+        //     image: DecorationImage(image: AssetImage(""),
+        //     fit: BoxFit.fitHeight,
+        //     )
+        //   ),
+        // )
         )],
         ))
     );
