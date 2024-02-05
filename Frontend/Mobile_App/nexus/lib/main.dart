@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:nexus/Login.dart';
 import 'package:nexus/signup.dart';
@@ -22,21 +20,11 @@ class HomePage extends StatelessWidget {
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+          color: Color(0xFF747EF5),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Text(
-                    "welcome",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30.0
-                    ),
-                  )
-                ],
-              ),
               Container(
                 height: MediaQuery.of(context).size.height / 3,
                 decoration: BoxDecoration(
