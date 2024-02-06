@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
                 height: MediaQuery.of(context).size.height / 3,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("")
+                    image: AssetImage('assets/nexus.png')
                   )
                 ),
               ),
@@ -39,12 +39,13 @@ class HomePage extends StatelessWidget {
                 MaterialButton(
                   minWidth: double.infinity,
                   height: 60.0,
+                  color:  Colors.white,
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
                   },
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
-                      color: Colors.black
+                      color: Color(0xFF3B3084)
                     ),
                     borderRadius: BorderRadius.circular(50)
                   ),
@@ -52,20 +53,26 @@ class HomePage extends StatelessWidget {
                     "Login",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 18.0
+                      color: Color(0xFF3B3084),
+                      fontSize: 24,
+                      fontFamily: 'arial',
                     ),
                   ),
                 ),
-                // the sign up button
+                // the difference between the two buttons
                 SizedBox(height: 20,),
+                //the sign up button
                 MaterialButton(
                   minWidth: double.infinity,
                   height: 60,
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage()));
                   },
-                  color:  Colors.black,
+                  color: Color(0xFF3B3084),
                   shape: RoundedRectangleBorder(
+                    side: BorderSide(
+                      color: Colors.white
+                    ),
                     borderRadius: BorderRadius.circular(50)
                   ),
                   child: Text(
@@ -73,7 +80,8 @@ class HomePage extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
-                      fontSize: 18
+                      fontSize: 24,
+                      fontFamily: 'arial',
                     ),
                   ),
                 )
