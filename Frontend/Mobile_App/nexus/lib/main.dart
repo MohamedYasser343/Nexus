@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Container(
-                height: MediaQuery.of(context).size.height / 3,
+                height: MediaQuery.of(context).size.height / 4,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/nexus.png')
