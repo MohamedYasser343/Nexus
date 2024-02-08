@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -11,6 +13,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color(0xFF747EF5),
@@ -39,8 +42,8 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
-                    //padding: EdgeInsets.only(top: 20),
+                  Padding(
+                    padding: EdgeInsets.only(top: 20),
                     child: Text(
                       "Welcome Back 👋 ",
                       textAlign: TextAlign.center,
@@ -52,17 +55,48 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(0),
-                      height: MediaQuery.of(context).size.height - (56 + 21 + 30),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/dark_shape.png'),
-                          filterQuality: FilterQuality.high,
-                          fit: BoxFit.fill,
-                        ),
+                  Container(
+                    padding: EdgeInsets.all(0),
+                    height: MediaQuery.of(context).size.height - (56 + 21 + 30 + 57 + 40),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/dark_shape.png'),
+                        filterQuality: FilterQuality.high,
+                        fit: BoxFit.fill,
                       ),
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 40),
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(height: 30),
+                              inputFile(label: "Email"),
+                              SizedBox(height: 30),
+                              inputFile(label: "Password", obscureText: true),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 30),
+                        MaterialButton(
+                          minWidth: MediaQuery.of(context).size.width - 60,
+                          height: 60,
+                          onPressed: () {},
+                        color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          child: Text(
+                            "Login",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 24,
+                              color: Color(0xFF3B3084),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -71,6 +105,36 @@ class _LoginPageState extends State<LoginPage> {
           ],
         ),
       ),
+    );
+  }
+  Widget inputFile({label, obscureText = false}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          label,
+          style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w400,
+              color: Colors.white,
+              ),
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        TextField(
+          obscureText: obscureText,
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
