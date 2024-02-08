@@ -28,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: Stack(
           alignment: Alignment.center,
+          clipBehavior: Clip.none,
           children: <Widget>[
             Container(
               width: double.infinity,
@@ -37,14 +38,20 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    "Welcome Back 👋 ",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: 'arial',
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                  Positioned(
+                    top: 2000,
+                    bottom: 100,
+                    right: 40,
+                    left: 40,
+                    child: Text(
+                      "Welcome Back 👋 ",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: 'arial',
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   Container(
