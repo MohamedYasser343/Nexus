@@ -29,9 +29,12 @@ class HomePage extends StatelessWidget {
                 height: MediaQuery.of(context).size.height / 4,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/nexus.png')
-                  )
+                    image: AssetImage('assets/nexus.png'),
+                    filterQuality: FilterQuality.high,
+                  ),
                 ),
+                // child: 
+                //     Image.asset('assets/wheell.png'),
               ),
             Column(
               children: <Widget>[
@@ -85,7 +88,6 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 )
-                
               ],
             )
             ],
