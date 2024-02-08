@@ -28,7 +28,6 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: Stack(
           alignment: Alignment.center,
-          clipBehavior: Clip.none,
           children: <Widget>[
             Container(
               width: double.infinity,
@@ -38,30 +37,27 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Positioned(
-                    top: 2000,
-                    bottom: 100,
-                    right: 40,
-                    left: 40,
-                    child: Text(
-                      "Welcome Back 👋 ",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: 'arial',
-                        fontSize: 35,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.all(0),
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/dark_shape.png'),
+                          filterQuality: FilterQuality.high,
+                          fit: BoxFit.fill,
+                        ),
                       ),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(0),
-                    height: MediaQuery.of(context).size.height - (56 + 21 + 30),
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/dark_shape.png'),
-                        filterQuality: FilterQuality.high,
-                        fit: BoxFit.fill,
+                      child: Center(
+                        child: Text(
+                          "Welcome Back 👋 ",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'arial',
+                            fontSize: 35,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
                   ),
