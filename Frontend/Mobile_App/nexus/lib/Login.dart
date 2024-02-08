@@ -27,36 +27,40 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: SafeArea(
         child: Stack(
-          alignment: Alignment.center,
-          children: <Widget>[
+          alignment: AlignmentDirectional.topCenter,
+          clipBehavior: Clip.none,
+          children: [
             Container(
               width: double.infinity,
               height: MediaQuery.of(context).size.height,
               color: Color(0xFF747EF5),
+              alignment: Alignment.topCenter,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
+                children: [
+                  Container(
+                    //padding: EdgeInsets.only(top: 20),
+                    child: Text(
+                      "Welcome Back 👋 ",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: 'arial',
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                   Expanded(
                     child: Container(
                       padding: EdgeInsets.all(0),
+                      height: MediaQuery.of(context).size.height - (56 + 21 + 30),
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('assets/dark_shape.png'),
                           filterQuality: FilterQuality.high,
                           fit: BoxFit.fill,
-                        ),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Welcome Back 👋 ",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: 'arial',
-                            fontSize: 35,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
                         ),
                       ),
                     ),
