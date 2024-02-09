@@ -1,11 +1,14 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
+
 class _LoginPageState extends State<LoginPage> {
   bool isEmailField = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,53 +94,75 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ),
+                        SizedBox(height: 10),
                       ],
                     ),
                   ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-  Widget inputFile({label, obscureText = false, hint}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.w400,
-            color: Colors.white,
-          ),
-        ),
-        SizedBox(
-          height: 5,
-        ),
-        TextField(
-          obscureText: obscureText,
-          decoration: InputDecoration(
-            hintText: hint,
-            hintStyle: TextStyle(
-              color: Colors.white70,
-              fontSize: 12,
-            ),
-            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
-            ),
-            focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-            ),
-            border: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text("Don't have an account?",
+                      style: 
+                        TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(" Sign up",
+                      style: 
+                        TextStyle(
+                          fontWeight: 
+                            FontWeight.w600,
+                            fontSize: 18,
+                            color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
       ],
-    );
-  }
+    ),
+  );
+}
+
+Widget inputFile({label, obscureText = false, hint}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      Text(
+        label,
+        style: TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.w400,
+          color: Colors.white,
+        ),
+      ),
+      SizedBox(
+        height: 5,
+      ),
+      TextField(
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          hintText: hint,
+          hintStyle: TextStyle(
+            color: Colors.white70,
+            fontSize: 12,
+          ),
+          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+          ),
+          border: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+          ),
+        ),
+      ),
+    ],
+  );
+}
 }
