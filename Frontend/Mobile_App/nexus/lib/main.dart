@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:Nexus/Login.dart';
 import 'package:flutter/material.dart';
-import 'package:nexus/Login.dart';
-import 'package:nexus/signup.dart';
+//import 'package:nexus/Login.dart';
+//import 'package:nexus/signup.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -33,6 +34,7 @@ class HomePage extends StatelessWidget {
                     filterQuality: FilterQuality.high,
                   ),
                 ),
+                // basically i couldn't insert this image so i commented it and mmoved on :)
                 // child: 
                 //     Image.asset('assets/wheell.png'),
               ),
