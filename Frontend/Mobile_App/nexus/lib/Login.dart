@@ -1,15 +1,11 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
-
 class _LoginPageState extends State<LoginPage> {
   bool isEmailField = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
