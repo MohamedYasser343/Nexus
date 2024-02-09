@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+import 'package:Nexus/signup.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -69,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(height: 30),
                         inputFile(
                           label: isEmailField ? "Password" : "Email", 
-                          obscureText: !isEmailField,
+                          obscureText: true,
                           hint: isEmailField ? "Enter your Password" : "Enter your Email",
                         ),
                         SizedBox(height: 30),
@@ -77,9 +78,9 @@ class _LoginPageState extends State<LoginPage> {
                           minWidth: MediaQuery.of(context).size.width - 60,
                           height: 60,
                           onPressed: () {
-                            setState(() {
-                              isEmailField = !isEmailField;
-                            });
+                            // setState(() {
+                            //   isEmailField = !isEmailField;
+                            // });
                           },
                           color: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -102,22 +103,27 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text("Don't have an account?",
-                      style: 
-                        TextStyle(
-                          color: Colors.white,
-                        ),
+                      style: TextStyle(
+                        color: Colors.white,
                       ),
-                      Text(" Sign up",
-                      style: 
-                        TextStyle(
-                          fontWeight: 
-                            FontWeight.w600,
+                      ),
+                      SizedBox(width: 10),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage()));
+                        },
+                        child: Text(
+                          " Sign up",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
                             fontSize: 18,
                             color: Colors.white,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
               ],
             ),
           ),
@@ -126,7 +132,6 @@ class _LoginPageState extends State<LoginPage> {
     ),
   );
 }
-
 Widget inputFile({label, obscureText = false, hint}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
