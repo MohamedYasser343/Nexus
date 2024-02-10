@@ -182,7 +182,7 @@ class _SignupPageState extends State<SignupPage> {
         Row(
           children: [
             Icon(
-              Icons.email_outlined,
+              Icons.person_rounded,
               color: Colors.white,
             ),
             SizedBox(width: 5),
