@@ -1,11 +1,24 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
+import 'package:Nexus/Login.dart';
 class SignupPage extends StatefulWidget {
   @override
   State<SignupPage> createState() => _SignupPageState();
 }
+
 class _SignupPageState extends State<SignupPage> {
-  bool passwordVisible = false;
+  bool passwordVisible1 = false;
+  bool passwordVisible2 = false;
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _confirmPasswordController = TextEditingController();
+  bool _passwordsMatch = true; // Flag to track if passwords match
+
+  @override
+  void dispose() {
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,32 +75,51 @@ class _SignupPageState extends State<SignupPage> {
                       padding: EdgeInsets.symmetric(horizontal: 40),
                       child: Column(
                         children: <Widget>[
+                          SizedBox(height: 5),
+                          // username text field position
+                          buildusernameField(),
                           SizedBox(height: 20),
                           // Email text field position
                           buildEmailField(),
-                          SizedBox(height: 20),
-                          // username text field position
-                          buildusernameField(),
                           SizedBox(height: 20),
                           // Password text field position
                           buildPasswordField(),
                           SizedBox(height: 20),
                           // confirm Password text field position
                           buildconfirmPasswordField(),
-                          SizedBox(height: 20),
+                          SizedBox(height: 10),
+                          // Error message if passwords don't match
+                          if (!_passwordsMatch)
+                            Text(
+                              'Passwords do not match',
+                              style: TextStyle(
+                                color: Colors.red,
+                              ),
+                            ),
+                          SizedBox(height: 10),
                           // White login button
                           MaterialButton(
                             minWidth: MediaQuery.of(context).size.width - 60,
                             height: 60,
+                            // Check if passwords match
                             onPressed: () {
-                              // Do something
+                              if (_passwordController.text != _confirmPasswordController.text) {
+                                setState((){
+                                    _passwordsMatch = false;
+                                  }
+                                );
+                              } else {
+                                setState(() {
+                                  _passwordsMatch = true;
+                                });
+                              }
                             },
                             color: Colors.white,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5),
                             ),
                             child: Text(
-                              "Login",
+                              "Sign Up",
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 24,
@@ -104,24 +136,24 @@ class _SignupPageState extends State<SignupPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          "Don't have an account?",
+                          "Already have an Account?",
                           style: TextStyle(
                             color: Colors.white,
                           ),
                         ),
-                        SizedBox(width: 3),
+                        SizedBox(width: 0),
                         // Sign up button
                         MaterialButton(
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => SignupPage(),
+                                builder: (context) => LoginPage(),
                               ),
                             );
                           },
                           child: Text(
-                            "Sign up",
+                            "Login",
                             style: TextStyle(
                               fontFamily: 'arial',
                               fontWeight: FontWeight.w600,
@@ -143,7 +175,7 @@ class _SignupPageState extends State<SignupPage> {
       ),
     );
   }
-  Widget buildEmailField() {
+  Widget buildusernameField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -155,7 +187,7 @@ class _SignupPageState extends State<SignupPage> {
             ),
             SizedBox(width: 5),
             Text(
-              "Email",
+              "Full Name",
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w400,
@@ -175,7 +207,7 @@ class _SignupPageState extends State<SignupPage> {
           decoration: InputDecoration(
             fillColor: const Color.fromARGB(26, 255, 255, 255),
             filled: true,
-            hintText: "Enter your Email",
+            hintText: "Enter your Full Name",
             hintStyle: TextStyle(
               color: Colors.grey,
               fontSize: 12,
@@ -195,7 +227,7 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
-  Widget buildusernameField() {
+  Widget buildEmailField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -272,33 +304,18 @@ class _SignupPageState extends State<SignupPage> {
                 ],
               ),
             ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage()));
-              },
-              child: Text(
-                "Forget Password?",
-                style: TextStyle(
-                  fontFamily: 'arial',
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                  color: Colors.white,
-                  decoration: TextDecoration.underline,
-                  decorationColor: Colors.white,
-                ),
-              ),
-            ),
           ],
         ),
         SizedBox(
           height: 5,
         ),
         TextFormField(
+          controller: _passwordController,
           cursorColor: Colors.white,
           style: TextStyle(
             color: Colors.white,
           ),
-          obscureText: passwordVisible,
+          obscureText: passwordVisible1,
           decoration: InputDecoration(
             fillColor: const Color.fromARGB(26, 255, 255, 255),
             filled: true,
@@ -320,15 +337,26 @@ class _SignupPageState extends State<SignupPage> {
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
-                  passwordVisible = !passwordVisible;
+                  passwordVisible1 = !passwordVisible1;
                 });
               },
-              icon: Icon(
-                passwordVisible ? Icons.visibility : Icons.visibility_off,
-                color: Colors.grey,
-              ),
+              icon:Row(
+                mainAxisSize: MainAxisSize.min,
+                  children: [ 
+                    Text(passwordVisible1 ? "show" : "hide",
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                    ),
+                    SizedBox(width: 2,),
+                    Icon(
+                    passwordVisible1 ? Icons.visibility : Icons.visibility_off,
+                    color: Colors.grey,
+                    ),
+            ],
             ),
           ),
+        ),
         ),
       ],
     );
@@ -364,11 +392,12 @@ class _SignupPageState extends State<SignupPage> {
           height: 5,
         ),
         TextFormField(
+          controller: _confirmPasswordController,
           cursorColor: Colors.white,
           style: TextStyle(
             color: Colors.white,
           ),
-          obscureText: passwordVisible,
+          obscureText: passwordVisible2,
           decoration: InputDecoration(
             fillColor: const Color.fromARGB(26, 255, 255, 255),
             filled: true,
@@ -390,12 +419,23 @@ class _SignupPageState extends State<SignupPage> {
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
-                  passwordVisible = !passwordVisible;
+                  passwordVisible2 = !passwordVisible2;
                 });
               },
-              icon: Icon(
-                passwordVisible ? Icons.visibility : Icons.visibility_off,
-                color: Colors.grey,
+              icon:Row(
+                mainAxisSize: MainAxisSize.min,
+                  children: [ 
+                    Text(passwordVisible2 ? "show" : "hide",
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                    ),
+                    SizedBox(width: 2,),
+                    Icon(
+                    passwordVisible2 ? Icons.visibility : Icons.visibility_off,
+                    color: Colors.grey,
+                    ),
+                  ],
               ),
             ),
           ),

@@ -258,7 +258,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             MaterialButton(
               onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage()));
+                //Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage()));
               },
               child: Text(
                 "Forget Password?",
@@ -307,9 +307,20 @@ class _LoginPageState extends State<LoginPage> {
                   passwordVisible = !passwordVisible;
                 });
               },
-              icon: Icon(
-                passwordVisible ? Icons.visibility : Icons.visibility_off,
-                color: Colors.grey,
+              icon: Row(
+                mainAxisSize: MainAxisSize.min,
+                  children: [ 
+                    Text(passwordVisible ? "show" : "hide",
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                    ),
+                    SizedBox(width: 2,),
+                    Icon(
+                    passwordVisible ? Icons.visibility : Icons.visibility_off,
+                    color: Colors.grey,
+                    ),
+                  ],
               ),
             ),
           ),
