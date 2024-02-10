@@ -257,7 +257,7 @@ class _SignupPageState extends State<SignupPage> {
               child: Row(
                 children: [
                   Icon(
-                    Icons.key_rounded,
+                    Icons.lock,
                     color: Colors.white,
                   ),
                   SizedBox(width: 5),
@@ -343,12 +343,12 @@ class _SignupPageState extends State<SignupPage> {
               child: Row(
                 children: [
                   Icon(
-                    Icons.key_rounded,
+                    Icons.lock,
                     color: Colors.white,
                   ),
                   SizedBox(width: 5),
                   Text(
-                    "Password",
+                    "Confirm Password",
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
@@ -356,22 +356,6 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                 ],
-              ),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage()));
-              },
-              child: Text(
-                "Forget Password?",
-                style: TextStyle(
-                  fontFamily: 'arial',
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                  color: Colors.white,
-                  decoration: TextDecoration.underline,
-                  decorationColor: Colors.white,
-                ),
               ),
             ),
           ],
@@ -388,7 +372,7 @@ class _SignupPageState extends State<SignupPage> {
           decoration: InputDecoration(
             fillColor: const Color.fromARGB(26, 255, 255, 255),
             filled: true,
-            hintText: "Enter your Password",
+            hintText: "Enter your Password again",
             hintStyle: TextStyle(
               color: Colors.grey,
               fontSize: 12,

@@ -241,7 +241,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Row(
                 children: [
                   Icon(
-                    Icons.key_rounded,
+                    Icons.lock,
                     color: Colors.white,
                   ),
                   SizedBox(width: 5),
