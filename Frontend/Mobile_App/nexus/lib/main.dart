@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: HomePage(),
+    home: HomePage(),// to open the splash page first
   ));
 }
 class HomePage extends StatelessWidget {
