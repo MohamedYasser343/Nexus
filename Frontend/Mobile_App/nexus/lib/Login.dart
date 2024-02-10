@@ -34,8 +34,8 @@ class _LoginPageState extends State<LoginPage> {
               decoration: BoxDecoration(
                 color: Color(0xFF453F87),
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
+                  topLeft: Radius.circular(40.0),
+                  topRight: Radius.circular(40.0),
                 ),
               ),
               height: double.infinity,
