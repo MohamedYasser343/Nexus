@@ -31,9 +31,6 @@ class HomePage extends StatelessWidget {
                     filterQuality: FilterQuality.high,
                   ),
                 ),
-                // basically i couldn't insert this image so i commented it and moved on :)
-                // child: 
-                //     Image.asset('assets/wheell.png'),
               ),
             Column(
               children: <Widget>[
@@ -95,3 +92,14 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+//this section helps me determine some things faster:
+//
+//icon: Icon(Icons.,
+//
+//MaterialButton(
+//  onPressed: () {
+//    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+//  },
+//   onPressed: (() => something(somewhere)),
+//   child:
+// )

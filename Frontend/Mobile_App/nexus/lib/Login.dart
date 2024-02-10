@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:Nexus/signup.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -35,8 +34,8 @@ class _LoginPageState extends State<LoginPage> {
               decoration: BoxDecoration(
                 color: Color(0xFF453F87),
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
+                  topLeft: Radius.circular(40.0),
+                  topRight: Radius.circular(40.0),
                 ),
               ),
               height: double.infinity,
@@ -51,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: EdgeInsets.only(top: 0),
                       child: Text(
-                        "Welcome Back 👋 ",
+                        "Welcome Back 👋",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'arial',
@@ -81,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                             },
                             color: Colors.white,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5),
+                              borderRadius: BorderRadius.circular(15),
                             ),
                             child: Text(
                               "Login",
@@ -242,7 +241,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Row(
                 children: [
                   Icon(
-                    Icons.key_rounded,
+                    Icons.lock,
                     color: Colors.white,
                   ),
                   SizedBox(width: 5),
@@ -259,7 +258,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             MaterialButton(
               onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage()));
+                //Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage()));
               },
               child: Text(
                 "Forget Password?",
@@ -308,9 +307,20 @@ class _LoginPageState extends State<LoginPage> {
                   passwordVisible = !passwordVisible;
                 });
               },
-              icon: Icon(
-                passwordVisible ? Icons.visibility : Icons.visibility_off,
-                color: Colors.grey,
+              icon: Row(
+                mainAxisSize: MainAxisSize.min,
+                  children: [ 
+                    Text(passwordVisible ? "show" : "hide",
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                    ),
+                    SizedBox(width: 2,),
+                    Icon(
+                    passwordVisible ? Icons.visibility : Icons.visibility_off,
+                    color: Colors.grey,
+                    ),
+                  ],
               ),
             ),
           ),
@@ -319,12 +329,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-//this comments to help me determine some things faster:
-//
-//icon: Icon(Icons.email_rounded),
-//icon: Icon(Icons.key_rounded),
-//
-// MaterialButton(
-//  onPressed: (() => Validate(inputcontroller.text)),
-//  child: Text("Check"),
-// )
