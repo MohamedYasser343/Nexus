@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                             },
                             color: Colors.white,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5),
+                              borderRadius: BorderRadius.circular(15),
                             ),
                             child: Text(
                               "Login",
@@ -329,12 +329,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-//this comments to help me determine some things faster:
-//
-//icon: Icon(Icons.email_rounded),
-//icon: Icon(Icons.key_rounded),
-//
-// MaterialButton(
-//  onPressed: (() => Validate(inputcontroller.text)),
-//  child: Text("Check"),
-// )

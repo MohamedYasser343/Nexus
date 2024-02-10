@@ -5,14 +5,12 @@ class SignupPage extends StatefulWidget {
   @override
   State<SignupPage> createState() => _SignupPageState();
 }
-
 class _SignupPageState extends State<SignupPage> {
   bool passwordVisible1 = false;
   bool passwordVisible2 = false;
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _confirmPasswordController = TextEditingController();
   bool _passwordsMatch = true; // Flag to track if passwords match
-
   @override
   void dispose() {
     _passwordController.dispose();
@@ -116,7 +114,7 @@ class _SignupPageState extends State<SignupPage> {
                             },
                             color: Colors.white,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5),
+                              borderRadius: BorderRadius.circular(15),
                             ),
                             child: Text(
                               "Sign Up",
@@ -353,8 +351,8 @@ class _SignupPageState extends State<SignupPage> {
                     passwordVisible1 ? Icons.visibility : Icons.visibility_off,
                     color: Colors.grey,
                     ),
-            ],
-            ),
+                  ],
+              ),
           ),
         ),
         ),
@@ -444,12 +442,3 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 }
-//this comments to help me determine some things faster:
-//
-//icon: Icon(Icons.email_rounded),
-//icon: Icon(Icons.key_rounded),
-//
-// MaterialButton(
-//  onPressed: (() => Validate(inputcontroller.text)),
-//  child: Text("Check"),
-// )
