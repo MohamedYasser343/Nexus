@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: EdgeInsets.only(top: 0),
                       child: Text(
-                        "Welcome Back 👋 ",
+                        "Welcome Back 👋",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'arial',

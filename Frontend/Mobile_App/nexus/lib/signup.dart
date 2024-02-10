@@ -48,7 +48,7 @@ class _SignupPageState extends State<SignupPage> {
                     Padding(
                       padding: EdgeInsets.only(top: 0),
                       child: Text(
-                        "Welcome Back 👋 ",
+                        "Sign Up",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'arial',
@@ -62,13 +62,19 @@ class _SignupPageState extends State<SignupPage> {
                       padding: EdgeInsets.symmetric(horizontal: 40),
                       child: Column(
                         children: <Widget>[
-                          SizedBox(height: 30),
+                          SizedBox(height: 20),
                           // Email text field position
                           buildEmailField(),
-                          SizedBox(height: 30),
+                          SizedBox(height: 20),
+                          // username text field position
+                          buildusernameField(),
+                          SizedBox(height: 20),
                           // Password text field position
                           buildPasswordField(),
-                          SizedBox(height: 30),
+                          SizedBox(height: 20),
+                          // confirm Password text field position
+                          buildconfirmPasswordField(),
+                          SizedBox(height: 20),
                           // White login button
                           MaterialButton(
                             minWidth: MediaQuery.of(context).size.width - 60,
@@ -127,46 +133,6 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                         ),
                       ],
-                    ),
-                    SizedBox(height: 10),
-                    // Dividers
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 3 - 30,
-                          child: Divider(
-                            color: Colors.grey,
-                            thickness: 2,
-                          ),
-                        ),
-                        SizedBox(width: 15),
-                        Text(
-                          "or Login With",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(width: 15),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 3 - 30,
-                          child: Divider(
-                            color: Colors.grey,
-                            thickness: 2,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 5),
-                    IconButton(
-                      onPressed: () {
-                        // Do something
-                      },
-                      icon: Container(
-                        width: 48,
-                        height: 48,
-                        child: Image.asset('assets/google_icon.png'),
-                      ),
                     ),
                   ],
                 ),
@@ -229,7 +195,145 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
+  Widget buildusernameField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Row(
+          children: [
+            Icon(
+              Icons.email_outlined,
+              color: Colors.white,
+            ),
+            SizedBox(width: 5),
+            Text(
+              "Email",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w400,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        TextFormField(
+          cursorColor: Colors.white,
+          style: TextStyle(
+            color: Colors.white,
+          ),
+          decoration: InputDecoration(
+            fillColor: const Color.fromARGB(26, 255, 255, 255),
+            filled: true,
+            hintText: "Enter your Email",
+            hintStyle: TextStyle(
+              color: Colors.grey,
+              fontSize: 12,
+            ),
+            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFF747EF5)),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
   Widget buildPasswordField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Row(
+          children: [
+            Expanded(
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.key_rounded,
+                    color: Colors.white,
+                  ),
+                  SizedBox(width: 5),
+                  Text(
+                    "Password",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage()));
+              },
+              child: Text(
+                "Forget Password?",
+                style: TextStyle(
+                  fontFamily: 'arial',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14,
+                  color: Colors.white,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        TextFormField(
+          cursorColor: Colors.white,
+          style: TextStyle(
+            color: Colors.white,
+          ),
+          obscureText: passwordVisible,
+          decoration: InputDecoration(
+            fillColor: const Color.fromARGB(26, 255, 255, 255),
+            filled: true,
+            hintText: "Enter your Password",
+            hintStyle: TextStyle(
+              color: Colors.grey,
+              fontSize: 12,
+            ),
+            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFF747EF5)),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            suffixIcon: IconButton(
+              onPressed: () {
+                setState(() {
+                  passwordVisible = !passwordVisible;
+                });
+              },
+              icon: Icon(
+                passwordVisible ? Icons.visibility : Icons.visibility_off,
+                color: Colors.grey,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+  Widget buildconfirmPasswordField(){
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
