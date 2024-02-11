@@ -8,8 +8,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   bool passwordVisible = false;
   final _formKey = GlobalKey<FormState>();
-    TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,6 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(width: 3),
                         // Sign up button
                         MaterialButton(
+                          elevation: 10,
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -277,6 +276,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             MaterialButton(
+              elevation: 10,
               onPressed: () {
                 //Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage()));
               },

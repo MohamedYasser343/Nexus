@@ -12,7 +12,6 @@ class _SignupPageState extends State<SignupPage> {
   TextEditingController _confirmPasswordController = TextEditingController();
   bool _passwordsMatch = true; // Flag to track if passwords match
   final _formKey = GlobalKey<FormState>();
-    TextEditingController _emailController = TextEditingController();
   @override
   void dispose() {
     _passwordController.dispose();
@@ -156,6 +155,7 @@ class _SignupPageState extends State<SignupPage> {
                         SizedBox(width: 0),
                         // Sign up button
                         MaterialButton(
+                          elevation: 10,
                           onPressed: () {
                             Navigator.push(
                               context,
