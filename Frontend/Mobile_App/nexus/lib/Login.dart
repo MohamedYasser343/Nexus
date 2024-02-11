@@ -7,6 +7,7 @@ class LoginPage extends StatefulWidget {
 }
 class _LoginPageState extends State<LoginPage> {
   bool passwordVisible = false;
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,10 +74,21 @@ class _LoginPageState extends State<LoginPage> {
                           SizedBox(height: 30),
                           // White login button
                           MaterialButton(
+                            elevation: 10,
                             minWidth: MediaQuery.of(context).size.width - 60,
                             height: 60,
                             onPressed: () {
-                              // Do something
+                              if (_formKey.currentState != null && _formKey.currentState!.validate()) {
+                                // All fields are valid, perform login
+                                // Add your login logic here
+                              } else {
+                                // Validation failed, show error message
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text('Please fill in all fields'),
+                                  ),
+                                );
+                              }
                             },
                             color: Colors.white,
                             shape: RoundedRectangleBorder(
@@ -108,6 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(width: 3),
                         // Sign up button
                         MaterialButton(
+                          elevation: 10,
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -204,6 +217,12 @@ class _LoginPageState extends State<LoginPage> {
           height: 5,
         ),
         TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your Email';
+            }
+            return null;
+            },
           cursorColor: Colors.white,
           style: TextStyle(
             color: Colors.white,
@@ -257,6 +276,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             MaterialButton(
+              elevation: 10,
               onPressed: () {
                 //Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage()));
               },
@@ -278,6 +298,12 @@ class _LoginPageState extends State<LoginPage> {
           height: 5,
         ),
         TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your Password';
+            }
+            return null;
+            },
           cursorColor: Colors.white,
           style: TextStyle(
             color: Colors.white,
