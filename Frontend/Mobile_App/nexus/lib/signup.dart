@@ -11,6 +11,8 @@ class _SignupPageState extends State<SignupPage> {
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _confirmPasswordController = TextEditingController();
   bool _passwordsMatch = true; // Flag to track if passwords match
+  final _formKey = GlobalKey<FormState>();
+    TextEditingController _emailController = TextEditingController();
   @override
   void dispose() {
     _passwordController.dispose();
@@ -35,7 +37,7 @@ class _SignupPageState extends State<SignupPage> {
           ),
       ),
       body:Container(
-        padding: EdgeInsets.only(top: 60),
+        padding: EdgeInsets.only(top: 30),
         color: Color(0xFF747EF5),
         child: Stack(
           children: [
@@ -111,6 +113,17 @@ class _SignupPageState extends State<SignupPage> {
                                 setState(() {
                                   _passwordsMatch = true;
                                 });
+                              }
+                              if (_formKey.currentState != null && _formKey.currentState!.validate()) {
+                                // All fields are valid, perform login
+                                // Add your login logic here
+                              } else {
+                                // Validation failed, show error message
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text('Please fill in all fields'),
+                                  ),
+                                );
                               }
                             },
                             color: Colors.white,
@@ -199,6 +212,12 @@ class _SignupPageState extends State<SignupPage> {
           height: 5,
         ),
         TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your Full Name';
+            }
+            return null;
+            },
           cursorColor: Colors.white,
           style: TextStyle(
             color: Colors.white,
@@ -251,6 +270,12 @@ class _SignupPageState extends State<SignupPage> {
           height: 5,
         ),
         TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your Email';
+            }
+            return null;
+            },
           cursorColor: Colors.white,
           style: TextStyle(
             color: Colors.white,
@@ -309,6 +334,12 @@ class _SignupPageState extends State<SignupPage> {
           height: 5,
         ),
         TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your Password';
+            }
+            return null;
+            },
           controller: _passwordController,
           cursorColor: Colors.white,
           style: TextStyle(
@@ -391,6 +422,12 @@ class _SignupPageState extends State<SignupPage> {
           height: 5,
         ),
         TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your Password again';
+            }
+            return null;
+            },
           controller: _confirmPasswordController,
           cursorColor: Colors.white,
           style: TextStyle(
