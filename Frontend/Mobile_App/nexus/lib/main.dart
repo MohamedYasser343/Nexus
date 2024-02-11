@@ -72,6 +72,7 @@ class HomePage extends StatelessWidget {
                     side: BorderSide(
                       width: 2.0,
                       color: Color(0xFF3B3084)
+                      color: Color(0xFF453F87)
                     ),
                     borderRadius: BorderRadius.circular(50)
                   ),
@@ -79,7 +80,7 @@ class HomePage extends StatelessWidget {
                     "Login",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      color: Color(0xFF3B3084),
+                      color: Color(0xFF453F87),
                       fontSize: 24,
                       fontFamily: 'arial',
                     ),
@@ -95,7 +96,7 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage()));
                   },
-                  color: Color(0xFF3B3084),
+                  color: Color(0xFF453F87),
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
                       color: Colors.white
