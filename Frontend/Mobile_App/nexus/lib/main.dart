@@ -36,6 +36,7 @@ class HomePage extends StatelessWidget {
               children: <Widget>[
                 // the log in button
                 MaterialButton(
+                  elevation: 10,
                   minWidth: double.infinity,
                   height: 60.0,
                   color:  Colors.white,
@@ -44,6 +45,10 @@ class HomePage extends StatelessWidget {
                   },
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
+<<<<<<< Updated upstream
+=======
+                      width: 2.0,
+>>>>>>> Stashed changes
                       color: Color(0xFF3B3084)
                     ),
                     borderRadius: BorderRadius.circular(50)
@@ -62,6 +67,7 @@ class HomePage extends StatelessWidget {
                 SizedBox(height: 20,),
                 //the sign up button
                 MaterialButton(
+                  elevation: 10,
                   minWidth: double.infinity,
                   height: 60,
                   onPressed: () {

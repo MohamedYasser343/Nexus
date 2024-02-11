@@ -97,6 +97,7 @@ class _SignupPageState extends State<SignupPage> {
                           SizedBox(height: 10),
                           // White login button
                           MaterialButton(
+                            elevation: 10,
                             minWidth: MediaQuery.of(context).size.width - 60,
                             height: 60,
                             // Check if passwords match
