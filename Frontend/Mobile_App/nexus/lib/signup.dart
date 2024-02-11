@@ -374,9 +374,10 @@ class _SignupPageState extends State<SignupPage> {
                 mainAxisSize: MainAxisSize.min,
                   children: [ 
                     Text(passwordVisible1 ? "show" : "hide",
-                    style: TextStyle(
-                      color: Colors.grey,
-                    ),
+                    style: 
+                      TextStyle(
+                        color: Colors.grey,
+                      ),
                     ),
                     SizedBox(width: 2,),
                     Icon(
