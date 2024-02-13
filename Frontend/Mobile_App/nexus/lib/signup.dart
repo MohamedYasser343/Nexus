@@ -6,8 +6,8 @@ class SignupPage extends StatefulWidget {
   State<SignupPage> createState() => _SignupPageState();
 }
 class _SignupPageState extends State<SignupPage> {
-  bool passwordVisible1 = false;
-  bool passwordVisible2 = false;
+  bool passwordVisible1 = true;
+  bool passwordVisible2 = true;
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _confirmPasswordController = TextEditingController();
   bool _passwordsMatch = true; // Flag to track if passwords match
@@ -373,17 +373,17 @@ class _SignupPageState extends State<SignupPage> {
               icon:Row(
                 mainAxisSize: MainAxisSize.min,
                   children: [ 
-                    Text(passwordVisible1 ? "show" : "hide",
+                    Text(passwordVisible1 ? "Show" : "Hide",
                     style: 
                       TextStyle(
-                        color: Colors.grey,
+                        color: Color.fromARGB(255, 172, 179, 248),
                       ),
                     ),
                     SizedBox(width: 2,),
-                    Icon(
-                    passwordVisible1 ? Icons.visibility : Icons.visibility_off,
-                    color: Colors.grey,
-                    ),
+                    // Icon(
+                    // passwordVisible1 ? Icons.visibility : Icons.visibility_off,
+                    // color: Colors.grey,
+                    // ),
                   ],
               ),
           ),
@@ -462,16 +462,16 @@ class _SignupPageState extends State<SignupPage> {
               icon:Row(
                 mainAxisSize: MainAxisSize.min,
                   children: [ 
-                    Text(passwordVisible2 ? "show" : "hide",
+                    Text(passwordVisible2 ? "Show" : "Hide",
                     style: TextStyle(
-                      color: Colors.grey,
+                      color: Color.fromARGB(255, 172, 179, 248),
                     ),
                     ),
                     SizedBox(width: 2,),
-                    Icon(
-                    passwordVisible2 ? Icons.visibility : Icons.visibility_off,
-                    color: Colors.grey,
-                    ),
+                    // Icon(
+                    // passwordVisible2 ? Icons.visibility : Icons.visibility_off,
+                    // color: Colors.grey,
+                    // ),
                   ],
               ),
             ),

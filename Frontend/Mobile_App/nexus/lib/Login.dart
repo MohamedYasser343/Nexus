@@ -6,7 +6,7 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 class _LoginPageState extends State<LoginPage> {
-  bool passwordVisible = false;
+  bool passwordVisible = true;
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -336,16 +336,16 @@ class _LoginPageState extends State<LoginPage> {
               icon: Row(
                 mainAxisSize: MainAxisSize.min,
                   children: [ 
-                    Text(passwordVisible ? "show" : "hide",
+                    Text(passwordVisible ? "Show" : "Hide",
                     style: TextStyle(
-                      color: Colors.grey,
+                      color: Color.fromARGB(255, 172, 179, 248),
                     ),
                     ),
                     SizedBox(width: 2,),
-                    Icon(
-                    passwordVisible ? Icons.visibility : Icons.visibility_off,
-                    color: Colors.grey,
-                    ),
+                    // Icon(
+                    // passwordVisible ? Icons.visibility : Icons.visibility_off,
+                    // color: Colors.grey,
+                    // ),
                   ],
               ),
             ),
