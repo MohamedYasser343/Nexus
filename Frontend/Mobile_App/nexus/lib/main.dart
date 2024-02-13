@@ -71,7 +71,11 @@ class HomePage extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
                       width: 2.0,
+<<<<<<< Updated upstream
                       color: Color(0xFF3B3084)
+=======
+                      color: Color(0xFF3B3084),
+>>>>>>> Stashed changes
                     ),
                     borderRadius: BorderRadius.circular(50)
                   ),
