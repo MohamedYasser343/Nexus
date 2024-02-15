@@ -78,6 +78,8 @@ class _LoginPageState extends State<LoginPage> {
                             height: 60,
                             onPressed: () {
                               if (_formKey.currentState != null && _formKey.currentState!.validate()) {
+                                // All fields are valid, perform login
+                                // Add your login logic here
                               } else {
                                 // Validation failed, show error message
                                 ScaffoldMessenger.of(context).showSnackBar(
