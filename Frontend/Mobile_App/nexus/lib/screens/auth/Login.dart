@@ -1,10 +1,9 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-import 'package:Nexus/signup.dart';
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, use_key_in_widget_constructors, file_names
+import 'package:Nexus/screens/auth/signup.dart';
 import 'package:flutter/material.dart';
 class LoginPage extends StatefulWidget {
   @override
-  State<LoginPage> createState() => _LoginPageState();
-}
+  State<LoginPage> createState() => _LoginPageState();}
 class _LoginPageState extends State<LoginPage> {
   bool passwordVisible = true;
   final _formKey = GlobalKey<FormState>();
