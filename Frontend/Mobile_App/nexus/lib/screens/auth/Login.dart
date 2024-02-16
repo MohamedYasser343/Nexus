@@ -330,7 +330,7 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: () {
                 setState(() {
                   passwordVisible = !passwordVisible;
-                });
+                },);
               },
               icon: Row(
                 mainAxisSize: MainAxisSize.min,
