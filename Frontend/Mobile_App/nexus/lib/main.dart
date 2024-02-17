@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unnecessary_import, unused_import
-import 'package:Nexus/Login.dart';
-import 'package:Nexus/signup.dart';
+import 'package:Nexus/screens/auth/Login.dart';
+import 'package:Nexus/screens/auth/signup.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:Nexus/splash.dart';
+import 'package:Nexus/screens/splash/splash.dart';
 import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
 import 'dart:async'; 
 void main() {
@@ -38,6 +38,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context){
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Color(0xFF747EF5),
+      ),
       body: SafeArea(
         child: Container(
           width: double.infinity,
@@ -71,11 +75,7 @@ class HomePage extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
                       width: 2.0,
-<<<<<<< Updated upstream
                       color: Color(0xFF3B3084)
-=======
-                      color: Color(0xFF3B3084),
->>>>>>> Stashed changes
                     ),
                     borderRadius: BorderRadius.circular(50)
                   ),
