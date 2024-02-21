@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(top: 0),
+                          padding: EdgeInsets.only(top: 60),
                           child: Text(
                             "Welcome Back 👋",
                             textAlign: TextAlign.center,

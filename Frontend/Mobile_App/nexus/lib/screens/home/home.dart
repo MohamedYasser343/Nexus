@@ -28,7 +28,7 @@ class _homeState extends State<home> {
         padding: EdgeInsets.only(top: 60),
         color: Color(0xFF747EF5),
         child: Stack(
-
+          
         )
         )
     );
