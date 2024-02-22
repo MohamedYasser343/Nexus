@@ -29,13 +29,14 @@ class _SignupPageState extends State<SignupPage> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios_rounded,
-          size: 35,
-          color: Color(0xFF3B3084),
+          icon: Icon(
+            Icons.arrow_back_ios_rounded,
+            size: 35,
+            color: Color(0xFF3B3084),
           ),
-          ),
+        ),
       ),
-      body:Container(
+      body: Container(
         padding: EdgeInsets.only(top: 30),
         color: Color(0xFF747EF5),
         child: Stack(
@@ -72,74 +73,79 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40),
-                      child: Column(
-                        children: <Widget>[
-                          SizedBox(height: 5),
-                          // username text field position
-                          buildusernameField(),
-                          SizedBox(height: 20),
-                          // Email text field position
-                          buildEmailField(),
-                          SizedBox(height: 20),
-                          // Password text field position
-                          buildPasswordField(),
-                          SizedBox(height: 20),
-                          // confirm Password text field position
-                          buildconfirmPasswordField(),
-                          SizedBox(height: 10),
-                          // Error message if passwords don't match
-                          if (!_passwordsMatch)
-                            Text(
-                              'Passwords do not match',
-                              style: TextStyle(
-                                color: Colors.red,
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          children: <Widget>[
+                            SizedBox(height: 5),
+                            // username text field position
+                            buildusernameField(),
+                            SizedBox(height: 20),
+                            // Email text field position
+                            buildEmailField(),
+                            SizedBox(height: 20),
+                            // Password text field position
+                            buildPasswordField(),
+                            SizedBox(height: 20),
+                            // confirm Password text field position
+                            buildconfirmPasswordField(),
+                            SizedBox(height: 10),
+                            // Error message if passwords don't match
+                            if (!_passwordsMatch)
+                              Text(
+                                'Passwords do not match',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                ),
                               ),
-                            ),
-                          SizedBox(height: 10),
-                          // White login button
-                          MaterialButton(
-                            elevation: 10,
-                            minWidth: MediaQuery.of(context).size.width - 60,
-                            height: 60,
-                            // Check if passwords match
-                            onPressed: () {
-                              if (_passwordController.text != _confirmPasswordController.text) {
-                                setState((){
+                            SizedBox(height: 10),
+                            // White login button
+                            MaterialButton(
+                              elevation: 10,
+                              minWidth: MediaQuery.of(context).size.width - 60,
+                              height: 60,
+                              // Check if passwords match
+                              onPressed: () {
+                                if (_passwordController.text !=
+                                    _confirmPasswordController.text) {
+                                  setState(() {
                                     _passwordsMatch = false;
-                                  }
-                                );
-                              } else {
-                                setState(() {
-                                  _passwordsMatch = true;
-                                });
-                              }
-                              if (_formKey.currentState != null && _formKey.currentState!.validate()) {
-                                // All fields are valid, perform login
-                                // Add your login logic here
-                              } else {
-                                // Validation failed, show error message
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text('Please fill in all fields'),
-                                  ),
-                                );
-                              }
-                            },
-                            color: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Text(
-                              "Sign Up",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 24,
-                                color: Color(0xFF3B3084),
+                                  });
+                                } else {
+                                  setState(() {
+                                    _passwordsMatch = true;
+                                  });
+                                }
+                                if (_formKey.currentState != null &&
+                                    _formKey.currentState!.validate()) {
+                                  // All fields are valid, perform login
+                                  // Add your login logic here
+                                } else {
+                                  // Validation failed, show error message
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content:
+                                          Text('Please fill in all fields'),
+                                    ),
+                                  );
+                                }
+                              },
+                              color: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Text(
+                                "Sign Up",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 24,
+                                  color: Color(0xFF3B3084),
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(height: 10),
-                        ],
+                            SizedBox(height: 10),
+                          ],
+                        ),
                       ),
                     ),
                     // Sign up button and text
@@ -217,7 +223,7 @@ class _SignupPageState extends State<SignupPage> {
               return 'Please enter your Full Name';
             }
             return null;
-            },
+          },
           cursorColor: Colors.white,
           style: TextStyle(
             color: Colors.white,
@@ -275,7 +281,7 @@ class _SignupPageState extends State<SignupPage> {
               return 'Please enter your Email';
             }
             return null;
-            },
+          },
           cursorColor: Colors.white,
           style: TextStyle(
             color: Colors.white,
@@ -339,7 +345,7 @@ class _SignupPageState extends State<SignupPage> {
               return 'Please enter your Password';
             }
             return null;
-            },
+          },
           controller: _passwordController,
           cursorColor: Colors.white,
           style: TextStyle(
@@ -370,29 +376,29 @@ class _SignupPageState extends State<SignupPage> {
                   passwordVisible1 = !passwordVisible1;
                 });
               },
-              icon:Row(
+              icon: Row(
                 mainAxisSize: MainAxisSize.min,
-                  children: [ 
-                    Text(passwordVisible1 ? "Show" : "Hide",
-                    style: 
-                      TextStyle(
-                        color: Color.fromARGB(255, 172, 179, 248),
-                      ),
+                children: [
+                  Text(
+                    passwordVisible1 ? "Show" : "Hide",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 172, 179, 248),
                     ),
-                    SizedBox(width: 2,),
-                    // Icon(
-                    // passwordVisible1 ? Icons.visibility : Icons.visibility_off,
-                    // color: Colors.grey,
-                    // ),
-                  ],
+                  ),
+                  SizedBox(width: 2,),
+                  // Icon(
+                  // passwordVisible1 ? Icons.visibility : Icons.visibility_off,
+                  // color: Colors.grey,
+                  // ),
+                ],
               ),
+            ),
           ),
-        ),
         ),
       ],
     );
   }
-  Widget buildconfirmPasswordField(){
+  Widget buildconfirmPasswordField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -428,7 +434,7 @@ class _SignupPageState extends State<SignupPage> {
               return 'Please enter your Password again';
             }
             return null;
-            },
+          },
           controller: _confirmPasswordController,
           cursorColor: Colors.white,
           style: TextStyle(
@@ -459,20 +465,21 @@ class _SignupPageState extends State<SignupPage> {
                   passwordVisible2 = !passwordVisible2;
                 });
               },
-              icon:Row(
+              icon: Row(
                 mainAxisSize: MainAxisSize.min,
-                  children: [ 
-                    Text(passwordVisible2 ? "Show" : "Hide",
+                children: [
+                  Text(
+                    passwordVisible2 ? "Show" : "Hide",
                     style: TextStyle(
                       color: Color.fromARGB(255, 172, 179, 248),
                     ),
-                    ),
-                    SizedBox(width: 2,),
-                    // Icon(
-                    // passwordVisible2 ? Icons.visibility : Icons.visibility_off,
-                    // color: Colors.grey,
-                    // ),
-                  ],
+                  ),
+                  SizedBox(width: 2,),
+                  // Icon(
+                  // passwordVisible2 ? Icons.visibility : Icons.visibility_off,
+                  // color: Colors.grey,
+                  // ),
+                ],
               ),
             ),
           ),
