@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/auth/Login.dart';
+import 'package:Nexus/screens/home/home.dart';
 class SignupPage extends StatefulWidget {
   @override
   State<SignupPage> createState() => _SignupPageState();
@@ -54,137 +55,142 @@ class _SignupPageState extends State<SignupPage> {
             ),
             Positioned.fill(
               child: SafeArea(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 0),
-                      child: Text(
-                        "Sign Up",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'arial',
-                          fontSize: 35,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 40),
-                      child: Form(
-                        key: _formKey,
-                        child: Column(
-                          children: <Widget>[
-                            SizedBox(height: 5),
-                            // username text field position
-                            buildusernameField(),
-                            SizedBox(height: 20),
-                            // Email text field position
-                            buildEmailField(),
-                            SizedBox(height: 20),
-                            // Password text field position
-                            buildPasswordField(),
-                            SizedBox(height: 20),
-                            // confirm Password text field position
-                            buildconfirmPasswordField(),
-                            SizedBox(height: 10),
-                            // Error message if passwords don't match
-                            if (!_passwordsMatch)
-                              Text(
-                                'Passwords do not match',
-                                style: TextStyle(
-                                  color: Colors.red,
-                                ),
-                              ),
-                            SizedBox(height: 10),
-                            // White login button
-                            MaterialButton(
-                              elevation: 10,
-                              minWidth: MediaQuery.of(context).size.width - 60,
-                              height: 60,
-                              // Check if passwords match
-                              onPressed: () {
-                                if (_passwordController.text !=
-                                    _confirmPasswordController.text) {
-                                  setState(() {
-                                    _passwordsMatch = false;
-                                  });
-                                } else {
-                                  setState(() {
-                                    _passwordsMatch = true;
-                                  });
-                                }
-                                if (_formKey.currentState != null &&
-                                    _formKey.currentState!.validate()) {
-                                  // All fields are valid, perform login
-                                  // Add your login logic here
-                                } else {
-                                  // Validation failed, show error message
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content:
-                                          Text('Please fill in all fields'),
-                                    ),
-                                  );
-                                }
-                              },
-                              color: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Text(
-                                "Sign Up",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 24,
-                                  color: Color(0xFF3B3084),
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                          ],
-                        ),
-                      ),
-                    ),
-                    // Sign up button and text
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          "Already have an Account?",
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 40),
+                        child: Text(
+                          "Sign Up",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
+                            fontFamily: 'arial',
+                            fontSize: 35,
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                         ),
-                        SizedBox(width: 0),
-                        // Sign up button
-                        MaterialButton(
-                          elevation: 10,
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginPage(),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 40),
+                        child: Form(
+                          key: _formKey,
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(height: 5),
+                              // username text field position
+                              buildusernameField(),
+                              SizedBox(height: 20),
+                              // Email text field position
+                              buildEmailField(),
+                              SizedBox(height: 20),
+                              // Password text field position
+                              buildPasswordField(),
+                              SizedBox(height: 20),
+                              // confirm Password text field position
+                              buildconfirmPasswordField(),
+                              SizedBox(height: 10),
+                              // Error message if passwords don't match
+                              if (!_passwordsMatch)
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                  child: Text(
+                                    'Passwords do not match',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                    ),
+                                  ),
+                                ),
+                              SizedBox(height: 10),
+                              // White login button
+                              MaterialButton(
+                                elevation: 10,
+                                minWidth: MediaQuery.of(context).size.width - 60,
+                                height: 60,
+                                // Check if passwords match
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    if (_passwordController.text != _confirmPasswordController.text) {
+                                      setState(() {
+                                        _passwordsMatch = false;
+                                      });
+                                    } else {
+                                      setState(() {
+                                        _passwordsMatch = true;
+                                      });
+                                      Navigator.push(context,MaterialPageRoute(builder: (context) => home()),
+                                      );
+                                    }
+                                  } else {
+                                    setState(() {
+                                      _passwordsMatch = true;
+                                    });
+                                    // Validation failed, show error message
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text('Please fill in all fields'),
+                                      ),
+                                    );
+                                  }
+                                },
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                child: Text(
+                                  "Sign Up",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 24,
+                                    color: Color(0xFF3B3084),
+                                  ),
+                                ),
                               ),
-                            );
-                          },
-                          child: Text(
-                            "Login",
-                            style: TextStyle(
-                              fontFamily: 'arial',
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18,
-                              color: Colors.white,
-                              decoration: TextDecoration.underline,
-                              decorationColor: Colors.white,
-                            ),
+                              SizedBox(height: 10),
+                            ],
                           ),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      // Sign up button and text
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "Already have an Account?",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(width: 0),
+                          // Sign up button
+                          MaterialButton(
+                            elevation: 10,
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginPage(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              "Login",
+                              style: TextStyle(
+                                fontFamily: 'arial',
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18,
+                                color: Colors.white,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -193,6 +199,7 @@ class _SignupPageState extends State<SignupPage> {
       ),
     );
   }
+
   Widget buildusernameField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -251,6 +258,7 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
+
   Widget buildEmailField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -309,6 +317,7 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
+
   Widget buildPasswordField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -386,10 +395,6 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                   SizedBox(width: 2,),
-                  // Icon(
-                  // passwordVisible1 ? Icons.visibility : Icons.visibility_off,
-                  // color: Colors.grey,
-                  // ),
                 ],
               ),
             ),
@@ -398,6 +403,7 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
+
   Widget buildconfirmPasswordField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -475,10 +481,6 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                   SizedBox(width: 2,),
-                  // Icon(
-                  // passwordVisible2 ? Icons.visibility : Icons.visibility_off,
-                  // color: Colors.grey,
-                  // ),
                 ],
               ),
             ),
