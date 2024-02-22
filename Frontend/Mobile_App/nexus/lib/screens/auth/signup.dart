@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/auth/Login.dart';
 import 'package:Nexus/screens/home/home.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 class SignupPage extends StatefulWidget {
   @override
   State<SignupPage> createState() => _SignupPageState();
@@ -80,11 +81,17 @@ class _SignupPageState extends State<SignupPage> {
                           child: Column(
                             children: <Widget>[
                               SizedBox(height: 5),
+                              // fullname text field position
+                              buildfullnameField(),
+                              SizedBox(height: 20),
                               // username text field position
                               buildusernameField(),
                               SizedBox(height: 20),
                               // Email text field position
                               buildEmailField(),
+                              SizedBox(height: 20),
+                              // phone number text field position
+                              buildphonenumberField(),
                               SizedBox(height: 20),
                               // Password text field position
                               buildPasswordField(),
@@ -168,12 +175,7 @@ class _SignupPageState extends State<SignupPage> {
                           MaterialButton(
                             elevation: 10,
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => LoginPage(),
-                                ),
-                              );
+                              Navigator.push(context,MaterialPageRoute(builder: (context) => LoginPage(),),);
                             },
                             child: Text(
                               "Login",
@@ -199,8 +201,7 @@ class _SignupPageState extends State<SignupPage> {
       ),
     );
   }
-
-  Widget buildusernameField() {
+  Widget buildfullnameField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -253,12 +254,81 @@ class _SignupPageState extends State<SignupPage> {
             border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
+            // error decoration
+            errorStyle: TextStyle(color: Colors.orange),
+            errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.orange),),
+            focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.yellow),),
           ),
         ),
       ],
     );
   }
-
+    Widget buildusernameField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Row(
+          children: [
+            Icon(
+              Icons.person_rounded,
+              color: Colors.white,
+            ),
+            SizedBox(width: 5),
+            Text(
+              "User Name",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w400,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your Unique User Name';
+            }
+            return null;
+          },
+          cursorColor: Colors.white,
+          style: TextStyle(
+            color: Colors.white,
+          ),
+          decoration: InputDecoration(
+            fillColor: const Color.fromARGB(26, 255, 255, 255),
+            filled: true,
+            hintText: "Enter your User Name",
+            hintStyle: TextStyle(
+              color: Colors.grey,
+              fontSize: 12,
+            ),
+            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFF747EF5)),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            // error decoration
+            errorStyle: TextStyle(color: Colors.orange),
+            errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.orange),),
+            focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.yellow),),
+          ),
+        ),
+      ],
+    );
+  }
   Widget buildEmailField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -312,12 +382,82 @@ class _SignupPageState extends State<SignupPage> {
             border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
+            // error decoration
+            errorStyle: TextStyle(color: Colors.orange),
+            errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.orange),),
+            focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.yellow),),
           ),
         ),
       ],
     );
   }
-
+    Widget buildphonenumberField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Row(
+          children: [
+            Icon(
+              Icons.person_rounded,
+              color: Colors.white,
+            ),
+            SizedBox(width: 5),
+            Text(
+              "Phone Number",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w400,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your Phone Number';
+            }
+            return null;
+          },
+          cursorColor: Colors.white,
+          style: TextStyle(
+            color: Colors.white,
+          ),
+          decoration: InputDecoration(
+            fillColor: const Color.fromARGB(26, 255, 255, 255),
+            filled: true,
+            hintText: "Enter your Phone Number",
+            hintStyle: TextStyle(
+              color: Colors.grey,
+              fontSize: 12,
+            ),
+            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFF747EF5)),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            // error decoration
+            errorStyle: TextStyle(color: Colors.orange),
+            errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.orange),
+          ),
+            focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.yellow),),
+          ),
+        ),
+      ],
+    );
+  }
   Widget buildPasswordField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -379,6 +519,12 @@ class _SignupPageState extends State<SignupPage> {
             border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
+            // error decoration
+            errorStyle: TextStyle(color: Colors.orange),
+            errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.orange),),
+            focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.yellow),),
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
@@ -403,7 +549,6 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
-
   Widget buildconfirmPasswordField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -465,6 +610,12 @@ class _SignupPageState extends State<SignupPage> {
             border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
+            // error decoration
+            errorStyle: TextStyle(color: Colors.orange),
+            errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.orange),),
+            focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.yellow),),
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
