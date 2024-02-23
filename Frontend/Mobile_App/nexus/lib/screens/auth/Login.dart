@@ -227,11 +227,11 @@ class _LoginPageState extends State<LoginPage> {
             color: Colors.white,
           ),
           decoration: InputDecoration(
-            fillColor: const Color.fromARGB(26, 255, 255, 255),
+            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
             hintText: "Enter your Email",
             hintStyle: TextStyle(
-              color: Colors.grey,
+              color: Colors.white.withOpacity(0.7),
               fontSize: 12,
             ),
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -309,11 +309,11 @@ class _LoginPageState extends State<LoginPage> {
           ),
           obscureText: passwordVisible,
           decoration: InputDecoration(
-            fillColor: const Color.fromARGB(26, 255, 255, 255),
+            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
             hintText: "Enter your Password",
             hintStyle: TextStyle(
-              color: Colors.grey,
+              color: Colors.white.withOpacity(0.7),
               fontSize: 12,
             ),
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
