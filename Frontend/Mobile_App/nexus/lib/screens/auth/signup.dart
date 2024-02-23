@@ -1,29 +1,27 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unnecessary_new
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unnecessary_new, depend_on_referenced_packages, use_key_in_widget_constructors, avoid_print
 import 'package:Nexus/screens/home/home.dart';
 import 'package:flutter/material.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:Nexus/screens/auth/login.dart';
-
+import 'package:intl_phone_number_field/intl_phone_number_field.dart';
+import 'package:flutter/services.dart';
 class SignupPage extends StatefulWidget {
   @override
   State<SignupPage> createState() => _SignupPageState();
 }
-
 class _SignupPageState extends State<SignupPage> {
+  TextEditingController controller = TextEditingController();
   bool passwordVisible1 = true;
   bool passwordVisible2 = true;
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _confirmPasswordController = TextEditingController();
   bool _passwordsMatch = true; // Flag to track if passwords match
   final _formKey = GlobalKey<FormState>();
-
   @override
   void dispose() {
     _passwordController.dispose();
     _confirmPasswordController.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,7 +83,7 @@ class _SignupPageState extends State<SignupPage> {
                           child: Column(
                             children: <Widget>[
                               SizedBox(height: 5),
-                              // fullname text field position
+                              // full name text field position
                               buildFullNameField(),
                               SizedBox(height: 20),
                               // username text field position
@@ -204,7 +202,6 @@ class _SignupPageState extends State<SignupPage> {
       ),
     );
   }
-
   Widget buildFullNameField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -241,11 +238,11 @@ class _SignupPageState extends State<SignupPage> {
             color: Colors.white,
           ),
           decoration: InputDecoration(
-            fillColor: const Color.fromARGB(26, 255, 255, 255),
+            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
             hintText: "Enter your Full Name",
             hintStyle: TextStyle(
-              color: Colors.grey,
+              color: Colors.white.withOpacity(0.7),
               fontSize: 12,
             ),
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -271,7 +268,6 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
-
   Widget buildUsernameField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -308,11 +304,11 @@ class _SignupPageState extends State<SignupPage> {
             color: Colors.white,
           ),
           decoration: InputDecoration(
-            fillColor: const Color.fromARGB(26, 255, 255, 255),
+            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
             hintText: "Enter your User Name",
             hintStyle: TextStyle(
-              color: Colors.grey,
+              color: Colors.white.withOpacity(0.7),
               fontSize: 12,
             ),
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -338,7 +334,6 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
-
   Widget buildEmailField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -375,11 +370,11 @@ class _SignupPageState extends State<SignupPage> {
             color: Colors.white,
           ),
           decoration: InputDecoration(
-            fillColor: const Color.fromARGB(26, 255, 255, 255),
+            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
             hintText: "Enter your Email",
             hintStyle: TextStyle(
-              color: Colors.grey,
+              color: Colors.white.withOpacity(0.7),
               fontSize: 12,
             ),
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -405,7 +400,6 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
-
   Widget buildPhoneNumberField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -428,57 +422,104 @@ class _SignupPageState extends State<SignupPage> {
           ],
         ),
         SizedBox(height: 5),
-        Container(
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(26, 255, 255, 255),
-            borderRadius: BorderRadius.circular(5),
-            // border: Border.all(
-            //   color: Colors.transparent, // Outline color
-            //   width: 1, // Outline width
-            // ),
-          ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 0,horizontal: 00),
-              child: IntlPhoneField(
-              disableLengthCheck: true,
-              keyboardType: TextInputType.phone,
-              focusNode: FocusNode(),
-              dropdownTextStyle: TextStyle(fontSize: 18, color: Colors.white),
-              style: TextStyle(fontSize: 18, color: Colors.white),
-              dropdownIcon: Icon(
-                Icons.arrow_drop_down_rounded,
-                size: 28,
-                color: Colors.white,
-              ),
-              decoration: InputDecoration(
-                hintText: "Enter your Phone Number",
-                hintStyle: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                ),
-                contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xFF747EF5)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
-                border: InputBorder.none,
-                // error decoration
-                errorStyle: TextStyle(color: Colors.orange),
-                errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xFF747EF5)),
-                ),
-                focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
+        InternationalPhoneNumberInput(
+                  height: 50,
+                  controller: controller,
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  formatter: MaskedInputFormatter('### ### ## ##'),
+                  // initCountry: CountryCodeModel(
+                  //     name: "United States", dial_code: "+1", code: "US"),
+                  betweenPadding: 10,
+                  onInputChanged: (phone) {
+                    print(phone.code);
+                    print(phone.dial_code);
+                    print(phone.number);
+                    print(phone.rawFullNumber);
+                    print(phone.rawNumber);
+                    print(phone.rawDialCode);
+                  },
+                  dialogConfig: DialogConfig(
+                    backgroundColor: const Color(0xFF453F87),
+                    searchBoxBackgroundColor: Color.fromARGB(255, 103, 96, 185),
+                    searchBoxIconColor: const Color(0xFFFAFAFA),
+                    countryItemHeight: 55,
+                    flatFlag: true,
+                    topBarColor: Color.fromARGB(255, 41, 31, 100),
+                    selectedItemColor: Color.fromARGB(255, 81, 74, 154),
+                    selectedIcon: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                    ),
+                    textStyle: TextStyle(
+                        color: const Color(0xFFFAFAFA).withOpacity(0.7),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600),
+                    searchBoxTextStyle: TextStyle(
+                        color: const Color(0xFFFAFAFA).withOpacity(0.7),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600),
+                    titleStyle: const TextStyle(
+                        color: Color(0xFFFAFAFA),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700),
+                    searchBoxHintStyle: TextStyle(
+                        color: const Color(0xFFFAFAFA).withOpacity(0.7),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600),
                   ),
-                initialCountryCode: 'US',
-                onChanged: (phone) {
-                  print(phone.completeNumber);
-                },
-            ),),
-          ),
+                  countryConfig: CountryConfig(
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+                        border: Border.all(
+                            width: 1, color: const Color(0xFF747EF5)),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      //flatFlag: true,
+                      noFlag: false,
+                      textStyle: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600)),
+                  validator: (number) {
+                    if (number.number.isEmpty) {
+                      return "Please enter your phone number";
+                    }
+                    return null;
+                  },
+                  phoneConfig: PhoneConfig(
+                    focusedColor: Colors.white,
+                    enabledColor: Color(0xFF6D59BD),
+                    errorColor: Colors.orange,
+                    labelStyle: null,
+                    labelText: null,
+                    floatingLabelStyle: null,
+                    focusNode: null,
+                    radius: 8,
+                    hintText: "Phone Number",
+                    borderWidth: 1,
+                    backgroundColor: Color.fromARGB(26, 255, 255, 255),
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+                      border: Border.all(
+                            width: 1, color: const Color(0xFF747EF5)),
+                        borderRadius: BorderRadius.circular(8),
+                    ),
+                    popUpErrorText: true,
+                    autoFocus: false,
+                    showCursor:false,
+                    textInputAction: TextInputAction.done,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    errorTextMaxLength: 2,
+                    errorPadding: EdgeInsets.only(top: 14,left: MediaQuery.of(context).size.width * 0.19),
+                    errorStyle: TextStyle(color: Colors.orange, fontSize: 12, height: 1),
+                    textStyle: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400),
+                    hintStyle: TextStyle(
+                        color: Colors.white.withOpacity(0.7),
+                        fontSize: 12,),
+                  ),
+                ),
       ],
     );
   }
@@ -526,11 +567,11 @@ class _SignupPageState extends State<SignupPage> {
           ),
           obscureText: passwordVisible1,
           decoration: InputDecoration(
-            fillColor: const Color.fromARGB(26, 255, 255, 255),
+            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
             hintText: "Enter your Password",
             hintStyle: TextStyle(
-              color: Colors.grey,
+              color: Colors.white.withOpacity(0.7),
               fontSize: 12,
             ),
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -575,7 +616,6 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
-
   Widget buildConfirmPasswordField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -620,11 +660,11 @@ class _SignupPageState extends State<SignupPage> {
           ),
           obscureText: passwordVisible2,
           decoration: InputDecoration(
-            fillColor: const Color.fromARGB(26, 255, 255, 255),
+            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
-            hintText: "Enter your Password again",
+            hintText: "Enter your Password Again",
             hintStyle: TextStyle(
-              color: Colors.grey,
+              color: Colors.white.withOpacity(0.7),
               fontSize: 12,
             ),
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
