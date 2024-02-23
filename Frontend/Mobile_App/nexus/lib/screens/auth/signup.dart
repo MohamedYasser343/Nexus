@@ -279,7 +279,7 @@ class _SignupPageState extends State<SignupPage> {
         Row(
           children: [
             Icon(
-              Icons.person_rounded,
+              Icons.account_circle,
               color: Colors.white,
             ),
             SizedBox(width: 5),
@@ -346,7 +346,7 @@ class _SignupPageState extends State<SignupPage> {
         Row(
           children: [
             Icon(
-              Icons.email_outlined,
+              Icons.email_rounded,
               color: Colors.white,
             ),
             SizedBox(width: 5),
@@ -413,7 +413,7 @@ class _SignupPageState extends State<SignupPage> {
         Row(
           children: [
             Icon(
-              Icons.phone_enabled_rounded,
+              Icons.phone_iphone_rounded,
               color: Colors.white,
             ),
             SizedBox(width: 5),
@@ -482,7 +482,6 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
-
   Widget buildPasswordField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
