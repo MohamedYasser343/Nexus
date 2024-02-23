@@ -2,7 +2,7 @@
 import 'package:Nexus/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/auth/login.dart';
-import 'package:intl_phone_number_field/intl_phone_number_field.dart';
+import 'package:international_phone_number_field/international_phone_number_field.dart' as international_phone_number_field;
 import 'package:flutter/services.dart';
 class SignupPage extends StatefulWidget {
   @override
