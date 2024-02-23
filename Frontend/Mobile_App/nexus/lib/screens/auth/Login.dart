@@ -120,12 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                             MaterialButton(
                               elevation: 10,
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => SignupPage(),
-                                  ),
-                                );
+                                Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(),),);
                               },
                               child: Text(
                                 "Sign up",
