@@ -12,7 +12,7 @@ class _homeState extends State<home> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFF747EF5),
+        backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -25,7 +25,7 @@ class _homeState extends State<home> {
         ),
       ),
       body:Container(
-        padding: EdgeInsets.only(top: 60),
+        //padding: EdgeInsets.only(top: 60),
         color: Color(0xFF747EF5),
         child: Stack(
           

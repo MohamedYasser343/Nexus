@@ -422,7 +422,6 @@ class _SignupPageState extends State<SignupPage> {
           ],
         ),
         SizedBox(height: 5),
-
         InternationalPhoneNumberInput(
                   height: 50,
                   controller: controller,
@@ -449,10 +448,6 @@ class _SignupPageState extends State<SignupPage> {
                     selectedItemColor: Color.fromARGB(255, 81, 74, 154),
                     selectedIcon: Padding(
                       padding: EdgeInsets.only(left: 10),
-                      child: Image.asset('assets/check_sign.png',
-                        width: 20,
-                        fit: BoxFit.fitWidth,
-                      ),
                     ),
                     textStyle: TextStyle(
                         color: const Color(0xFFFAFAFA).withOpacity(0.7),
@@ -621,7 +616,6 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
-
   Widget buildConfirmPasswordField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

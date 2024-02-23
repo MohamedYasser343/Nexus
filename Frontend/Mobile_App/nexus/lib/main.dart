@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unnecessary_import, unused_import
 import 'package:Nexus/screens/auth/Login.dart';
 import 'package:Nexus/screens/auth/signup.dart';
+import 'package:Nexus/screens/home/home.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -65,6 +66,33 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 300),
+
+                MaterialButton(
+                  elevation: 10,
+                  minWidth: double.infinity,
+                  height: 60.0,
+                  color: Colors.white,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => home()),
+                    );
+                  },
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(width: 2.0, color: Color(0xFF3B3084)),
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: Text(
+                    "Home",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFF3B3084),
+                      fontSize: 24,
+                      fontFamily: 'arial',
+                    ),
+                  ),
+                ),
+
                 MaterialButton(
                   elevation: 10,
                   minWidth: double.infinity,
