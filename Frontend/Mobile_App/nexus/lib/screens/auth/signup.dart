@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unnecessary_new, depend_on_referenced_packages, use_key_in_widget_constructors, avoid_print
+=======
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unnecessary_new, depend_on_referenced_packages, use_key_in_widget_constructors, avoid_print, unnecessary_null_comparison, use_super_parameters
+>>>>>>> Stashed changes
 import 'package:Nexus/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/auth/login.dart';
@@ -83,8 +87,14 @@ class _SignupPageState extends State<SignupPage> {
                           child: Column(
                             children: <Widget>[
                               SizedBox(height: 5),
+                              Row(
+                                children: <Widget>[
                               // full name text field position
-                              buildFullNameField(),
+                                BuildFirstNameField(),
+                                SizedBox(width: 20),
+                                BuildSecondNameField(),
+                                ]
+                              ),
                               SizedBox(height: 20),
                               // username text field position
                               buildUsernameField(),
@@ -202,8 +212,8 @@ class _SignupPageState extends State<SignupPage> {
       ),
     );
   }
-  Widget buildFullNameField() {
-    return Column(
+  Widget BuildFirstNameField() {
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
@@ -229,7 +239,7 @@ class _SignupPageState extends State<SignupPage> {
         TextFormField(
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter your Full Name';
+              return 'Please enter your First Name';
             }
             return null;
           },
@@ -240,7 +250,7 @@ class _SignupPageState extends State<SignupPage> {
           decoration: InputDecoration(
             fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
-            hintText: "Enter your Full Name",
+            hintText: "Enter your First Name",
             hintStyle: TextStyle(
               color: Colors.white.withOpacity(0.7),
               fontSize: 12,
@@ -268,6 +278,53 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
+  Widget BuildSecondNameField() {
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      TextFormField(
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter your Second Name';
+          }
+          return null;
+        },
+        cursorColor: Colors.white,
+        style: TextStyle(
+          color: Colors.white,
+        ),
+        decoration: InputDecoration(
+          fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+          filled: true,
+          hintText: "Enter your Second Name",
+          hintStyle: TextStyle(
+            color: Colors.white.withOpacity(0.7),
+            fontSize: 12,
+          ),
+          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Color(0xFF747EF5)),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+          ),
+          border: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+          ),
+          // error decoration
+          errorStyle: TextStyle(color: Colors.orange),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Color(0xFF747EF5)),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+          ),
+        ),
+      ),
+    ],
+  );
+}
+
   Widget buildUsernameField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
