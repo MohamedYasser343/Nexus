@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unnecessary_new, depend_on_referenced_packages, use_key_in_widget_constructors, avoid_print, unnecessary_null_comparison, use_super_parameters
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unnecessary_new, depend_on_referenced_packages, use_key_in_widget_constructors, avoid_print, unnecessary_null_comparison, use_super_parameters, non_constant_identifier_names
 import 'package:Nexus/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/auth/login.dart';
@@ -8,9 +8,7 @@ class SignupPage extends StatefulWidget {
   final TextEditingController phoneNumberController;
   const SignupPage({Key? key, required this.phoneNumberController}) : super(key: key);
   @override
-  
-  State<SignupPage> createState() => _SignupPageState();
-}
+  State<SignupPage> createState() => _SignupPageState();}
 class _SignupPageState extends State<SignupPage> {
   TextEditingController controller = TextEditingController();
   bool passwordVisible1 = true;
@@ -23,8 +21,7 @@ class _SignupPageState extends State<SignupPage> {
   void dispose() {
     _passwordController.dispose();
     _confirmPasswordController.dispose();
-    super.dispose();
-  }
+    super.dispose();}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,9 +30,7 @@ class _SignupPageState extends State<SignupPage> {
         elevation: 0,
         backgroundColor: Color(0xFF747EF5),
         leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () {Navigator.pop(context);},
           icon: Icon(
             Icons.arrow_back_ios_rounded,
             size: 35,
@@ -86,14 +81,8 @@ class _SignupPageState extends State<SignupPage> {
                           child: Column(
                             children: <Widget>[
                               SizedBox(height: 5),
-                              Row(
-                                children: <Widget>[
-                              // full name text field position
-                                BuildFirstNameField(),
-                                SizedBox(width: 20),
-                                BuildSecondNameField(),
-                                ]
-                              ),
+                               // full name text field position
+                              BuildFullNameField(),
                               SizedBox(height: 20),
                               // username text field position
                               buildUsernameField(),
@@ -211,7 +200,7 @@ class _SignupPageState extends State<SignupPage> {
       ),
     );
   }
-  Widget BuildFirstNameField() {
+  Widget BuildFullNameField() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -232,9 +221,7 @@ class _SignupPageState extends State<SignupPage> {
             ),
           ],
         ),
-        SizedBox(
-          height: 5,
-        ),
+        SizedBox(height: 5,),
         TextFormField(
           validator: (value) {
             if (value == null || value.isEmpty) {
@@ -274,56 +261,49 @@ class _SignupPageState extends State<SignupPage> {
             ),
           ),
         ),
+        SizedBox(width: 25,),
+        TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your Second Name';
+            }
+            return null;
+          },
+          cursorColor: Colors.white,
+          style: TextStyle(
+            color: Colors.white,
+          ),
+          decoration: InputDecoration(
+            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+            filled: true,
+            hintText: "Enter your Second Name",
+            hintStyle: TextStyle(
+              color: Colors.white.withOpacity(0.7),
+              fontSize: 12,
+            ),
+            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFF747EF5)),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            // error decoration
+            errorStyle: TextStyle(color: Colors.orange),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFF747EF5)),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+          ),
+        ),
       ],
     );
   }
-  Widget BuildSecondNameField() {
-  return Row(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      TextFormField(
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'Please enter your Second Name';
-          }
-          return null;
-        },
-        cursorColor: Colors.white,
-        style: TextStyle(
-          color: Colors.white,
-        ),
-        decoration: InputDecoration(
-          fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
-          filled: true,
-          hintText: "Enter your Second Name",
-          hintStyle: TextStyle(
-            color: Colors.white.withOpacity(0.7),
-            fontSize: 12,
-          ),
-          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFF747EF5)),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-          ),
-          border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-          ),
-          // error decoration
-          errorStyle: TextStyle(color: Colors.orange),
-          errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFF747EF5)),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-          ),
-        ),
-      ),
-    ],
-  );
-}
-
   Widget buildUsernameField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

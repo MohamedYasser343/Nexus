@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unnecessary_import, unused_import, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unnecessary_import, unused_import, avoid_unnecessary_containers, use_key_in_widget_constructors
 import 'package:Nexus/screens/auth/Login.dart';
 import 'package:Nexus/screens/auth/signup.dart';
 import 'package:Nexus/screens/home/home.dart';
