@@ -123,7 +123,8 @@ class _SignupPageState extends State<SignupPage> {
                                       setState(() {
                                         _passwordsMatch = false;
                                       });
-                                    } else {
+                                    }
+                                    else {
                                       setState(() {
                                         _passwordsMatch = true;
                                       });
