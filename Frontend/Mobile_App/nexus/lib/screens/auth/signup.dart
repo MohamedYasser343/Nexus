@@ -1,14 +1,34 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unnecessary_new, depend_on_referenced_packages, use_key_in_widget_constructors, avoid_print, unnecessary_null_comparison, use_super_parameters, non_constant_identifier_names
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, use_super_parameters, use_key_in_widget_constructors, non_constant_identifier_names, unnecessary_null_comparison, avoid_print
+
 import 'package:Nexus/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/auth/login.dart';
 import 'package:international_phone_number_field/international_phone_number_field.dart';
 import 'package:flutter/services.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final TextEditingController phoneNumberController = TextEditingController();
+    return MaterialApp(
+      home: SignupPage(phoneNumberController: phoneNumberController,),
+    );
+  }
+}
+
 class SignupPage extends StatefulWidget {
   final TextEditingController phoneNumberController;
+
   const SignupPage({Key? key, required this.phoneNumberController}) : super(key: key);
+
   @override
-  State<SignupPage> createState() => _SignupPageState();}
+  State<SignupPage> createState() => _SignupPageState();
+}
+
 class _SignupPageState extends State<SignupPage> {
   TextEditingController controller = TextEditingController();
   bool passwordVisible1 = true;
@@ -17,11 +37,14 @@ class _SignupPageState extends State<SignupPage> {
   TextEditingController _confirmPasswordController = TextEditingController();
   bool _passwordsMatch = true; // Flag to track if passwords match
   final _formKey = GlobalKey<FormState>();
+
   @override
   void dispose() {
     _passwordController.dispose();
     _confirmPasswordController.dispose();
-    super.dispose();}
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +53,9 @@ class _SignupPageState extends State<SignupPage> {
         elevation: 0,
         backgroundColor: Color(0xFF747EF5),
         leading: IconButton(
-          onPressed: () {Navigator.pop(context);},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: Icon(
             Icons.arrow_back_ios_rounded,
             size: 35,
@@ -81,7 +106,7 @@ class _SignupPageState extends State<SignupPage> {
                           child: Column(
                             children: <Widget>[
                               SizedBox(height: 5),
-                               // full name text field position
+                              // full name text field position
                               BuildFullNameField(),
                               SizedBox(height: 20),
                               // username text field position
@@ -123,8 +148,7 @@ class _SignupPageState extends State<SignupPage> {
                                       setState(() {
                                         _passwordsMatch = false;
                                       });
-                                    }
-                                    else {
+                                    } else {
                                       setState(() {
                                         _passwordsMatch = true;
                                       });
@@ -201,6 +225,7 @@ class _SignupPageState extends State<SignupPage> {
       ),
     );
   }
+
   Widget BuildFullNameField() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -305,6 +330,7 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
+
   Widget buildUsernameField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -371,6 +397,7 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
+
   Widget buildEmailField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -437,6 +464,7 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
+
   Widget buildPhoneNumberField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -460,102 +488,103 @@ class _SignupPageState extends State<SignupPage> {
         ),
         SizedBox(height: 5),
         InternationalPhoneNumberInput(
-                  height: 50,
-                  controller: widget.phoneNumberController,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  formatter: MaskedInputFormatter('### ### ## ##'),
-                  initCountry: CountryCodeModel(
-                      name: "United States", dial_code: "+1", code: "US"),
-                  betweenPadding: 10,
-                  onInputChanged: (phoneNumber) {
-                    String fullNumber = widget.phoneNumberController.text;
-                    print(fullNumber); // This will print the full phone number with dial code
-                  },
-                  dialogConfig: DialogConfig(
-                    backgroundColor: const Color(0xFF453F87),
-                    searchBoxBackgroundColor: Color.fromARGB(255, 103, 96, 185),
-                    searchBoxIconColor: const Color(0xFFFAFAFA),
-                    countryItemHeight: 55,
-                    flatFlag: true,
-                    topBarColor: Color.fromARGB(255, 41, 31, 100),
-                    selectedItemColor: Color.fromARGB(255, 81, 74, 154),
-                    selectedIcon: Padding(
-                      padding: EdgeInsets.only(left: 10),
-                    ),
-                    textStyle: TextStyle(
-                        color: const Color(0xFFFAFAFA).withOpacity(0.7),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600),
-                    searchBoxTextStyle: TextStyle(
-                        color: const Color(0xFFFAFAFA).withOpacity(0.7),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600),
-                    titleStyle: const TextStyle(
-                        color: Color(0xFFFAFAFA),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700),
-                    searchBoxHintStyle: TextStyle(
-                        color: const Color(0xFFFAFAFA).withOpacity(0.7),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  countryConfig: CountryConfig(
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
-                        border: Border.all(
-                            width: 1, color: const Color(0xFF747EF5)),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      //flatFlag: true,
-                      noFlag: false,
-                      textStyle: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600)),
-                  validator: (input) {
-                    if (input == null || input.controller.text.isEmpty) {
-                      return "Please enter your phone number";
-                    }
-                    return null;
-                  },
-                  phoneConfig: PhoneConfig(
-                    focusedColor: Colors.white,
-                    enabledColor: Color(0xFF6D59BD),
-                    errorColor: Colors.orange,
-                    labelStyle: null,
-                    labelText: null,
-                    floatingLabelStyle: null,
-                    focusNode: null,
-                    radius: 8,
-                    hintText: "Phone Number",
-                    borderWidth: 1,
-                    backgroundColor: Color.fromARGB(26, 255, 255, 255),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
-                      border: Border.all(
-                            width: 1, color: const Color(0xFF747EF5)),
-                        borderRadius: BorderRadius.circular(8),
-                    ),
-                    popUpErrorText: true,
-                    autoFocus: false,
-                    showCursor:false,
-                    textInputAction: TextInputAction.done,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    errorTextMaxLength: 2,
-                    errorPadding: EdgeInsets.only(top: 14,left: MediaQuery.of(context).size.width * 0.19),
-                    errorStyle: TextStyle(color: Colors.orange, fontSize: 12, height: 1),
-                    textStyle: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400),
-                    hintStyle: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
-                        fontSize: 12,),
-                  ), code: '', dial_code: '', number: '',
-                ),
+          height: 50,
+          controller: widget.phoneNumberController,
+          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+          formatter: MaskedInputFormatter('### ### ## ##'),
+          initCountry: CountryCodeModel(
+              name: "United States", dial_code: "+1", code: "US"),
+          betweenPadding: 10,
+          onInputChanged: (phoneNumber) {
+            String fullNumber = widget.phoneNumberController.text;
+            print(fullNumber); // This will print the full phone number with dial code
+          },
+          dialogConfig: DialogConfig(
+            backgroundColor: const Color(0xFF453F87),
+            searchBoxBackgroundColor: Color.fromARGB(255, 103, 96, 185),
+            searchBoxIconColor: const Color(0xFFFAFAFA),
+            countryItemHeight: 55,
+            flatFlag: true,
+            topBarColor: Color.fromARGB(255, 41, 31, 100),
+            selectedItemColor: Color.fromARGB(255, 81, 74, 154),
+            selectedIcon: Padding(
+              padding: EdgeInsets.only(left: 10),
+            ),
+            textStyle: TextStyle(
+                color: const Color(0xFFFAFAFA).withOpacity(0.7),
+                fontSize: 14,
+                fontWeight: FontWeight.w600),
+            searchBoxTextStyle: TextStyle(
+                color: const Color(0xFFFAFAFA).withOpacity(0.7),
+                fontSize: 14,
+                fontWeight: FontWeight.w600),
+            titleStyle: const TextStyle(
+                color: Color(0xFFFAFAFA),
+                fontSize: 18,
+                fontWeight: FontWeight.w700),
+            searchBoxHintStyle: TextStyle(
+                color: const Color(0xFFFAFAFA).withOpacity(0.7),
+                fontSize: 14,
+                fontWeight: FontWeight.w600),
+          ),
+          countryConfig: CountryConfig(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+                border: Border.all(
+                    width: 1, color: const Color(0xFF747EF5)),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              //flatFlag: true,
+              noFlag: false,
+              textStyle: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600)),
+          validator: (input) {
+            if (input == null || input.controller.text.isEmpty) {
+              return "Please enter your phone number";
+            }
+            return null;
+          },
+          phoneConfig: PhoneConfig(
+            focusedColor: Colors.white,
+            enabledColor: Color(0xFF6D59BD),
+            errorColor: Colors.orange,
+            labelStyle: null,
+            labelText: null,
+            floatingLabelStyle: null,
+            focusNode: null,
+            radius: 8,
+            hintText: "Phone Number",
+            borderWidth: 1,
+            backgroundColor: Color.fromARGB(26, 255, 255, 255),
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+              border: Border.all(
+                  width: 1, color: const Color(0xFF747EF5)),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            popUpErrorText: true,
+            autoFocus: false,
+            showCursor:false,
+            textInputAction: TextInputAction.done,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            errorTextMaxLength: 2,
+            errorPadding: EdgeInsets.only(top: 14,left: MediaQuery.of(context).size.width * 0.19),
+            errorStyle: TextStyle(color: Colors.orange, fontSize: 12, height: 1),
+            textStyle: const TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w400),
+            hintStyle: TextStyle(
+              color: Colors.white.withOpacity(0.7),
+              fontSize: 12,),
+          ), code: '', dial_code: '', number: '',
+        ),
       ],
     );
   }
+
   Widget buildPasswordField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -649,6 +678,7 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
+
   Widget buildConfirmPasswordField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -695,7 +725,7 @@ class _SignupPageState extends State<SignupPage> {
           decoration: InputDecoration(
             fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
-            hintText: "Enter your Password Again",
+            hintText: "Confirm your Password",
             hintStyle: TextStyle(
               color: Colors.white.withOpacity(0.7),
               fontSize: 12,
