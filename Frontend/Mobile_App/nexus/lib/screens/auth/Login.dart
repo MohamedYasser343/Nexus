@@ -120,7 +120,8 @@ class _LoginPageState extends State<LoginPage> {
                             MaterialButton(
                               elevation: 10,
                               onPressed: () {
-                                Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(),),);
+                                TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
                               },
                               child: Text(
                                 "Sign up",
