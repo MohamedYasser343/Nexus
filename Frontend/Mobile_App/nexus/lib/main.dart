@@ -66,6 +66,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 300),
+
                 MaterialButton(
                   elevation: 10,
                   minWidth: double.infinity,
