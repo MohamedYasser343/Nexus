@@ -13,8 +13,11 @@ class AuthController extends Controller
 {
     public function register(Request $request) {
         return $user = User::create([
-            'name' => $request->input('name'),
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'username' => $request->input('username'),
             'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
             'password' => Hash::make($request->input('password')),
         ]);
     }
