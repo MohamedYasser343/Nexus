@@ -1,15 +1,14 @@
-<<<<<<< Updated upstream
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unnecessary_new, depend_on_referenced_packages, use_key_in_widget_constructors, avoid_print
-=======
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unnecessary_new, depend_on_referenced_packages, use_key_in_widget_constructors, avoid_print, unnecessary_null_comparison, use_super_parameters
->>>>>>> Stashed changes
 import 'package:Nexus/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/auth/login.dart';
-import 'package:international_phone_number_field/international_phone_number_field.dart' as international_phone_number_field;
+import 'package:international_phone_number_field/international_phone_number_field.dart';
 import 'package:flutter/services.dart';
 class SignupPage extends StatefulWidget {
+  final TextEditingController phoneNumberController;
+  const SignupPage({Key? key, required this.phoneNumberController}) : super(key: key);
   @override
+  
   State<SignupPage> createState() => _SignupPageState();
 }
 class _SignupPageState extends State<SignupPage> {
@@ -481,19 +480,15 @@ class _SignupPageState extends State<SignupPage> {
         SizedBox(height: 5),
         InternationalPhoneNumberInput(
                   height: 50,
-                  controller: controller,
+                  controller: widget.phoneNumberController,
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   formatter: MaskedInputFormatter('### ### ## ##'),
-                  // initCountry: CountryCodeModel(
-                  //     name: "United States", dial_code: "+1", code: "US"),
+                  initCountry: CountryCodeModel(
+                      name: "United States", dial_code: "+1", code: "US"),
                   betweenPadding: 10,
-                  onInputChanged: (phone) {
-                    print(phone.code);
-                    print(phone.dial_code);
-                    print(phone.number);
-                    print(phone.rawFullNumber);
-                    print(phone.rawNumber);
-                    print(phone.rawDialCode);
+                  onInputChanged: (phoneNumber) {
+                    String fullNumber = widget.phoneNumberController.text;
+                    print(fullNumber); // This will print the full phone number with dial code
                   },
                   dialogConfig: DialogConfig(
                     backgroundColor: const Color(0xFF453F87),
@@ -536,8 +531,8 @@ class _SignupPageState extends State<SignupPage> {
                           color: Colors.white,
                           fontSize: 14,
                           fontWeight: FontWeight.w600)),
-                  validator: (number) {
-                    if (number.number.isEmpty) {
+                  validator: (input) {
+                    if (input == null || input.controller.text.isEmpty) {
                       return "Please enter your phone number";
                     }
                     return null;
@@ -575,7 +570,7 @@ class _SignupPageState extends State<SignupPage> {
                     hintStyle: TextStyle(
                         color: Colors.white.withOpacity(0.7),
                         fontSize: 12,),
-                  ),
+                  ), code: '', dial_code: '', number: '',
                 ),
       ],
     );
