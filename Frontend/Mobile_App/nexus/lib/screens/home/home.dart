@@ -12,25 +12,24 @@ class _homeState extends State<home> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.transparent,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back_ios_rounded,
-            size: 35,
-            color: Color(0xFF3B3084),
-          ),
+        backgroundColor: Color(0XFF202020),
+        // leading: IconButton(
+        //   onPressed: () {
+        //     Navigator.pop(context);
+        //   },
+        //   icon: Icon(
+        //     Icons.arrow_back_ios_rounded,
+        //     size: 35,
+        //     color: Colors.white.withOpacity(0.4)),
+        //   ),
         ),
-      ),
-      body:Container(
-        //padding: EdgeInsets.only(top: 60),
-        color: Color(0xFF747EF5),
+      body: Container(
+        padding: EdgeInsets.only(top: 60),
+        color: Color(0xFF2B2B2B),
         child: Stack(
           
         )
         )
-    );
+      );
   }
 }
