@@ -29,6 +29,8 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
+  bool passwordVisible1 = true;
+  bool passwordVisible2 = true;
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _confirmPasswordController = TextEditingController();
   bool _passwordsMatch = true;
@@ -278,7 +280,7 @@ Widget buildFullNameField() {
             child: TextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your Second Name';
+                  return 'Please enter your Last Name';
                 }
                 return null;
               },
@@ -289,7 +291,7 @@ Widget buildFullNameField() {
               decoration: InputDecoration(
                 fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
                 filled: true,
-                hintText: "Enter your Second Name",
+                hintText: "Enter your Last Name",
                 hintStyle: TextStyle(
                   color: Colors.white.withOpacity(0.7),
                   fontSize: 12,
@@ -320,7 +322,6 @@ Widget buildFullNameField() {
     ],
   );
 }
-
 
   Widget buildUsernameField() {
     return Column(
@@ -617,7 +618,7 @@ Widget buildPhoneNumberField() {
           style: const TextStyle(
             color: Colors.white,
           ),
-          obscureText: true,
+          obscureText: passwordVisible1,
           decoration: InputDecoration(
             fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
@@ -646,14 +647,14 @@ Widget buildPhoneNumberField() {
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
-                  _passwordsMatch = !_passwordsMatch;
+                  passwordVisible1 = !passwordVisible1;
                 });
               },
               icon: Row(
                 mainAxisSize: MainAxisSize.min,
-                children: const [
+                children: [
                   Text(
-                    "Show",
+                    passwordVisible1 ? "Show" : "Hide",
                     style: TextStyle(
                       color: Color.fromARGB(255, 172, 179, 248),
                     ),
@@ -710,7 +711,7 @@ Widget buildPhoneNumberField() {
           style: const TextStyle(
             color: Colors.white,
           ),
-          obscureText: true,
+          obscureText: passwordVisible2,
           decoration: InputDecoration(
             fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
@@ -735,6 +736,25 @@ Widget buildPhoneNumberField() {
             ),
             focusedErrorBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
+            ),
+            suffixIcon: IconButton(
+              onPressed: () {
+                setState(() {
+                  passwordVisible2 = !passwordVisible2;
+                });
+              },
+              icon: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    passwordVisible2 ? "Show" : "Hide",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 172, 179, 248),
+                    ),
+                  ),
+                  SizedBox(width: 2,),
+                ],
+              ),
             ),
           ),
         ),
