@@ -1,34 +1,55 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, unnecessary_new, depend_on_referenced_packages, use_key_in_widget_constructors, avoid_print
-import 'package:Nexus/screens/home/home.dart';
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison, avoid_print
+
 import 'package:flutter/material.dart';
+import 'package:Nexus/screens/home/home.dart';
 import 'package:Nexus/screens/auth/login.dart';
-import 'package:international_phone_number_field/international_phone_number_field.dart' as international_phone_number_field;
+import 'package:international_phone_number_field/international_phone_number_field.dart';
 import 'package:flutter/services.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: SignupPage(phoneNumberController: TextEditingController()),
+    );
+  }
+}
+
 class SignupPage extends StatefulWidget {
+  final TextEditingController phoneNumberController;
+
+  const SignupPage({Key? key, required this.phoneNumberController}) : super(key: key);
+
   @override
   State<SignupPage> createState() => _SignupPageState();
 }
+
 class _SignupPageState extends State<SignupPage> {
-  TextEditingController controller = TextEditingController();
   bool passwordVisible1 = true;
   bool passwordVisible2 = true;
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _confirmPasswordController = TextEditingController();
-  bool _passwordsMatch = true; // Flag to track if passwords match
+  bool _passwordsMatch = true;
   final _formKey = GlobalKey<FormState>();
+
   @override
   void dispose() {
     _passwordController.dispose();
     _confirmPasswordController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFF747EF5),
+        backgroundColor: const Color(0xFF747EF5),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -82,43 +103,33 @@ class _SignupPageState extends State<SignupPage> {
                           key: _formKey,
                           child: Column(
                             children: <Widget>[
-                              SizedBox(height: 5),
-                              // full name text field position
                               buildFullNameField(),
                               SizedBox(height: 20),
-                              // username text field position
                               buildUsernameField(),
                               SizedBox(height: 20),
-                              // Email text field position
                               buildEmailField(),
                               SizedBox(height: 20),
-                              // phone number text field position
                               buildPhoneNumberField(),
                               SizedBox(height: 20),
-                              // Password text field position
                               buildPasswordField(),
                               SizedBox(height: 20),
-                              // confirm Password text field position
                               buildConfirmPasswordField(),
                               SizedBox(height: 10),
-                              // Error message if passwords don't match
                               if (!_passwordsMatch)
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                  padding: EdgeInsets.symmetric(vertical: 8.0),
                                   child: Text(
                                     'Passwords do not match',
                                     style: TextStyle(
-                                      color: Colors.red,
+                                      color: Colors.orange.shade900,
                                     ),
                                   ),
                                 ),
                               SizedBox(height: 10),
-                              // White login button
                               MaterialButton(
                                 elevation: 10,
                                 minWidth: MediaQuery.of(context).size.width - 60,
                                 height: 60,
-                                // Check if passwords match
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
                                     if (_passwordController.text != _confirmPasswordController.text) {
@@ -135,9 +146,8 @@ class _SignupPageState extends State<SignupPage> {
                                     setState(() {
                                       _passwordsMatch = true;
                                     });
-                                    // Validation failed, show error message
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
+                                      const SnackBar(
                                         content: Text('Please fill in all fields'),
                                       ),
                                     );
@@ -161,7 +171,6 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                         ),
                       ),
-                      // Sign up button and text
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -172,7 +181,6 @@ class _SignupPageState extends State<SignupPage> {
                             ),
                           ),
                           SizedBox(width: 0),
-                          // Sign up button
                           MaterialButton(
                             elevation: 10,
                             onPressed: () {
@@ -202,78 +210,125 @@ class _SignupPageState extends State<SignupPage> {
       ),
     );
   }
-  Widget buildFullNameField() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Row(
-          children: [
-            Icon(
-              Icons.person_rounded,
-              color: Colors.white,
-            ),
-            SizedBox(width: 5),
-            Text(
-              "Full Name",
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w400,
-                color: Colors.white,
-              ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 5,
-        ),
-        TextFormField(
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'Please enter your Full Name';
-            }
-            return null;
-          },
-          cursorColor: Colors.white,
-          style: TextStyle(
+Widget buildFullNameField() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      Row(
+        children: [
+          Icon(
+            Icons.person_rounded,
             color: Colors.white,
           ),
-          decoration: InputDecoration(
-            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
-            filled: true,
-            hintText: "Enter your Full Name",
-            hintStyle: TextStyle(
-              color: Colors.white.withOpacity(0.7),
-              fontSize: 12,
-            ),
-            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF747EF5)),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
-            ),
-            border: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
-            ),
-            // error decoration
-            errorStyle: TextStyle(color: Colors.orange),
-            errorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF747EF5)),
-            ),
-            focusedErrorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+          SizedBox(width: 5),
+          Text(
+            "Full Name",
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w400,
+              color: Colors.white,
             ),
           ),
-        ),
-      ],
-    );
-  }
+        ],
+      ),
+      SizedBox(height: 5),
+      Row( // New Row for text fields
+        children: [
+          Flexible(
+            child: TextFormField(
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your First Name';
+                }
+                return null;
+              },
+              cursorColor: Colors.white,
+              style: TextStyle(
+                color: Colors.white,
+              ),
+              decoration: InputDecoration(
+                fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+                filled: true,
+                hintText: "Enter your First Name",
+                hintStyle: TextStyle(
+                  color: Colors.white.withOpacity(0.7),
+                  fontSize: 12,
+                ),
+                contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF747EF5)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                // error decoration
+                errorStyle: TextStyle(color: Colors.orange),
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF747EF5)),
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(width: 10),
+          Flexible(
+            child: TextFormField(
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your Last Name';
+                }
+                return null;
+              },
+              cursorColor: Colors.white,
+              style: TextStyle(
+                color: Colors.white,
+              ),
+              decoration: InputDecoration(
+                fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+                filled: true,
+                hintText: "Enter your Last Name",
+                hintStyle: TextStyle(
+                  color: Colors.white.withOpacity(0.7),
+                  fontSize: 12,
+                ),
+                contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF747EF5)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                // error decoration
+                errorStyle: TextStyle(color: Colors.orange),
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF747EF5)),
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
+}
+
   Widget buildUsernameField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
-          children: [
+          children: const [
             Icon(
               Icons.account_circle,
               color: Colors.white,
@@ -300,33 +355,32 @@ class _SignupPageState extends State<SignupPage> {
             return null;
           },
           cursorColor: Colors.white,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
           decoration: InputDecoration(
             fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
             hintText: "Enter your User Name",
-            hintStyle: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+            hintStyle: const TextStyle(
+              color: Colors.white70,
               fontSize: 12,
             ),
-            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            enabledBorder: OutlineInputBorder(
+            contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF747EF5)),
             ),
-            focusedBorder: OutlineInputBorder(
+            focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
-            border: OutlineInputBorder(
+            border: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
-            // error decoration
-            errorStyle: TextStyle(color: Colors.orange),
-            errorBorder: OutlineInputBorder(
+            errorStyle: const TextStyle(color: Colors.orange),
+            errorBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF747EF5)),
             ),
-            focusedErrorBorder: OutlineInputBorder(
+            focusedErrorBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
           ),
@@ -334,12 +388,13 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
+
   Widget buildEmailField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
-          children: [
+          children: const [
             Icon(
               Icons.email_rounded,
               color: Colors.white,
@@ -355,7 +410,7 @@ class _SignupPageState extends State<SignupPage> {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         TextFormField(
@@ -366,33 +421,32 @@ class _SignupPageState extends State<SignupPage> {
             return null;
           },
           cursorColor: Colors.white,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
           decoration: InputDecoration(
             fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
             hintText: "Enter your Email",
-            hintStyle: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+            hintStyle: const TextStyle(
+              color: Colors.white70,
               fontSize: 12,
             ),
-            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            enabledBorder: OutlineInputBorder(
+            contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF747EF5)),
             ),
-            focusedBorder: OutlineInputBorder(
+            focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
-            border: OutlineInputBorder(
+            border: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
-            // error decoration
-            errorStyle: TextStyle(color: Colors.orange),
-            errorBorder: OutlineInputBorder(
+            errorStyle: const TextStyle(color: Colors.orange),
+            errorBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF747EF5)),
             ),
-            focusedErrorBorder: OutlineInputBorder(
+            focusedErrorBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
           ),
@@ -400,7 +454,9 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
-  Widget buildPhoneNumberField() {
+
+
+Widget buildPhoneNumberField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -424,19 +480,15 @@ class _SignupPageState extends State<SignupPage> {
         SizedBox(height: 5),
         InternationalPhoneNumberInput(
                   height: 50,
-                  controller: controller,
+                  controller: widget.phoneNumberController,
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   formatter: MaskedInputFormatter('### ### ## ##'),
-                  // initCountry: CountryCodeModel(
-                  //     name: "United States", dial_code: "+1", code: "US"),
+                  initCountry: CountryCodeModel(
+                      name: "United States", dial_code: "+1", code: "US"),
                   betweenPadding: 10,
-                  onInputChanged: (phone) {
-                    print(phone.code);
-                    print(phone.dial_code);
-                    print(phone.number);
-                    print(phone.rawFullNumber);
-                    print(phone.rawNumber);
-                    print(phone.rawDialCode);
+                  onInputChanged: (phoneNumber) {
+                    String fullNumber = widget.phoneNumberController.text;
+                    print(fullNumber); // This will print the full phone number with dial code
                   },
                   dialogConfig: DialogConfig(
                     backgroundColor: const Color(0xFF453F87),
@@ -473,14 +525,14 @@ class _SignupPageState extends State<SignupPage> {
                             width: 1, color: const Color(0xFF747EF5)),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      //flatFlag: true,
+                      flatFlag: false,
                       noFlag: false,
                       textStyle: const TextStyle(
                           color: Colors.white,
                           fontSize: 14,
                           fontWeight: FontWeight.w600)),
-                  validator: (number) {
-                    if (number.number.isEmpty) {
+                  validator: (input) {
+                    if (input == null || input.controller.text.isEmpty) {
                       return "Please enter your phone number";
                     }
                     return null;
@@ -518,11 +570,12 @@ class _SignupPageState extends State<SignupPage> {
                     hintStyle: TextStyle(
                         color: Colors.white.withOpacity(0.7),
                         fontSize: 12,),
-                  ),
+                  ), code: '', dial_code: '', number: '',
                 ),
       ],
     );
   }
+
   Widget buildPasswordField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -531,7 +584,7 @@ class _SignupPageState extends State<SignupPage> {
           children: [
             Expanded(
               child: Row(
-                children: [
+                children: const [
                   Icon(
                     Icons.lock,
                     color: Colors.white,
@@ -550,7 +603,7 @@ class _SignupPageState extends State<SignupPage> {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         TextFormField(
@@ -562,7 +615,7 @@ class _SignupPageState extends State<SignupPage> {
           },
           controller: _passwordController,
           cursorColor: Colors.white,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
           obscureText: passwordVisible1,
@@ -570,26 +623,25 @@ class _SignupPageState extends State<SignupPage> {
             fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
             hintText: "Enter your Password",
-            hintStyle: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+            hintStyle: const TextStyle(
+              color: Colors.white70,
               fontSize: 12,
             ),
-            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            enabledBorder: OutlineInputBorder(
+            contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF747EF5)),
             ),
-            focusedBorder: OutlineInputBorder(
+            focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
-            border: OutlineInputBorder(
+            border: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
-            // error decoration
-            errorStyle: TextStyle(color: Colors.orange),
-            errorBorder: OutlineInputBorder(
+            errorStyle: const TextStyle(color: Colors.orange),
+            errorBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF747EF5)),
             ),
-            focusedErrorBorder: OutlineInputBorder(
+            focusedErrorBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
             suffixIcon: IconButton(
@@ -616,6 +668,7 @@ class _SignupPageState extends State<SignupPage> {
       ],
     );
   }
+
   Widget buildConfirmPasswordField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -624,7 +677,7 @@ class _SignupPageState extends State<SignupPage> {
           children: [
             Expanded(
               child: Row(
-                children: [
+                children: const [
                   Icon(
                     Icons.lock,
                     color: Colors.white,
@@ -643,7 +696,7 @@ class _SignupPageState extends State<SignupPage> {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         TextFormField(
@@ -655,7 +708,7 @@ class _SignupPageState extends State<SignupPage> {
           },
           controller: _confirmPasswordController,
           cursorColor: Colors.white,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
           obscureText: passwordVisible2,
@@ -663,26 +716,25 @@ class _SignupPageState extends State<SignupPage> {
             fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
             filled: true,
             hintText: "Enter your Password Again",
-            hintStyle: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+            hintStyle: const TextStyle(
+              color: Colors.white70,
               fontSize: 12,
             ),
-            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            enabledBorder: OutlineInputBorder(
+            contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF747EF5)),
             ),
-            focusedBorder: OutlineInputBorder(
+            focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
-            border: OutlineInputBorder(
+            border: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
-            // error decoration
-            errorStyle: TextStyle(color: Colors.orange),
-            errorBorder: OutlineInputBorder(
+            errorStyle: const TextStyle(color: Colors.orange),
+            errorBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF747EF5)),
             ),
-            focusedErrorBorder: OutlineInputBorder(
+            focusedErrorBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
             suffixIcon: IconButton(

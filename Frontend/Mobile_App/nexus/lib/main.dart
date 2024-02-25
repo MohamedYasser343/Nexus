@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unnecessary_import, unused_import, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unnecessary_import, unused_import, avoid_unnecessary_containers, use_key_in_widget_constructors
 import 'package:Nexus/screens/auth/Login.dart';
 import 'package:Nexus/screens/auth/signup.dart';
 import 'package:Nexus/screens/home/home.dart';
@@ -41,11 +41,8 @@ class HomePage extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 0,
-          left: 0,
-          right: 0,
           child: AppBar(
-            backgroundColor: Colors.transparent,
+            backgroundColor: Color(0xFF747EF5),
             elevation: 0,
           ),
         ),
@@ -66,7 +63,6 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 300),
-
                 MaterialButton(
                   elevation: 10,
                   minWidth: double.infinity,
@@ -92,7 +88,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-
+                SizedBox(height: 20),
                 MaterialButton(
                   elevation: 10,
                   minWidth: double.infinity,
@@ -124,7 +120,8 @@ class HomePage extends StatelessWidget {
                   minWidth: double.infinity,
                   height: 60,
                   onPressed: () {
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage()),);
+                    TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
                   },
                   color: Color(0xFF3B3084),
                   shape: RoundedRectangleBorder(
