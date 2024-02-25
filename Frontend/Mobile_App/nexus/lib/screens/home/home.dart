@@ -27,14 +27,14 @@ class _homeState extends State<home> {
         actions: <Widget>[
           if (UserGender = true)
             IconButton(
-              icon: Image.asset('asserts/male_user_pp.png'), // Replace 'your_image.png' with the path to your image asset
+              icon: Image.asset('assets/male_user_pp.png'), // Replace 'your_image.png' with the path to your image asset
               onPressed: () {
                 // Add your image action logic here
               },
             )
             else 
               IconButton(
-                icon: Image.asset('asserts/female_user_pp.png'), // Replace 'your_image.png' with the path to your image asset
+                icon: Image.asset('assets/female_user_pp.png'), // Replace 'your_image.png' with the path to your image asset
                 onPressed: () {
                   // Add your image action logic here
                 },

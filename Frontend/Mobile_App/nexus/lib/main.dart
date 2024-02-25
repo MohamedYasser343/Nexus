@@ -41,11 +41,8 @@ class HomePage extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 0,
-          left: 0,
-          right: 0,
           child: AppBar(
-            backgroundColor: Colors.transparent,
+            backgroundColor: Color(0xFF747EF5),
             elevation: 0,
           ),
         ),
@@ -66,7 +63,6 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 300),
-
                 MaterialButton(
                   elevation: 10,
                   minWidth: double.infinity,
