@@ -1,9 +1,23 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison, avoid_print, non_constant_identifier_names, prefer_final_fields, duplicate_import
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/home/home.dart';
 import 'package:Nexus/screens/auth/login.dart';
 import 'package:international_phone_number_field/international_phone_number_field.dart';
 import 'package:flutter/services.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: SignupPage(phoneNumberController: TextEditingController()),
+    );
+  }
+}
 
 class SignupPage extends StatefulWidget {
   final TextEditingController phoneNumberController;
@@ -87,13 +101,7 @@ class _SignupPageState extends State<SignupPage> {
                           key: _formKey,
                           child: Column(
                             children: <Widget>[
-                              Row(
-                                children: [
-                                  BuildFirstNameField(),
-                                  SizedBox(width: 10),
-                                  BuildSecondNameField(),
-                                ],
-                              ),
+                              buildFullNameField(),
                               SizedBox(height: 20),
                               buildUsernameField(),
                               SizedBox(height: 20),
@@ -111,7 +119,7 @@ class _SignupPageState extends State<SignupPage> {
                                   child: Text(
                                     'Passwords do not match',
                                     style: TextStyle(
-                                      color: Colors.red,
+                                      color: Colors.orange.shade900,
                                     ),
                                   ),
                                 ),
@@ -200,116 +208,119 @@ class _SignupPageState extends State<SignupPage> {
       ),
     );
   }
-
-  Widget BuildFirstNameField() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Row(
-          children: [
-            Icon(
-              Icons.person_rounded,
+Widget buildFullNameField() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      Row(
+        children: [
+          Icon(
+            Icons.person_rounded,
+            color: Colors.white,
+          ),
+          SizedBox(width: 5),
+          Text(
+            "Full Name",
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w400,
               color: Colors.white,
             ),
-            SizedBox(width: 5),
-            Text(
-              "First Name",
+          ),
+        ],
+      ),
+      SizedBox(height: 5),
+      Row( // New Row for text fields
+        children: [
+          Flexible(
+            child: TextFormField(
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your First Name';
+                }
+                return null;
+              },
+              cursorColor: Colors.white,
               style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w400,
                 color: Colors.white,
               ),
-            ),
-          ],
-        ),
-        SizedBox(height: 5),
-        TextFormField(
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter your First Name';
-              }
-              return null;
-            },
-            cursorColor: Colors.white,
-            style: TextStyle(
-              color: Colors.white,
-            ),
-            decoration: InputDecoration(
-              fillColor: Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
-              filled: true,
-              hintText: "Enter your First Name",
-              hintStyle: TextStyle(
-                color: Colors.white70,
-                fontSize: 12,
-              ),
-              contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF747EF5)),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              errorStyle: TextStyle(color: Colors.orange),
-              errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF747EF5)),
-              ),
-              focusedErrorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
+              decoration: InputDecoration(
+                fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+                filled: true,
+                hintText: "Enter your First Name",
+                hintStyle: TextStyle(
+                  color: Colors.white.withOpacity(0.7),
+                  fontSize: 12,
+                ),
+                contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF747EF5)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                // error decoration
+                errorStyle: TextStyle(color: Colors.orange),
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF747EF5)),
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
               ),
             ),
           ),
-      ],
-    );
-  }
+          SizedBox(width: 10),
+          Flexible(
+            child: TextFormField(
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your Second Name';
+                }
+                return null;
+              },
+              cursorColor: Colors.white,
+              style: TextStyle(
+                color: Colors.white,
+              ),
+              decoration: InputDecoration(
+                fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+                filled: true,
+                hintText: "Enter your Second Name",
+                hintStyle: TextStyle(
+                  color: Colors.white.withOpacity(0.7),
+                  fontSize: 12,
+                ),
+                contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF747EF5)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                // error decoration
+                errorStyle: TextStyle(color: Colors.orange),
+                errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF747EF5)),
+                ),
+                focusedErrorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
+}
 
-  Widget BuildSecondNameField() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        TextFormField(
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter your Second Name';
-              }
-              return null;
-            },
-            cursorColor: Colors.white,
-            style: TextStyle(
-              color: Colors.white,
-            ),
-            decoration: InputDecoration(
-              fillColor: Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
-              filled: true,
-              hintText: "Enter your Second Name",
-              hintStyle: TextStyle(
-                color: Colors.white70,
-                fontSize: 12,
-              ),
-              contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF747EF5)),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              errorStyle: TextStyle(color: Colors.orange),
-              errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF747EF5)),
-              ),
-              focusedErrorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-            ),
-          ),
-      ],
-    );
-  }
 
   Widget buildUsernameField() {
     return Column(
@@ -332,7 +343,7 @@ class _SignupPageState extends State<SignupPage> {
             ),
           ],
         ),
-        const SizedBox(
+        SizedBox(
           height: 5,
         ),
         TextFormField(
@@ -443,6 +454,7 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 
+
 Widget buildPhoneNumberField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -512,7 +524,7 @@ Widget buildPhoneNumberField() {
                             width: 1, color: const Color(0xFF747EF5)),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      flatFlag: true,
+                      flatFlag: false,
                       noFlag: false,
                       textStyle: const TextStyle(
                           color: Colors.white,
@@ -723,25 +735,6 @@ Widget buildPhoneNumberField() {
             ),
             focusedErrorBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
-            ),
-            suffixIcon: IconButton(
-              onPressed: () {
-                setState(() {
-                  _passwordsMatch = !_passwordsMatch;
-                });
-              },
-              icon: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: const [
-                  Text(
-                    "Show",
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 172, 179, 248),
-                    ),
-                  ),
-                  SizedBox(width: 2,),
-                ],
-              ),
             ),
           ),
         ),
