@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                                 height: 60,
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
-                                    Navigator.push(context,MaterialPageRoute(builder: (context) => home(),),);
+                                    Navigator.push(context,MaterialPageRoute(builder: (context) => Home(),),);
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison, avoid_print
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison, avoid_print, use_key_in_widget_constructors, use_super_parameters, prefer_final_fields
 
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/home/home.dart';
@@ -140,7 +140,7 @@ class _SignupPageState extends State<SignupPage> {
                                       setState(() {
                                         _passwordsMatch = true;
                                       });
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => home()));
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
                                     }
                                   } else {
                                     setState(() {
