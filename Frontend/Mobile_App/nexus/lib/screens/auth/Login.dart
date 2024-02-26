@@ -242,6 +242,13 @@ class _LoginPageState extends State<LoginPage> {
             border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
+            errorStyle: const TextStyle(color: Colors.orange),
+            errorBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFF747EF5)),
+            ),
+            focusedErrorBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
           ),
         ),
       ],
@@ -253,6 +260,7 @@ class _LoginPageState extends State<LoginPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
               child: Row(
@@ -280,6 +288,7 @@ class _LoginPageState extends State<LoginPage> {
               },
               child: Text(
                 "Forget Password?",
+                maxLines: 1,
                 style: TextStyle(
                   fontFamily: 'arial',
                   fontWeight: FontWeight.w600,
@@ -324,6 +333,13 @@ class _LoginPageState extends State<LoginPage> {
               borderSide: BorderSide(color: Colors.white),
             ),
             border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+            ),
+            errorStyle: const TextStyle(color: Colors.orange),
+            errorBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFF747EF5)),
+            ),
+            focusedErrorBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
             suffixIcon: IconButton(

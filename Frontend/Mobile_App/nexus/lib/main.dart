@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:Nexus/screens/splash/splash.dart';
-import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
+//import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
 import 'dart:async'; 
 void main() {
   runApp(
@@ -23,8 +23,8 @@ void main() {
             ),
           ),
         ),
-        nextScreen: HomePage(),
         backgroundColor: Color(0xFF747EF5),
+        nextScreen: HomePage(),
         pageTransitionType: PageTransitionType.fade,
       ),
     ),
