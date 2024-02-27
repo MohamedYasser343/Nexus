@@ -121,7 +121,7 @@ class HomePage extends StatelessWidget {
                   height: 60,
                   onPressed: () {
                     TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
+                    Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
                   },
                   color: Color(0xFF3B3084),
                   shape: RoundedRectangleBorder(

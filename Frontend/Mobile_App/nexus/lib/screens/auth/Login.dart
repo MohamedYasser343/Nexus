@@ -11,179 +11,181 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Color(0xFF747EF5),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back_ios_rounded,
-            size: 35,
-            color: Color(0xFF3B3084),
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Color(0xFF747EF5),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_rounded,
+              size: 35,
+              color: Color(0xFF3B3084),
+            ),
           ),
         ),
-      ),
-      body: Container(
-        padding: EdgeInsets.only(top: 60),
-        color: Color(0xFF747EF5),
-        child: Stack(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Color(0xFF453F87),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(40.0),
-                  topRight: Radius.circular(40.0),
+        body: Container(
+          padding: EdgeInsets.only(top: 60),
+          color: Color(0xFF747EF5),
+          child: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Color(0xFF453F87),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40.0),
+                    topRight: Radius.circular(40.0),
+                  ),
                 ),
+                height: double.infinity,
+                width: double.infinity,
               ),
-              height: double.infinity,
-              width: double.infinity,
-            ),
-            Positioned.fill(
-              child: SafeArea(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 40),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: 60),
-                          child: Text(
-                            "Welcome Back 👋",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontFamily: 'arial',
-                              fontSize: 35,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+              Positioned.fill(
+                child: SafeArea(
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 40),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 60),
+                            child: Text(
+                              "Welcome Back 👋",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'arial',
+                                fontSize: 35,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(height: 30),
-                        Form(
-                          key: _formKey,
-                          child: Column(
+                          SizedBox(height: 30),
+                          Form(
+                            key: _formKey,
+                            child: Column(
+                              children: <Widget>[
+                                buildEmailField(),
+                                SizedBox(height: 30),
+                                buildPasswordField(),
+                                SizedBox(height: 30),
+                                MaterialButton(
+                                  elevation: 10,
+                                  minWidth: double.infinity,
+                                  height: 60,
+                                  onPressed: () {
+                                    if (_formKey.currentState!.validate()) {
+                                      Navigator.push(context,MaterialPageRoute(builder: (context) => Home(),),);
+                                    } else {
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                          content:
+                                              Text('Please fill in all fields'),
+                                        ),
+                                      );
+                                    }
+                                  },
+                                  color: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  child: Text(
+                                    "Login",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 24,
+                                      color: Color(0xFF3B3084),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 10),
+                              ],
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              buildEmailField(),
-                              SizedBox(height: 30),
-                              buildPasswordField(),
-                              SizedBox(height: 30),
+                              Text(
+                                "Don't have an account?",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              SizedBox(width: 3),
                               MaterialButton(
                                 elevation: 10,
-                                minWidth: double.infinity,
-                                height: 60,
                                 onPressed: () {
-                                  if (_formKey.currentState!.validate()) {
-                                    Navigator.push(context,MaterialPageRoute(builder: (context) => Home(),),);
-                                  } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content:
-                                            Text('Please fill in all fields'),
-                                      ),
-                                    );
-                                  }
+                                  TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
                                 },
-                                color: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
                                 child: Text(
-                                  "Login",
+                                  "Sign up",
                                   style: TextStyle(
+                                    fontFamily: 'arial',
                                     fontWeight: FontWeight.w600,
-                                    fontSize: 24,
-                                    color: Color(0xFF3B3084),
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Colors.white,
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 10),
                             ],
                           ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              "Don't have an account?",
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
-                            SizedBox(width: 3),
-                            MaterialButton(
-                              elevation: 10,
-                              onPressed: () {
-                                TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
-                              },
-                              child: Text(
-                                "Sign up",
-                                style: TextStyle(
-                                  fontFamily: 'arial',
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                  decoration: TextDecoration.underline,
-                                  decorationColor: Colors.white,
+                          SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width / 3 - 30,
+                                child: Divider(
+                                  color: Colors.grey,
+                                  thickness: 2,
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width / 3 - 30,
-                              child: Divider(
-                                color: Colors.grey,
-                                thickness: 2,
+                              SizedBox(width: 15),
+                              Text(
+                                "or Login With",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
                               ),
-                            ),
-                            SizedBox(width: 15),
-                            Text(
-                              "or Login With",
-                              style: TextStyle(
-                                color: Colors.white,
+                              SizedBox(width: 15),
+                              SizedBox(
+                                width:
+                                    MediaQuery.of(context).size.width / 3 - 30,
+                                child: Divider(
+                                  color: Colors.grey,
+                                  thickness: 2,
+                                ),
                               ),
-                            ),
-                            SizedBox(width: 15),
-                            SizedBox(
-                              width:
-                                  MediaQuery.of(context).size.width / 3 - 30,
-                              child: Divider(
-                                color: Colors.grey,
-                                thickness: 2,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5),
-                        IconButton(
-                          onPressed: () {
-                            // Do something
-                          },
-                          icon: Container(
-                            width: 48,
-                            height: 48,
-                            child: Image.asset('assets/google_icon.png'),
+                            ],
                           ),
-                        ),
-                      ],
+                          SizedBox(height: 5),
+                          IconButton(
+                            onPressed: () {
+                              // Do something
+                            },
+                            icon: Container(
+                              width: 48,
+                              height: 48,
+                              child: Image.asset('assets/google_icon.png'),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
