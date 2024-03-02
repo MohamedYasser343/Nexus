@@ -12,7 +12,12 @@ class mindmap extends Model
     protected $fillable = [
 
         'title',
-        'content'
+        'content',
+        'connections',
+        'positions',
+        'editable'
 
     ];
+
+
 }

@@ -24,4 +24,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [UserController::class, 'logout']);
 });
 
-Route::get('mindmap', [mindmap_controller::class,'index']);
+Route::get('/index', [mindmap_controller::class,'index']);
+Route::get('/show/{id}', [mindmap_controller::class,'show']);
+Route::post('/store', [mindmap_controller::class,'store']);
+Route::patch('/edit', [mindmap_controller::class,'update']);
+Route::delete('/delete/{id}', [mindmap_controller::class,'destroy']);
+

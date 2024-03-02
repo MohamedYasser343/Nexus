@@ -30,7 +30,15 @@ class mindmap_controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        mindmap::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'connections' => $request->connections,
+            'positions' => $request->positions,
+            'editable' => $request->editable
+
+        ]);
+
     }
 
     /**
@@ -38,7 +46,7 @@ class mindmap_controller extends Controller
      */
     public function show(string $id)
     {
-        $single_mindmap = mindmap::where('id', '==',$id)->select('title','content','editable')->get();
+        $single_mindmap = mindmap::where('id',$id)->select('title','content','editable')->get();
 
         return $single_mindmap -> toJson();
     }
@@ -56,7 +64,17 @@ class mindmap_controller extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        mindmap::where('id', $id)->update([
+
+            'title' => $request->title,
+            'content' => $request->content,
+            'connections' => $request->connections,
+            'positions' => $request->positions,
+            'editable' => $request->editable
+
+        ]);
+
+        return redirect(route('update'));
     }
 
     /**
@@ -64,6 +82,16 @@ class mindmap_controller extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        mindmap::destroy($id);
     }
+
+    // private function mindmap_image($request){
+
+    //     $new_image_name = uniqid() . '_' . $request->title . '.'.
+    //     $request ->image->extension();
+
+    //     return $request -> image -> move (public_path('mindmap_images'), $new_image_name);
+
+    // }
+
 }
