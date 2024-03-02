@@ -146,20 +146,7 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-<<<<<<< Updated upstream
-//this section helps me determine some things faster:
-//
-//icon: Icon(Icons.,
-//
-//MaterialButton(
-//  onPressed: () {
-//    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-//  },
-//   onPressed: (() => something(somewhere)),
-//   child:
-// )
-=======
+/*
 icon: Icon(Icons.,
 
 MaterialButton(
@@ -183,4 +170,3 @@ Padding(
   ),
 ),
 */
->>>>>>> Stashed changes
