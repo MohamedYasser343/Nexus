@@ -11,9 +11,8 @@ class mindmap extends Model
 
     protected $fillable = [
 
-        'content',
-        'position',
-        'relations'
+        'title',
+        'content'
 
     ];
 }

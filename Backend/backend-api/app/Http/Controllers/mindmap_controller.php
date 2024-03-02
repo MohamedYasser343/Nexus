@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\mindmap;
 use Illuminate\Http\Request;
 
 class mindmap_controller extends Controller
@@ -11,7 +12,9 @@ class mindmap_controller extends Controller
      */
     public function index()
     {
-        //
+        $mindmaps = mindmap::select('id','title','connections', 'positions')->get();
+
+        return $mindmaps ->toJson();
     }
 
     /**
@@ -35,7 +38,9 @@ class mindmap_controller extends Controller
      */
     public function show(string $id)
     {
-        //
+        $single_mindmap = mindmap::where('id', '==',$id)->select('title','content','editable')->get();
+
+        return $single_mindmap -> toJson();
     }
 
     /**

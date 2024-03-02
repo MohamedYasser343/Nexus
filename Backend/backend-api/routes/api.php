@@ -24,4 +24,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [UserController::class, 'logout']);
 });
 
-Route::get('mindmap/{userid}/{title}', [mindmap_controller::class,'create']);
+Route::get('mindmap', [mindmap_controller::class,'index']);

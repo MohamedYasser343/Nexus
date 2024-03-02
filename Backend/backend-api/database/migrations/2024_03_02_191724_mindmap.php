@@ -14,9 +14,13 @@ return new class extends Migration
         Schema::create('mindmap', function (Blueprint $table){
 
             $table->id();
+            $table->string('title')->default('untitled');
             $table->json('content')->nullable();
-            $table->json('position');
-            $table->json('relations');
+            $table->json('connections')->nullable();
+            $table->json('positions')->unique();
+            $table->boolean('editable')->default(true);
+
+
 
 
         });
