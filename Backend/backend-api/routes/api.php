@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\mindmap_controller;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('update-profile', [UserController::class, 'updateProfile']);
     Route::post('logout', [UserController::class, 'logout']);
 });
+
+Route::get('mindmap/{userid}/{title}', [mindmap_controller::class,'create']);
