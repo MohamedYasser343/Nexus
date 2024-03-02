@@ -134,6 +134,67 @@ class _LoginPageState extends State<LoginPage> {
                                   decorationColor: Colors.white,
                                 ),
                               ),
+<<<<<<< Updated upstream
+=======
+                              SizedBox(width: 3),
+                              MaterialButton(
+                                elevation: 10,
+                                onPressed: () {
+                                  TextEditingController phoneNumberController = TextEditingController();
+                                  Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
+                                },
+                                child: Text(
+                                  "Sign up",
+                                  style: TextStyle(
+                                    fontFamily: 'arial',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 15),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width / 3 - 45,
+                                  height: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              Text(
+                                "or Login With",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 15),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width / 3 - 45,
+                                  height: 2,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 5),
+                          IconButton(
+                            onPressed: () {
+                              // Do something
+                            },
+                            icon: Container(
+                              width: 48,
+                              height: 48,
+                              child: Image.asset('assets/google_icon.png'),
+>>>>>>> Stashed changes
                             ),
                           ],
                         ),

@@ -53,7 +53,9 @@ class _HomeState extends State<Home> {
                     // Handle the onPressed event
                   },
                 ),
-                SizedBox(width: 5,),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5),
+                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +79,9 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          SizedBox(width: 190,),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 85),
+          ),
           IconButton(
             icon: Icon(
               Icons.more_vert_rounded,

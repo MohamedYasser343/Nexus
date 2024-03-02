@@ -147,6 +147,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
+<<<<<<< Updated upstream
 //this section helps me determine some things faster:
 //
 //icon: Icon(Icons.,
@@ -158,3 +159,28 @@ class HomePage extends StatelessWidget {
 //   onPressed: (() => something(somewhere)),
 //   child:
 // )
+=======
+icon: Icon(Icons.,
+
+MaterialButton(
+  onPressed: () {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+  },
+  onPressed: (() => something(somewhere)),
+  child:
+)
+
+Padding(
+  padding: EdgeInsets.symmetric(horizontal: 5),
+),
+
+Padding(
+  padding: EdgeInsets.symmetric(horizontal: 15),
+  child: Container(
+    width: MediaQuery.of(context).size.width / 3 - 45,
+    height: 2,
+    color: Colors.grey,
+  ),
+),
+*/
+>>>>>>> Stashed changes
