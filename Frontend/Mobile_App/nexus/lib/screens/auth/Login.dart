@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/auth/signup.dart';
 import 'package:Nexus/screens/home/home.dart';
+import 'dart:ui';
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -142,27 +143,26 @@ class _LoginPageState extends State<LoginPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width / 3 - 30,
-                                child: Divider(
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 15),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width / 3 - 45,
+                                  height: 2,
                                   color: Colors.grey,
-                                  thickness: 2,
                                 ),
                               ),
-                              SizedBox(width: 15),
                               Text(
                                 "or Login With",
                                 style: TextStyle(
                                   color: Colors.white,
                                 ),
                               ),
-                              SizedBox(width: 15),
-                              SizedBox(
-                                width:
-                                    MediaQuery.of(context).size.width / 3 - 30,
-                                child: Divider(
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 15),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width / 3 - 45,
+                                  height: 2,
                                   color: Colors.grey,
-                                  thickness: 2,
                                 ),
                               ),
                             ],
@@ -200,7 +200,8 @@ class _LoginPageState extends State<LoginPage> {
               Icons.email_outlined,
               color: Colors.white,
             ),
-            SizedBox(width: 5),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5),),
             Text(
               "Email",
               style: TextStyle(
@@ -271,7 +272,12 @@ class _LoginPageState extends State<LoginPage> {
                     Icons.lock,
                     color: Colors.white,
                   ),
-                  SizedBox(width: 5),
+                  Padding(
+                      padding: EdgeInsets.only(),
+                      child: Container(
+                        width: 5,
+                      ),
+                    ),
                   Text(
                     "Password",
                     style: TextStyle(
@@ -283,6 +289,8 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5),),
             MaterialButton(
               elevation: 10,
               onPressed: () {
@@ -359,7 +367,8 @@ class _LoginPageState extends State<LoginPage> {
                       color: Color.fromARGB(255, 172, 179, 248),
                     ),
                   ),
-                  SizedBox(width: 2,),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 2),),
                   // Icon(
                   // passwordVisible ? Icons.visibility : Icons.visibility_off,
                   // color: Colors.grey,
