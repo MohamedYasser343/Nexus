@@ -147,7 +147,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ],
-            color: Color(0xFF202020).withOpacity(0.7),
+            color: Color(0xFF202020),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
         ],
@@ -161,18 +161,180 @@ class _HomeState extends State<Home> {
               ),
             ),
             Positioned.fill(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(padding: EdgeInsets.symmetric(vertical: 20),),
-                  Text("There is Nothing Here Yet",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                    ),
+              child: SafeArea(
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(padding: EdgeInsets.symmetric(vertical: 40),),
+                      Text("There is Nothing Here Yet",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 26,
+                        ),
+                      ),
+                      Container(
+                        height: MediaQuery.of(context).size.height / 3,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/No_data_male.png'),
+                            fit: BoxFit.contain,
+                            filterQuality: FilterQuality.high,
+                          ),
+                        ),
+                      ),
+                      // MaterialButton(
+                      //   minWidth: double.minPositive,
+                      //   height: 50,
+                      //   onPressed: () {
+                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                      //   },
+                      //   color: Color(0XFF2B2B2B),
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   child: Text(
+                      //     "Create New File",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.w600,
+                      //       fontSize: 18,
+                      //       color: Colors.white,
+                      //     ),
+                      //   ),
+                      // ),
+                      // SizedBox(height: 20),
+                      // MaterialButton(
+                      //   minWidth: double.minPositive,
+                      //   height: 50,
+                      //   onPressed: () {
+                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                      //   },
+                      //   color: Color(0XFF2B2B2B),
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   child: Text(
+                      //     "Create New Folder",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.w600,
+                      //       fontSize: 18,
+                      //       color: Colors.white,
+                      //     ),
+                      //   ),
+                      // ),
+                      // SizedBox(height: 20),
+                      // MaterialButton(
+                      //   minWidth: double.minPositive,
+                      //   height: 50,
+                      //   onPressed: () {
+                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                      //   },
+                      //   color: Color(0XFF2B2B2B),
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   child: Text(
+                      //     "Import",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.w600,
+                      //       fontSize: 18,
+                      //       color: Colors.white,
+                      //     ),
+                      //   ),
+                      // ),
+                      // SizedBox(height: 20),
+                      // MaterialButton(
+                      //   minWidth: double.minPositive,
+                      //   height: 50,
+                      //   onPressed: () {
+                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                      //   },
+                      //   color: Color(0XFF2B2B2B),
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   child: Text(
+                      //     "Templates",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.w600,
+                      //       fontSize: 18,
+                      //       color: Colors.white,
+                      //     ),
+                      //   ),
+                      // ),
+                      // SizedBox(height: 20),
+                      // Padding(
+                      //   padding: EdgeInsets.symmetric(horizontal: 15),
+                      //   child: Container(
+                      //     width: MediaQuery.of(context).size.width / 2,
+                      //     height: 2,
+                      //     color: Colors.grey,
+                      //   ),
+                      // ),
+                      // SizedBox(height: 20),
+                      // MaterialButton(
+                      //   minWidth: double.minPositive + 150,
+                      //   height: 55,
+                      //   onPressed: () {
+                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                      //   },
+                      //   color: Color(0XFF2B2B2B),
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   child: Text(
+                      //     "Folders",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.w600,
+                      //       fontSize: 18,
+                      //       color: Colors.white,
+                      //     ),
+                      //   ),
+                      // ),
+                      // SizedBox(height: 20),
+                      // MaterialButton(
+                      //   minWidth: double.minPositive + 150,
+                      //   height: 55,
+                      //   onPressed: () {
+                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                      //   },
+                      //   color: Color(0XFF2B2B2B),
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   child: Text(
+                      //     "Trash",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.w600,
+                      //       fontSize: 18,
+                      //       color: Colors.white,
+                      //     ),
+                      //   ),
+                      // ),
+                      // SizedBox(height: 20),
+                      // MaterialButton(
+                      //   minWidth: double.minPositive + 150,
+                      //   height: 55,
+                      //   onPressed: () {
+                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                      //   },
+                      //   color: Color(0XFF2B2B2B),
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   child: Text(
+                      //     "Help",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.w600,
+                      //       fontSize: 18,
+                      //       color: Colors.white,
+                      //     ),
+                      //   ),
+                      // ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
           ],
