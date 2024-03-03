@@ -6,8 +6,17 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
+<<<<<<< Updated upstream:Frontend/Mobile_App/nexus/lib/main.dart
 import 'package:Nexus/screens/splash/splash.dart';
+<<<<<<< HEAD:Frontend/Mobile_App/nexus/lib/screens/main.dart
+import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
+=======
+import 'package:Nexus/splash.dart';
 //import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
+>>>>>>> Stashed changes:Frontend/Mobile_App/nexus/lib/screens/main.dart
+=======
+//import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
+>>>>>>> ce8c6a6cdef16e653452c876d9b1b6c97c73f74b:Frontend/Mobile_App/nexus/lib/main.dart
 import 'dart:async'; 
 void main() {
   runApp(
