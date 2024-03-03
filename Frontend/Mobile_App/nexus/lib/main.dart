@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:Nexus/screens/splash/splash.dart';
-import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
+//import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
 import 'dart:async'; 
 void main() {
   runApp(
@@ -23,8 +23,8 @@ void main() {
             ),
           ),
         ),
-        nextScreen: HomePage(),
         backgroundColor: Color(0xFF747EF5),
+        nextScreen: HomePage(),
         pageTransitionType: PageTransitionType.fade,
       ),
     ),
@@ -121,7 +121,7 @@ class HomePage extends StatelessWidget {
                   height: 60,
                   onPressed: () {
                     TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
+                    Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
                   },
                   color: Color(0xFF3B3084),
                   shape: RoundedRectangleBorder(
@@ -169,4 +169,5 @@ Padding(
     color: Colors.grey,
   ),
 ),
+
 */
