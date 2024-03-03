@@ -80,10 +80,10 @@ class _HomeState extends State<Home> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 83),
+            padding: EdgeInsets.symmetric(horizontal: 90),
           ),
           PopupMenuButton(
-            offset: Offset(0, 60),
+            offset: Offset(10, 50),
             icon: Icon(Icons.more_vert_rounded,
               color: Colors.white,
               size: 25
