@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('mindmap', function (Blueprint $table){
 
             $table->id();
-            $table->foreignId('user_id')->references('id') ->on('users') -> onDelete('cascade');
+            $table->foreignId('user_id')->constrained();//->references('id') ->on('users') -> onDelete('cascade');
             $table->string('title')->default('untitled');
             $table->json('content')->nullable();
             $table->json('connections')->nullable();
