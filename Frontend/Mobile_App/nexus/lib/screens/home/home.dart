@@ -80,17 +80,74 @@ class _HomeState extends State<Home> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 85),
+            padding: EdgeInsets.symmetric(horizontal: 83),
           ),
-          IconButton(
-            icon: Icon(
-              Icons.more_vert_rounded,
-            ),
-            color: Colors.white.withOpacity(0.6),
-            iconSize: 30,
-            onPressed: () {
-              showSettingsDialog(context); // Call the showDialog function here
-            },
+          PopupMenuButton(
+            offset: Offset(0, 60),
+            icon: Icon(Icons.more_vert_rounded,
+              color: Colors.white,
+              size: 25
+              ),
+            itemBuilder: (BuildContext context) => [
+              PopupMenuItem(
+                child: ListTile(
+                  title: Text(
+                    'My Account',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                  onTap: () {
+                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                  },
+                ),
+              ),
+              PopupMenuItem(
+                child: ListTile(
+                  title: Text(
+                    'Add Another Account',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                  onTap: () {
+                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                  },
+                ),
+              ),
+              PopupMenuItem(
+                child: ListTile(
+                  title: Text(
+                    'Settings',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                  onTap: () {
+                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                  },
+                ),
+              ),
+              PopupMenuItem(
+                child: ListTile(
+                  title: Text(
+                    'Log Out',
+                  style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 16,
+                    ),
+                  ),
+                  onTap: () {
+                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                  },
+                ),
+              ),
+            ],
+            color: Color(0xFF202020).withOpacity(0.7),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
         ],
       ),
@@ -102,64 +159,73 @@ class _HomeState extends State<Home> {
     );
   }
 }
-void showSettingsDialog(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        backgroundColor: Color(0xFF202020),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        title: Text(
-          'Settings',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.white,
-            fontFamily: 'Arial',
-            fontSize: 25,
-          ),
-        ),
-        content: Column(
-          //shrinkWrap: true,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ListTile(
-              title: Text('My Account'),
-              onTap: () {
-                // Handle 'My Account' action
-                Navigator.pop(context); // Close the dialog
-              },
-            ),
-            ListTile(
-              title: Text('Add Another Account'),
-              onTap: () {
-                // Handle 'Add Another Account' action
-                Navigator.pop(context); // Close the dialog
-              },
-            ),
-            ListTile(
-              title: Text('Settings'),
-              onTap: () {
-                // Handle 'Settings' action
-                Navigator.pop(context); // Close the dialog
-              },
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: Divider(
-                color: Colors.grey,
-                thickness: 1.0,
-              ),
-            ),
-            ListTile(
-              title: Text('Log Out'),
-              onTap: () {
-                // Handle 'Log Out' action
-                Navigator.pop(context); // Close the dialog
-              },
-            ),
-          ],
-        ),
-      );
-    },
-  );
-}
+// }
+// void showSettingsDialog(BuildContext context) {
+//   showDialog(
+//     context: context,
+//     builder: (BuildContext context) {
+//       return AlertDialog(
+//         backgroundColor: Color(0xFF202020),
+//         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+//         title: Text(
+//           'Settings',
+//           textAlign: TextAlign.center,
+//           style: TextStyle(
+//             color: Colors.white,
+//             fontFamily: 'Arial',
+//             fontSize: 25,
+//           ),
+//         ),
+//         content: Column(
+//           //shrinkWrap: true,
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           mainAxisSize: MainAxisSize.min,
+//           children: [
+//             ListTile(
+//               title: Text('My Account',
+//               style: TextStyle(
+//                 color: Colors.white,
+//               ),),
+//               onTap: () {
+//                 //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+//               },
+//             ),
+//             ListTile(
+//               title: Text('Add Another Account',
+//               style: TextStyle(
+//                 color: Colors.white,
+//               ),),
+//               onTap: () {
+//                 //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+//               },
+//             ),
+//             ListTile(
+//               title: Text('Settings',
+//               style: TextStyle(
+//                 color: Colors.white,
+//               ),),
+//               onTap: () {
+//                 //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+//               },
+//             ),
+//             Padding(
+//               padding: EdgeInsets.symmetric(horizontal: 10.0),
+//               child: Divider(
+//                 color: Colors.grey,
+//                 thickness: 1.0,
+//               ),
+//             ),
+//             ListTile(
+//               title: Text('Log Out',
+//               style: TextStyle(
+//                 color: Colors.orange,
+//               ),),
+//               onTap: () {
+//                 //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+//               },
+//             ),
+//           ],
+//         ),
+//       );
+//     },
+//   );

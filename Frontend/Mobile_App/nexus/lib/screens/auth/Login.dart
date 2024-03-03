@@ -19,6 +19,7 @@ class _LoginPageState extends State<LoginPage> {
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
+            //Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
           },
           icon: Icon(
             Icons.arrow_back_ios_rounded,

@@ -53,6 +53,7 @@ class _SignupPageState extends State<SignupPage> {
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
+            //Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
           },
           icon: Icon(
             Icons.arrow_back_ios_rounded,
@@ -238,7 +239,7 @@ Widget buildFullNameField() {
             child: TextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your First Name';
+                  return 'enter your First Name';
                 }
                 return null;
               },
@@ -280,7 +281,7 @@ Widget buildFullNameField() {
             child: TextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your Last Name';
+                  return 'enter your Last Name';
                 }
                 return null;
               },
@@ -479,99 +480,99 @@ Widget buildPhoneNumberField() {
         ),
         SizedBox(height: 5),
         InternationalPhoneNumberInput(
-                  height: 50,
-                  controller: widget.phoneNumberController,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  formatter: MaskedInputFormatter('### ### ## ##'),
-                  initCountry: CountryCodeModel(
-                      name: "United States", dial_code: "+1", code: "US"),
-                  betweenPadding: 10,
-                  onInputChanged: (phoneNumber) {
-                    String fullNumber = widget.phoneNumberController.text;
-                    print(fullNumber); // This will print the full phone number with dial code
-                  },
-                  dialogConfig: DialogConfig(
-                    backgroundColor: const Color(0xFF453F87),
-                    searchBoxBackgroundColor: Color.fromARGB(255, 103, 96, 185),
-                    searchBoxIconColor: const Color(0xFFFAFAFA),
-                    countryItemHeight: 55,
-                    flatFlag: true,
-                    topBarColor: Color.fromARGB(255, 41, 31, 100),
-                    selectedItemColor: Color.fromARGB(255, 81, 74, 154),
-                    selectedIcon: Padding(
-                      padding: EdgeInsets.only(left: 10),
-                    ),
-                    textStyle: TextStyle(
-                        color: const Color(0xFFFAFAFA).withOpacity(0.7),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600),
-                    searchBoxTextStyle: TextStyle(
-                        color: const Color(0xFFFAFAFA).withOpacity(0.7),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600),
-                    titleStyle: const TextStyle(
-                        color: Color(0xFFFAFAFA),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700),
-                    searchBoxHintStyle: TextStyle(
-                        color: const Color(0xFFFAFAFA).withOpacity(0.7),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  countryConfig: CountryConfig(
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
-                        border: Border.all(
-                            width: 1, color: const Color(0xFF747EF5)),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      flatFlag: false,
-                      noFlag: false,
-                      textStyle: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600)),
-                  validator: (input) {
-                    if (input == null || input.controller.text.isEmpty) {
-                      return "Please enter your phone number";
-                    }
-                    return null;
-                  },
-                  phoneConfig: PhoneConfig(
-                    focusedColor: Colors.white,
-                    enabledColor: Color(0xFF6D59BD),
-                    errorColor: Colors.orange,
-                    labelStyle: null,
-                    labelText: null,
-                    floatingLabelStyle: null,
-                    focusNode: null,
-                    radius: 8,
-                    hintText: "Phone Number",
-                    borderWidth: 1,
-                    backgroundColor: Color.fromARGB(26, 255, 255, 255),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
-                      border: Border.all(
-                            width: 1, color: const Color(0xFF747EF5)),
-                        borderRadius: BorderRadius.circular(8),
-                    ),
-                    popUpErrorText: true,
-                    autoFocus: false,
-                    showCursor:false,
-                    textInputAction: TextInputAction.done,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    errorTextMaxLength: 2,
-                    errorPadding: EdgeInsets.only(top: 14,left: MediaQuery.of(context).size.width * 0.19),
-                    errorStyle: TextStyle(color: Colors.orange, fontSize: 12, height: 1),
-                    textStyle: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400),
-                    hintStyle: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
-                        fontSize: 12,),
-                  ), code: '', dial_code: '', number: '',
-                ),
+          height: 50,
+          controller: widget.phoneNumberController,
+          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+          formatter: MaskedInputFormatter('### ### ## ##'),
+          initCountry: CountryCodeModel(
+              name: "United States", dial_code: "+1", code: "US"),
+          betweenPadding: 10,
+          onInputChanged: (phoneNumber) {
+            String fullNumber = widget.phoneNumberController.text;
+            print(fullNumber); // This will print the full phone number with dial code
+          },
+          dialogConfig: DialogConfig(
+            backgroundColor: const Color(0xFF453F87),
+            searchBoxBackgroundColor: Color.fromARGB(255, 103, 96, 185),
+            searchBoxIconColor: const Color(0xFFFAFAFA),
+            countryItemHeight: 55,
+            flatFlag: true,
+            topBarColor: Color.fromARGB(255, 41, 31, 100),
+            selectedItemColor: Color.fromARGB(255, 81, 74, 154),
+            selectedIcon: Padding(
+              padding: EdgeInsets.only(left: 10),
+            ),
+            textStyle: TextStyle(
+                color: const Color(0xFFFAFAFA).withOpacity(0.7),
+                fontSize: 14,
+                fontWeight: FontWeight.w600),
+            searchBoxTextStyle: TextStyle(
+                color: const Color(0xFFFAFAFA).withOpacity(0.7),
+                fontSize: 14,
+                fontWeight: FontWeight.w600),
+            titleStyle: const TextStyle(
+                color: Color(0xFFFAFAFA),
+                fontSize: 18,
+                fontWeight: FontWeight.w700),
+            searchBoxHintStyle: TextStyle(
+                color: const Color(0xFFFAFAFA).withOpacity(0.7),
+                fontSize: 14,
+                fontWeight: FontWeight.w600),
+          ),
+          countryConfig: CountryConfig(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+                border: Border.all(
+                    width: 1, color: const Color(0xFF747EF5)),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              flatFlag: false,
+              noFlag: false,
+              textStyle: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600)),
+          validator: (input) {
+            if (input == null || input.controller.text.isEmpty) {
+              return "Please enter your phone number";
+            }
+            return null;
+          },
+          phoneConfig: PhoneConfig(
+            focusedColor: Colors.white,
+            enabledColor: Color(0xFF6D59BD),
+            errorColor: Colors.orange,
+            labelStyle: null,
+            labelText: null,
+            floatingLabelStyle: null,
+            focusNode: null,
+            radius: 8,
+            hintText: "Phone Number",
+            borderWidth: 1,
+            backgroundColor: Color.fromARGB(26, 255, 255, 255),
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+              border: Border.all(
+                    width: 1, color: const Color(0xFF747EF5)),
+                borderRadius: BorderRadius.circular(8),
+            ),
+            popUpErrorText: true,
+            autoFocus: false,
+            showCursor:false,
+            textInputAction: TextInputAction.done,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            errorTextMaxLength: 2,
+            errorPadding: EdgeInsets.only(top: 14,left: MediaQuery.of(context).size.width * 0.19),
+            errorStyle: TextStyle(color: Colors.orange, fontSize: 12, height: 1),
+            textStyle: const TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w400),
+            hintStyle: TextStyle(
+                color: Colors.white.withOpacity(0.7),
+                fontSize: 12,),
+          ), code: '', dial_code: '', number: '',
+        ),
       ],
     );
   }
