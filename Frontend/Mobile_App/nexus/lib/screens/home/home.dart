@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, non_constant_identifier_names, prefer_typing_uninitialized_variables, prefer_const_declarations, unused_local_variable, use_super_parameters, prefer_interpolation_to_compose_strings
+// ignore_for_file: prefer_const_constructors, camel_case_types, non_constant_identifier_names, prefer_typing_uninitialized_variables, prefer_const_declarations, unused_local_variable, use_super_parameters, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -9,6 +9,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool User_has_files = false;
   bool userGender = true;
   var UserFirstName = 'User';
   var userEmail = 'User@demo.com';
@@ -80,7 +81,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 90),
+            padding: EdgeInsets.symmetric(horizontal: 92),
           ),
           PopupMenuButton(
             offset: Offset(10, 50),
@@ -152,80 +153,31 @@ class _HomeState extends State<Home> {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.only(top: 60),
-        color: Color(0xFF202020),
-        child: Stack(),
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Container(
+                color: Color(0xFF202020),
+              ),
+            ),
+            Positioned.fill(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(padding: EdgeInsets.symmetric(vertical: 20),),
+                  Text("There is Nothing Here Yet",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 26,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-// }
-// void showSettingsDialog(BuildContext context) {
-//   showDialog(
-//     context: context,
-//     builder: (BuildContext context) {
-//       return AlertDialog(
-//         backgroundColor: Color(0xFF202020),
-//         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-//         title: Text(
-//           'Settings',
-//           textAlign: TextAlign.center,
-//           style: TextStyle(
-//             color: Colors.white,
-//             fontFamily: 'Arial',
-//             fontSize: 25,
-//           ),
-//         ),
-//         content: Column(
-//           //shrinkWrap: true,
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           mainAxisSize: MainAxisSize.min,
-//           children: [
-//             ListTile(
-//               title: Text('My Account',
-//               style: TextStyle(
-//                 color: Colors.white,
-//               ),),
-//               onTap: () {
-//                 //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-//               },
-//             ),
-//             ListTile(
-//               title: Text('Add Another Account',
-//               style: TextStyle(
-//                 color: Colors.white,
-//               ),),
-//               onTap: () {
-//                 //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-//               },
-//             ),
-//             ListTile(
-//               title: Text('Settings',
-//               style: TextStyle(
-//                 color: Colors.white,
-//               ),),
-//               onTap: () {
-//                 //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-//               },
-//             ),
-//             Padding(
-//               padding: EdgeInsets.symmetric(horizontal: 10.0),
-//               child: Divider(
-//                 color: Colors.grey,
-//                 thickness: 1.0,
-//               ),
-//             ),
-//             ListTile(
-//               title: Text('Log Out',
-//               style: TextStyle(
-//                 color: Colors.orange,
-//               ),),
-//               onTap: () {
-//                 //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-//               },
-//             ),
-//           ],
-//         ),
-//       );
-//     },
-//   );
