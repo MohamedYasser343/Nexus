@@ -263,75 +263,75 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
-                      // SizedBox(height: 20),
-                      // Padding(
-                      //   padding: EdgeInsets.symmetric(horizontal: 15),
-                      //   child: Container(
-                      //     width: MediaQuery.of(context).size.width / 2,
-                      //     height: 2,
-                      //     color: Colors.grey,
-                      //   ),
-                      // ),
-                      // SizedBox(height: 20),
-                      // MaterialButton(
-                      //   minWidth: double.minPositive + 150,
-                      //   height: 55,
-                      //   onPressed: () {
-                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                      //   },
-                      //   color: Color(0XFF2B2B2B),
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(15),
-                      //   ),
-                      //   child: Text(
-                      //     "Folders",
-                      //     style: TextStyle(
-                      //       fontWeight: FontWeight.w600,
-                      //       fontSize: 18,
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ),
-                      // SizedBox(height: 20),
-                      // MaterialButton(
-                      //   minWidth: double.minPositive + 150,
-                      //   height: 55,
-                      //   onPressed: () {
-                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                      //   },
-                      //   color: Color(0XFF2B2B2B),
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(15),
-                      //   ),
-                      //   child: Text(
-                      //     "Trash",
-                      //     style: TextStyle(
-                      //       fontWeight: FontWeight.w600,
-                      //       fontSize: 18,
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ),
-                      // SizedBox(height: 20),
-                      // MaterialButton(
-                      //   minWidth: double.minPositive + 150,
-                      //   height: 55,
-                      //   onPressed: () {
-                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                      //   },
-                      //   color: Color(0XFF2B2B2B),
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(15),
-                      //   ),
-                      //   child: Text(
-                      //     "Help",
-                      //     style: TextStyle(
-                      //       fontWeight: FontWeight.w600,
-                      //       fontSize: 18,
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ),
+                      SizedBox(height: 20),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width / 2,
+                          height: 2,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      MaterialButton(
+                        minWidth: double.minPositive + 150,
+                        height: 55,
+                        onPressed: () {
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                        },
+                        color: Color(0XFF2B2B2B),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Text(
+                          "Folders",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      MaterialButton(
+                        minWidth: double.minPositive + 150,
+                        height: 55,
+                        onPressed: () {
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                        },
+                        color: Color(0XFF2B2B2B),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Text(
+                          "Trash",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      MaterialButton(
+                        minWidth: double.minPositive + 150,
+                        height: 55,
+                        onPressed: () {
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                        },
+                        color: Color(0XFF2B2B2B),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Text(
+                          "Help",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
