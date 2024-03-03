@@ -10,9 +10,10 @@ class mindmap_controller extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($user_id)
     {
-        $mindmaps = mindmap::select('id','title','connections', 'positions')->get();
+        //the user_id should not be retrieved from the front end like that
+        $mindmaps = mindmap::where('user_id',$user_id)->select('id','title','connections', 'positions')->get();
 
         return $mindmaps ->toJson();
     }
@@ -31,6 +32,8 @@ class mindmap_controller extends Controller
     public function store(Request $request)
     {
         mindmap::create([
+            // user_id shouldn't be from the request
+            'user_id'=> $request ->user_id,
             'title' => $request->title,
             'content' => $request->content,
             'connections' => $request->connections,
@@ -85,12 +88,15 @@ class mindmap_controller extends Controller
         mindmap::destroy($id);
     }
 
-    // private function mindmap_image($request){
+
+//for future improvments (validate and tore images)
+
+    // private function image($request){
 
     //     $new_image_name = uniqid() . '_' . $request->title . '.'.
     //     $request ->image->extension();
 
-    //     return $request -> image -> move (public_path('mindmap_images'), $new_image_name);
+    //     return $request -> image -> move (public_path('images'), $new_image_name);
 
     // }
 
