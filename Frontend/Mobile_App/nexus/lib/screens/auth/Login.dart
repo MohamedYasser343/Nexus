@@ -12,21 +12,20 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Color(0xFF747EF5),
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.arrow_back_ios_rounded,
-              size: 35,
-              color: Color(0xFF3B3084),
-            ),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Color(0xFF747EF5),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+            //Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+          },
+          icon: Icon(
+            Icons.arrow_back_ios_rounded,
+            size: 35,
+            color: Color(0xFF3B3084),
           ),
         ),
         body: Container(
@@ -245,11 +244,11 @@ class _LoginPageState extends State<LoginPage> {
             border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
-            errorStyle: const TextStyle(color: Colors.orange),
-            errorBorder: const OutlineInputBorder(
+            errorStyle: TextStyle(color: Colors.orange),
+            errorBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF747EF5)),
             ),
-            focusedErrorBorder: const OutlineInputBorder(
+            focusedErrorBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
           ),
@@ -345,11 +344,11 @@ class _LoginPageState extends State<LoginPage> {
             border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
-            errorStyle: const TextStyle(color: Colors.orange),
-            errorBorder: const OutlineInputBorder(
+            errorStyle: TextStyle(color: Colors.orange),
+            errorBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF747EF5)),
             ),
-            focusedErrorBorder: const OutlineInputBorder(
+            focusedErrorBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
             suffixIcon: IconButton(

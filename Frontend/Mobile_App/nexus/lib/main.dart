@@ -147,8 +147,6 @@ class HomePage extends StatelessWidget {
   }
 }
 /*
-this section helps me determine some things faster:
-
 icon: Icon(Icons.,
 
 MaterialButton(
@@ -162,4 +160,14 @@ MaterialButton(
 Padding(
   padding: EdgeInsets.symmetric(horizontal: 5),
 ),
+
+Padding(
+  padding: EdgeInsets.symmetric(horizontal: 15),
+  child: Container(
+    width: MediaQuery.of(context).size.width / 3 - 45,
+    height: 2,
+    color: Colors.grey,
+  ),
+),
+
 */
