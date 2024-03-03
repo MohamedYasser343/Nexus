@@ -8,11 +8,15 @@ import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
 <<<<<<< Updated upstream:Frontend/Mobile_App/nexus/lib/main.dart
 import 'package:Nexus/screens/splash/splash.dart';
+<<<<<<< HEAD:Frontend/Mobile_App/nexus/lib/screens/main.dart
 import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
 =======
 import 'package:Nexus/splash.dart';
 //import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
 >>>>>>> Stashed changes:Frontend/Mobile_App/nexus/lib/screens/main.dart
+=======
+//import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
+>>>>>>> ce8c6a6cdef16e653452c876d9b1b6c97c73f74b:Frontend/Mobile_App/nexus/lib/main.dart
 import 'dart:async'; 
 void main() {
   runApp(
@@ -28,8 +32,8 @@ void main() {
             ),
           ),
         ),
-        nextScreen: HomePage(),
         backgroundColor: Color(0xFF747EF5),
+        nextScreen: HomePage(),
         pageTransitionType: PageTransitionType.fade,
       ),
     ),
@@ -126,7 +130,7 @@ class HomePage extends StatelessWidget {
                   height: 60,
                   onPressed: () {
                     TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
+                    Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
                   },
                   color: Color(0xFF3B3084),
                   shape: RoundedRectangleBorder(
@@ -174,4 +178,5 @@ Padding(
     color: Colors.grey,
   ),
 ),
+
 */
