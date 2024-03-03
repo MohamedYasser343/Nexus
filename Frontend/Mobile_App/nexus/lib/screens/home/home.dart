@@ -184,85 +184,85 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
-                      // MaterialButton(
-                      //   minWidth: double.minPositive,
-                      //   height: 50,
-                      //   onPressed: () {
-                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                      //   },
-                      //   color: Color(0XFF2B2B2B),
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(15),
-                      //   ),
-                      //   child: Text(
-                      //     "Create New File",
-                      //     style: TextStyle(
-                      //       fontWeight: FontWeight.w600,
-                      //       fontSize: 18,
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ),
-                      // SizedBox(height: 20),
-                      // MaterialButton(
-                      //   minWidth: double.minPositive,
-                      //   height: 50,
-                      //   onPressed: () {
-                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                      //   },
-                      //   color: Color(0XFF2B2B2B),
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(15),
-                      //   ),
-                      //   child: Text(
-                      //     "Create New Folder",
-                      //     style: TextStyle(
-                      //       fontWeight: FontWeight.w600,
-                      //       fontSize: 18,
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ),
-                      // SizedBox(height: 20),
-                      // MaterialButton(
-                      //   minWidth: double.minPositive,
-                      //   height: 50,
-                      //   onPressed: () {
-                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                      //   },
-                      //   color: Color(0XFF2B2B2B),
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(15),
-                      //   ),
-                      //   child: Text(
-                      //     "Import",
-                      //     style: TextStyle(
-                      //       fontWeight: FontWeight.w600,
-                      //       fontSize: 18,
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ),
-                      // SizedBox(height: 20),
-                      // MaterialButton(
-                      //   minWidth: double.minPositive,
-                      //   height: 50,
-                      //   onPressed: () {
-                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                      //   },
-                      //   color: Color(0XFF2B2B2B),
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(15),
-                      //   ),
-                      //   child: Text(
-                      //     "Templates",
-                      //     style: TextStyle(
-                      //       fontWeight: FontWeight.w600,
-                      //       fontSize: 18,
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ),
+                      MaterialButton(
+                        minWidth: double.minPositive,
+                        height: 50,
+                        onPressed: () {
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                        },
+                        color: Color(0XFF2B2B2B),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Text(
+                          "Create New File",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      MaterialButton(
+                        minWidth: double.minPositive,
+                        height: 50,
+                        onPressed: () {
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                        },
+                        color: Color(0XFF2B2B2B),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Text(
+                          "Create New Folder",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      MaterialButton(
+                        minWidth: double.minPositive,
+                        height: 50,
+                        onPressed: () {
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                        },
+                        color: Color(0XFF2B2B2B),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Text(
+                          "Import",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      MaterialButton(
+                        minWidth: double.minPositive,
+                        height: 50,
+                        onPressed: () {
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                        },
+                        color: Color(0XFF2B2B2B),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Text(
+                          "Templates",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                       // SizedBox(height: 20),
                       // Padding(
                       //   padding: EdgeInsets.symmetric(horizontal: 15),
