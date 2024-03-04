@@ -142,11 +142,12 @@ class _LoginPageState extends State<LoginPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width / 3 - 30,
-                              child: Divider(
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 15),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width / 3 - 60,
+                                height: 2,
                                 color: Colors.grey,
-                                thickness: 2,
                               ),
                             ),
                             SizedBox(width: 15),
@@ -157,12 +158,12 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                             SizedBox(width: 15),
-                            SizedBox(
-                              width:
-                                  MediaQuery.of(context).size.width / 3 - 30,
-                              child: Divider(
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 15),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width / 3 - 60,
+                                height: 2,
                                 color: Colors.grey,
-                                thickness: 2,
                               ),
                             ),
                           ],
