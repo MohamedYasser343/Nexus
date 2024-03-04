@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, non_constant_identifier_names, prefer_typing_uninitialized_variables, prefer_const_declarations, unused_local_variable, use_super_parameters, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, camel_case_types, non_constant_identifier_names, prefer_typing_uninitialized_variables, prefer_const_declarations, unused_local_variable, use_super_parameters, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -107,7 +107,21 @@ class _HomeState extends State<Home> {
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
-                    'Add Another Account',
+                    'Folders',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                  onTap: () {
+                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                  },
+                ),
+              ),
+              PopupMenuItem(
+                child: ListTile(
+                  title: Text(
+                    'Trash',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -122,6 +136,20 @@ class _HomeState extends State<Home> {
                 child: ListTile(
                   title: Text(
                     'Settings',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                  onTap: () {
+                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                  },
+                ),
+              ),
+              PopupMenuItem(
+                child: ListTile(
+                  title: Text(
+                    'Help',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -263,75 +291,75 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 15),
-                        child: Container(
-                          width: MediaQuery.of(context).size.width / 2,
-                          height: 2,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      MaterialButton(
-                        minWidth: double.minPositive + 150,
-                        height: 55,
-                        onPressed: () {
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                        },
-                        color: Color(0XFF2B2B2B),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text(
-                          "Folders",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      MaterialButton(
-                        minWidth: double.minPositive + 150,
-                        height: 55,
-                        onPressed: () {
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                        },
-                        color: Color(0XFF2B2B2B),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text(
-                          "Trash",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      MaterialButton(
-                        minWidth: double.minPositive + 150,
-                        height: 55,
-                        onPressed: () {
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                        },
-                        color: Color(0XFF2B2B2B),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text(
-                          "Help",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                      // SizedBox(height: 20),
+                      // Padding(
+                      //   padding: EdgeInsets.symmetric(horizontal: 15),
+                      //   child: Container(
+                      //     width: MediaQuery.of(context).size.width / 2,
+                      //     height: 2,
+                      //     color: Colors.grey,
+                      //   ),
+                      // ),
+                      // SizedBox(height: 20),
+                      // MaterialButton(
+                      //   minWidth: double.minPositive + 150,
+                      //   height: 55,
+                      //   onPressed: () {
+                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                      //   },
+                      //   color: Color(0XFF2B2B2B),
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   child: Text(
+                      //     "Folders",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.w600,
+                      //       fontSize: 18,
+                      //       color: Colors.white,
+                      //     ),
+                      //   ),
+                      // ),
+                      // SizedBox(height: 20),
+                      // MaterialButton(
+                      //   minWidth: double.minPositive + 150,
+                      //   height: 55,
+                      //   onPressed: () {
+                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                      //   },
+                      //   color: Color(0XFF2B2B2B),
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   child: Text(
+                      //     "Trash",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.w600,
+                      //       fontSize: 18,
+                      //       color: Colors.white,
+                      //     ),
+                      //   ),
+                      // ),
+                      // SizedBox(height: 20),
+                      // MaterialButton(
+                      //   minWidth: double.minPositive + 150,
+                      //   height: 55,
+                      //   onPressed: () {
+                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                      //   },
+                      //   color: Color(0XFF2B2B2B),
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   child: Text(
+                      //     "Help",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.w600,
+                      //       fontSize: 18,
+                      //       color: Colors.white,
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
