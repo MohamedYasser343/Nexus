@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison, avoid_print, use_key_in_widget_constructors, use_super_parameters, prefer_final_fields
 
+import 'package:Nexus/screens/main.dart';
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/home/home.dart';
 import 'package:Nexus/screens/auth/login.dart';
@@ -49,10 +50,11 @@ class _SignupPageState extends State<SignupPage> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: const Color(0xFF747EF5),
+        backgroundColor: Color(0xFF747EF5),
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            //Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
             //Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
           },
           icon: Icon(

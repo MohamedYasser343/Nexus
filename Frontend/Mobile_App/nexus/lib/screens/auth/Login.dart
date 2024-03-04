@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, file_names, use_key_in_widget_constructors
+import 'package:Nexus/screens/main.dart';
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/auth/signup.dart';
 import 'package:Nexus/screens/home/home.dart';
@@ -18,7 +19,8 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: Color(0xFF747EF5),
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            //Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
             //Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
           },
           icon: Icon(

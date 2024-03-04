@@ -42,6 +42,7 @@ class HomePage extends StatelessWidget {
         ),
         Positioned(
           child: AppBar(
+            automaticallyImplyLeading: false,
             backgroundColor: Color(0xFF747EF5),
             elevation: 0,
           ),

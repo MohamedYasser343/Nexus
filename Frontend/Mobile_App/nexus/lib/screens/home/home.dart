@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types, non_constant_identifier_names, prefer_typing_uninitialized_variables, prefer_const_declarations, unused_local_variable, use_super_parameters, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -85,15 +87,16 @@ class _HomeState extends State<Home> {
           ),
           PopupMenuButton(
             offset: Offset(10, 50),
+            enableFeedback: true,
             icon: Icon(Icons.more_vert_rounded,
               color: Colors.white,
-              size: 25
+              size: 25,
               ),
             itemBuilder: (BuildContext context) => [
-              PopupMenuItem(
+              PopupMenuItem(//padding: EdgeInsets.symmetric(horizontal: 20),
                 child: ListTile(
                   title: Text(
-                    'My Account',
+                    '   My Account   ',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -107,7 +110,7 @@ class _HomeState extends State<Home> {
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
-                    'Folders',
+                    '   Folders   ',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -121,7 +124,7 @@ class _HomeState extends State<Home> {
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
-                    'Trash',
+                    '   Trash   ',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -135,7 +138,7 @@ class _HomeState extends State<Home> {
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
-                    'Settings',
+                    '   Settings   ',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -149,7 +152,7 @@ class _HomeState extends State<Home> {
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
-                    'Help',
+                    '   Help   ',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -163,7 +166,7 @@ class _HomeState extends State<Home> {
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
-                    'Log Out',
+                    '   Log Out   ',
                   style: TextStyle(
                       color: Colors.red,
                       fontSize: 16,
