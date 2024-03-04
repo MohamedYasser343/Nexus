@@ -5,12 +5,19 @@ import 'package:flutter/widgets.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
-
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+
+  int _selectedIndex = 0;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   bool User_has_files = false;
   bool userGender = true;
   var UserFirstName = 'User';
@@ -34,6 +41,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final userNameMassage = 'Hello, ' + UserFirstName;
     return Scaffold(
+      backgroundColor: Color(0XFF191919),
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
@@ -294,75 +302,6 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
-                      // SizedBox(height: 20),
-                      // Padding(
-                      //   padding: EdgeInsets.symmetric(horizontal: 15),
-                      //   child: Container(
-                      //     width: MediaQuery.of(context).size.width / 2,
-                      //     height: 2,
-                      //     color: Colors.grey,
-                      //   ),
-                      // ),
-                      // SizedBox(height: 20),
-                      // MaterialButton(
-                      //   minWidth: double.minPositive + 150,
-                      //   height: 55,
-                      //   onPressed: () {
-                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                      //   },
-                      //   color: Color(0XFF2B2B2B),
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(15),
-                      //   ),
-                      //   child: Text(
-                      //     "Folders",
-                      //     style: TextStyle(
-                      //       fontWeight: FontWeight.w600,
-                      //       fontSize: 18,
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ),
-                      // SizedBox(height: 20),
-                      // MaterialButton(
-                      //   minWidth: double.minPositive + 150,
-                      //   height: 55,
-                      //   onPressed: () {
-                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                      //   },
-                      //   color: Color(0XFF2B2B2B),
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(15),
-                      //   ),
-                      //   child: Text(
-                      //     "Trash",
-                      //     style: TextStyle(
-                      //       fontWeight: FontWeight.w600,
-                      //       fontSize: 18,
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ),
-                      // SizedBox(height: 20),
-                      // MaterialButton(
-                      //   minWidth: double.minPositive + 150,
-                      //   height: 55,
-                      //   onPressed: () {
-                      //     //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                      //   },
-                      //   color: Color(0XFF2B2B2B),
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(15),
-                      //   ),
-                      //   child: Text(
-                      //     "Help",
-                      //     style: TextStyle(
-                      //       fontWeight: FontWeight.w600,
-                      //       fontSize: 18,
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ),
                     ],
                   ),
                 ),
@@ -370,6 +309,38 @@ class _HomeState extends State<Home> {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            //backgroundColor: Color(0XFF191919),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+            //backgroundColor: Color(0XFF191919),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add_circle_outline_rounded),
+            label: 'Create',
+            //backgroundColor: Color(0XFF191919),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.move_to_inbox_rounded),
+            label: 'Inbox',
+            //backgroundColor: Color(0XFF191919),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        unselectedItemColor: Colors.white.withOpacity(0.5),
+        selectedItemColor: Colors.white,
+        backgroundColor: Color(0XFF191919),
       ),
     );
   }
