@@ -47,52 +47,56 @@ class _HomeState extends State<Home> {
         elevation: 0,
         toolbarHeight: 70,
         backgroundColor: Color(0XFF191919),
-        actions: <Widget>[
-          InkWell(
-            onTap: () {
-              // Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                IconButton(
-                  icon: Image(
-                    image: userImage,
+        leading: 
+        Padding(
+          padding: EdgeInsets.only(left: 0),
+          child: InkWell(
+              onTap: () {
+                // Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  IconButton(
+                    icon: Image(
+                      image: userImage,
+                    ),
+                    onPressed: () {
+                      // Handle the onPressed event
+                    },
                   ),
-                  onPressed: () {
-                    // Handle the onPressed event
-                  },
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 5),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      userNameMassage,
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white.withOpacity(0.8),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        userNameMassage,
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white.withOpacity(0.8),
+                        ),
                       ),
-                    ),
-                    Text(
-                      userEmail,
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.white.withOpacity(0.4),
+                      Text(
+                        userEmail,
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.white.withOpacity(0.4),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 92),
-          ),
+        ),
+        actions: <Widget>[
+          // Padding(
+          //   padding: EdgeInsets.symmetric(horizontal: 90),
+          // ),
           PopupMenuButton(
             offset: Offset(10, 50),
             enableFeedback: true,
@@ -214,10 +218,10 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       Container(
-                        height: MediaQuery.of(context).size.height / 3,
+                        height: MediaQuery.of(context).size.height / 4,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/No_data_male.png'),
+                            image: AssetImage('assets/no_data_male.png'),
                             fit: BoxFit.contain,
                             filterQuality: FilterQuality.high,
                           ),
@@ -317,6 +321,7 @@ class _HomeState extends State<Home> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
+            
             label: 'Home',
             //backgroundColor: Color(0XFF191919),
           ),

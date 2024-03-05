@@ -124,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                               elevation: 10,
                               onPressed: () {
                                 TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
+                                Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
                               },
                               child: Text(
                                 "Sign up",
@@ -152,14 +152,16 @@ class _LoginPageState extends State<LoginPage> {
                                 color: Colors.grey,
                               ),
                             ),
-                            SizedBox(width: 15),
+                            Padding(
+                              padding: EdgeInsets.only(left: 5),),
                             Text(
                               "or Login With",
                               style: TextStyle(
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(width: 15),
+                            Padding(
+                              padding: EdgeInsets.only(right: 5),),
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 15),
                               child: Container(
@@ -181,6 +183,8 @@ class _LoginPageState extends State<LoginPage> {
                             child: Image.asset('assets/google_icon.png'),
                           ),
                         ),
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 15),),
                       ],
                     ),
                   ),
