@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unnecessary_import, unused_import, avoid_unnecessary_containers, use_key_in_widget_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, unnecessary_import, unused_import, avoid_unnecessary_containers, use_key_in_widget_constructors, depend_on_referenced_packages
 import 'package:Nexus/screens/auth/Login.dart';
 import 'package:Nexus/screens/auth/signup.dart';
 import 'package:Nexus/screens/home/home.dart';
@@ -6,8 +6,8 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:Nexus/screens/splash/splash.dart';
-//import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
+import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
+import 'package:Nexus/splash.dart';
 import 'dart:async'; 
 void main() {
   runApp(
@@ -42,6 +42,7 @@ class HomePage extends StatelessWidget {
         ),
         Positioned(
           child: AppBar(
+            automaticallyImplyLeading: false,
             backgroundColor: Color(0xFF747EF5),
             elevation: 0,
           ),
@@ -146,15 +147,28 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+/*
+icon: Icon(Icons.,
 
-//this section helps me determine some things faster:
-//
-//icon: Icon(Icons.,
-//
-//MaterialButton(
-//  onPressed: () {
-//    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-//  },
-//   onPressed: (() => something(somewhere)),
-//   child:
-// )
+MaterialButton(
+  onPressed: () {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+  },
+  onPressed: (() => something(somewhere)),
+  child:
+)
+
+Padding(
+  padding: EdgeInsets.symmetric(horizontal: 5),
+),
+
+Padding(
+  padding: EdgeInsets.symmetric(horizontal: 15),
+  child: Container(
+    width: MediaQuery.of(context).size.width / 3 - 45,
+    height: 2,
+    color: Colors.grey,
+  ),
+),
+
+*/

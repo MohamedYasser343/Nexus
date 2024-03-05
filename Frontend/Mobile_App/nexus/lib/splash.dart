@@ -1,5 +1,5 @@
 // ignore_for_file: use_build_context_synchronously, prefer_const_constructors, unused_import, camel_case_types, sized_box_for_whitespace
-import 'package:Nexus/main.dart';
+import 'package:Nexus/screens/main.dart';
 import 'package:flutter/material.dart';
 import 'dart:async'; 
 import 'package:animated_splash_screen/animated_splash_screen.dart';

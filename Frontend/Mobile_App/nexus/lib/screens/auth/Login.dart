@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, file_names, use_key_in_widget_constructors
+import 'package:Nexus/screens/main.dart';
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/auth/signup.dart';
 import 'package:Nexus/screens/home/home.dart';
@@ -11,181 +12,182 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Color(0xFF747EF5),
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.arrow_back_ios_rounded,
-              size: 35,
-              color: Color(0xFF3B3084),
-            ),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Color(0xFF747EF5),
+        leading: IconButton(
+          onPressed: () {
+            //Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
+            //Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+          },
+          icon: Icon(
+            Icons.arrow_back_ios_rounded,
+            size: 35,
+            color: Color(0xFF3B3084),
           ),
         ),
-        body: Container(
-          padding: EdgeInsets.only(top: 60),
-          color: Color(0xFF747EF5),
-          child: Stack(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Color(0xFF453F87),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40.0),
-                    topRight: Radius.circular(40.0),
-                  ),
+      ),
+      body: Container(
+        padding: EdgeInsets.only(top: 60),
+        color: Color(0xFF747EF5),
+        child: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: Color(0xFF453F87),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40.0),
+                  topRight: Radius.circular(40.0),
                 ),
-                height: double.infinity,
-                width: double.infinity,
               ),
-              Positioned.fill(
-                child: SafeArea(
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 40),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 60),
-                            child: Text(
-                              "Welcome Back 👋",
-                              textAlign: TextAlign.center,
+              height: double.infinity,
+              width: double.infinity,
+            ),
+            Positioned.fill(
+              child: SafeArea(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 40),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(top: 60),
+                          child: Text(
+                            "Welcome Back 👋",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: 'arial',
+                              fontSize: 35,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 30),
+                        Form(
+                          key: _formKey,
+                          child: Column(
+                            children: <Widget>[
+                              buildEmailField(),
+                              SizedBox(height: 30),
+                              buildPasswordField(),
+                              SizedBox(height: 30),
+                              MaterialButton(
+                                elevation: 10,
+                                minWidth: double.infinity,
+                                height: 60,
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    Navigator.push(context,MaterialPageRoute(builder: (context) => Home(),),);
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content:
+                                            Text('Please fill in all fields'),
+                                      ),
+                                    );
+                                  }
+                                },
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                child: Text(
+                                  "Login",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 24,
+                                    color: Color(0xFF3B3084),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 10),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "Don't have an account?",
                               style: TextStyle(
-                                fontFamily: 'arial',
-                                fontSize: 35,
-                                fontWeight: FontWeight.bold,
                                 color: Colors.white,
                               ),
                             ),
-                          ),
-                          SizedBox(height: 30),
-                          Form(
-                            key: _formKey,
-                            child: Column(
-                              children: <Widget>[
-                                buildEmailField(),
-                                SizedBox(height: 30),
-                                buildPasswordField(),
-                                SizedBox(height: 30),
-                                MaterialButton(
-                                  elevation: 10,
-                                  minWidth: double.infinity,
-                                  height: 60,
-                                  onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      Navigator.push(context,MaterialPageRoute(builder: (context) => Home(),),);
-                                    } else {
-                                      ScaffoldMessenger.of(context).showSnackBar(
-                                        SnackBar(
-                                          content:
-                                              Text('Please fill in all fields'),
-                                        ),
-                                      );
-                                    }
-                                  },
-                                  color: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: Text(
-                                    "Login",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 24,
-                                      color: Color(0xFF3B3084),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 10),
-                              ],
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                "Don't have an account?",
+                            SizedBox(width: 3),
+                            MaterialButton(
+                              elevation: 10,
+                              onPressed: () {
+                                TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
+                              },
+                              child: Text(
+                                "Sign up",
                                 style: TextStyle(
+                                  fontFamily: 'arial',
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18,
                                   color: Colors.white,
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: Colors.white,
                                 ),
                               ),
-                              SizedBox(width: 3),
-                              MaterialButton(
-                                elevation: 10,
-                                onPressed: () {
-                                  TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
-                      Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
-                                },
-                                child: Text(
-                                  "Sign up",
-                                  style: TextStyle(
-                                    fontFamily: 'arial',
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                    decoration: TextDecoration.underline,
-                                    decorationColor: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width / 3 - 30,
-                                child: Divider(
-                                  color: Colors.grey,
-                                  thickness: 2,
-                                ),
-                              ),
-                              SizedBox(width: 15),
-                              Text(
-                                "or Login With",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              SizedBox(width: 15),
-                              SizedBox(
-                                width:
-                                    MediaQuery.of(context).size.width / 3 - 30,
-                                child: Divider(
-                                  color: Colors.grey,
-                                  thickness: 2,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 5),
-                          IconButton(
-                            onPressed: () {
-                              // Do something
-                            },
-                            icon: Container(
-                              width: 48,
-                              height: 48,
-                              child: Image.asset('assets/google_icon.png'),
                             ),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 15),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width / 3 - 60,
+                                height: 2,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            SizedBox(width: 15),
+                            Text(
+                              "or Login With",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            SizedBox(width: 15),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 15),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width / 3 - 60,
+                                height: 2,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 5),
+                        IconButton(
+                          onPressed: () {
+                            // Do something
+                          },
+                          icon: Container(
+                            width: 48,
+                            height: 48,
+                            child: Image.asset('assets/google_icon.png'),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -244,11 +246,11 @@ class _LoginPageState extends State<LoginPage> {
             border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
-            errorStyle: const TextStyle(color: Colors.orange),
-            errorBorder: const OutlineInputBorder(
+            errorStyle: TextStyle(color: Colors.orange),
+            errorBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF747EF5)),
             ),
-            focusedErrorBorder: const OutlineInputBorder(
+            focusedErrorBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
           ),
@@ -262,7 +264,6 @@ class _LoginPageState extends State<LoginPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
               child: Row(
@@ -290,7 +291,6 @@ class _LoginPageState extends State<LoginPage> {
               },
               child: Text(
                 "Forget Password?",
-                maxLines: 1,
                 style: TextStyle(
                   fontFamily: 'arial',
                   fontWeight: FontWeight.w600,
@@ -337,11 +337,11 @@ class _LoginPageState extends State<LoginPage> {
             border: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
-            errorStyle: const TextStyle(color: Colors.orange),
-            errorBorder: const OutlineInputBorder(
+            errorStyle: TextStyle(color: Colors.orange),
+            errorBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF747EF5)),
             ),
-            focusedErrorBorder: const OutlineInputBorder(
+            focusedErrorBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
             ),
             suffixIcon: IconButton(
