@@ -45,6 +45,7 @@ class _HomeState extends State<Home> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
+        automaticallyImplyLeading: false,
         toolbarHeight: 70,
         backgroundColor: Color(0XFF191919),
         leading: 
