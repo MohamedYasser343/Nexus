@@ -16,9 +16,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();//->references('id') ->on('users') -> onDelete('cascade');
             $table->string('title')->default('untitled');
-            $table->json('content')->nullable();
-            $table->json('connections')->nullable();
-            $table->json('positions')->unique();
+            $table->string('content')->nullable();
+            $table->string('connections')->nullable();
+            $table->string('positions')->unique();
             $table->boolean('editable')->default(true);
 
 
