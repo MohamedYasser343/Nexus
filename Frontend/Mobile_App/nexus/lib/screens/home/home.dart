@@ -346,6 +346,7 @@ class _HomeState extends State<Home> {
         unselectedItemColor: Colors.white.withOpacity(0.5),
         selectedItemColor: Colors.white,
         backgroundColor: Color(0XFF191919),
+        iconSize: 30,
       ),
     );
   }
