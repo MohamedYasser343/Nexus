@@ -372,6 +372,12 @@ class _HomeState extends State<Home> {
               //duration: Duration(milliseconds: 400),
               tabBackgroundColor: Color(0XFF535353),
               color: Colors.white,
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
               tabs: [
                 GButton(
                   icon: Icons.home,
@@ -390,12 +396,6 @@ class _HomeState extends State<Home> {
                   text: 'Inbox',
                 ),
               ],
-              selectedIndex: _selectedIndex,
-              onTabChange: (index) {
-                setState(() {
-                  _selectedIndex = index;
-                });
-              },
             ),
           ),
         ),
