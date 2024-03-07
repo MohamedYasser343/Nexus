@@ -38,6 +38,7 @@ dependencies:
   international_phone_number_field:
     git:
       url: https://github.com/adhamhaithameid/international_phone_number_field.git
+  google_nav_bar: ^5.0.6
 
 flutter_launcher_icons:
   android: true
