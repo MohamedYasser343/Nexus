@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -45,10 +46,10 @@ class _HomeState extends State<Home> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
+        automaticallyImplyLeading: false,
         toolbarHeight: 70,
         backgroundColor: Color(0XFF191919),
-        leading: 
-        Padding(
+        leading: Padding(
           padding: EdgeInsets.only(left: 0),
           child: InkWell(
               onTap: () {
@@ -314,38 +315,90 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   type: BottomNavigationBarType.fixed,
+      //   showSelectedLabels: false,
+      //   showUnselectedLabels: false,
+      //   items: const <BottomNavigationBarItem>[
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.home),
             
-            label: 'Home',
+      //       label: 'Home',
             //backgroundColor: Color(0XFF191919),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.search),
+      //       label: 'Search',
             //backgroundColor: Color(0XFF191919),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle_outline_rounded),
-            label: 'Create',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.add_circle_outline_rounded),
+      //       label: 'Create',
             //backgroundColor: Color(0XFF191919),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.move_to_inbox_rounded),
-            label: 'Inbox',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.move_to_inbox_rounded),
+      //       label: 'Inbox',
             //backgroundColor: Color(0XFF191919),
+      //     ),
+      //   ],
+      //   currentIndex: _selectedIndex,
+      //   onTap: _onItemTapped,
+      //   unselectedItemColor: Colors.white.withOpacity(0.5),
+      //   selectedItemColor: Colors.white,
+      //   backgroundColor: Color(0XFF191919),
+      //   iconSize: 30,
+      // ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Color(0XFF191919),
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: Color(0xFF747EF5).withOpacity(.2),
+            )
+          ],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            child: GNav(
+              rippleColor: Color(0XFF535353),
+              hoverColor: Color(0XFF535353),
+              gap: 8,
+              activeColor: Colors.white,
+              iconSize: 24,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              //duration: Duration(milliseconds: 400),
+              tabBackgroundColor: Color(0XFF535353),
+              color: Colors.white,
+              tabs: [
+                GButton(
+                  icon: Icons.home,
+                  text: 'Home',
+                ),
+                GButton(
+                  icon: Icons.search,
+                  text: 'Search',
+                ),
+                GButton(
+                  icon: Icons.add_circle_outline_rounded,
+                  text: 'Create',
+                ),
+                GButton(
+                  icon: Icons.move_to_inbox_rounded,
+                  text: 'Inbox',
+                ),
+              ],
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+            ),
           ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        unselectedItemColor: Colors.white.withOpacity(0.5),
-        selectedItemColor: Colors.white,
-        backgroundColor: Color(0XFF191919),
+        ),
       ),
     );
   }
