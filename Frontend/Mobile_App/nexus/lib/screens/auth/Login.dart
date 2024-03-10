@@ -16,6 +16,7 @@ class _LoginPageState extends State<LoginPage> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
+        automaticallyImplyLeading: false,
         backgroundColor: Color(0xFF747EF5),
         leading: IconButton(
           onPressed: () {

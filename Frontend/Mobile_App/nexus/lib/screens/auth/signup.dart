@@ -49,6 +49,7 @@ class _SignupPageState extends State<SignupPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Color(0xFF747EF5),
         leading: IconButton(
