@@ -122,20 +122,20 @@ class _HomeState extends State<Home> {
                   },
                 ),
               ),
-              PopupMenuItem(
-                child: ListTile(
-                  title: Text(
-                    '   Folders   ',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                  onTap: () {
-                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-                  },
-                ),
-              ),
+              // PopupMenuItem(
+              //   child: ListTile(
+              //     title: Text(
+              //       '   Folders   ',
+              //       style: TextStyle(
+              //         color: Colors.white,
+              //         fontSize: 16,
+              //       ),
+              //     ),
+              //     onTap: () {
+              //       //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+              //     },
+              //   ),
+              // ),
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
@@ -230,6 +230,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
+                      SizedBox(height: 30),
                       MaterialButton(
                         minWidth: double.minPositive,
                         height: 50,
@@ -270,45 +271,45 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       SizedBox(height: 20),
-                      MaterialButton(
-                        minWidth: double.minPositive,
-                        height: 50,
-                        onPressed: () {
-                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-                        },
-                        color: Color(0XFF2B2B2B),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text(
-                          "Import",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      MaterialButton(
-                        minWidth: double.minPositive,
-                        height: 50,
-                        onPressed: () {
-                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-                        },
-                        color: Color(0XFF2B2B2B),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text(
-                          "Templates",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                      // MaterialButton(
+                      //   minWidth: double.minPositive,
+                      //   height: 50,
+                      //   onPressed: () {
+                      //     //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                      //   },
+                      //   color: Color(0XFF2B2B2B),
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   child: Text(
+                      //     "Import",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.w600,
+                      //       fontSize: 18,
+                      //       color: Colors.white,
+                      //     ),
+                      //   ),
+                      // ),
+                      // SizedBox(height: 20),
+                      // MaterialButton(
+                      //   minWidth: double.minPositive,
+                      //   height: 50,
+                      //   onPressed: () {
+                      //     //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                      //   },
+                      //   color: Color(0XFF2B2B2B),
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   child: Text(
+                      //     "Templates",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.w600,
+                      //       fontSize: 18,
+                      //       color: Colors.white,
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
