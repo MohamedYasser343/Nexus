@@ -10,7 +10,7 @@ class mindmap extends Model
     use HasFactory;
 
     protected $fillable = [
-
+        'user_id',
         'title',
         'content',
         'connections',
@@ -18,6 +18,9 @@ class mindmap extends Model
         'editable'
 
     ];
+
+    public $table = 'mindmap';
+    public $timestamps = false;
 
     public function user()
     {

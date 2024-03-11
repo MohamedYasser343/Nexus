@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\mindmap;
 use Illuminate\Http\Request;
+use App\Models\mindmap;
 
-class mindmap_controller extends Controller
+class MindmapController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      */
     public function index($user_id)
@@ -29,11 +29,11 @@ class mindmap_controller extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request,$user_id)
     {
         mindmap::create([
             // user_id shouldn't be from the request
-            'user_id'=> $request ->user_id,
+            'user_id'=> $user_id,
             'title' => $request->title,
             'content' => $request->content,
             'connections' => $request->connections,
@@ -67,6 +67,7 @@ class mindmap_controller extends Controller
      */
     public function update(Request $request, string $id)
     {
+
         mindmap::where('id', $id)->update([
 
             'title' => $request->title,
@@ -77,7 +78,7 @@ class mindmap_controller extends Controller
 
         ]);
 
-        return redirect(route('update'));
+
     }
 
     /**
@@ -99,5 +100,4 @@ class mindmap_controller extends Controller
     //     return $request -> image -> move (public_path('images'), $new_image_name);
 
     // }
-
 }
