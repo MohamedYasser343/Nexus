@@ -3,6 +3,7 @@ import 'package:Nexus/screens/main.dart';
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/auth/signup.dart';
 import 'package:Nexus/screens/home/home.dart';
+import 'package:flutter/cupertino.dart';
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -21,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
         leading: IconButton(
           onPressed: () {
             //Navigator.pop(context);
-            Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
+            Navigator.push(context, CupertinoPageRoute(builder: (context) => HomePage()),);
             //Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
           },
           icon: Icon(
@@ -84,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                                 height: 60,
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
-                                    Navigator.push(context,MaterialPageRoute(builder: (context) => Home(),),);
+                                    Navigator.push(context,CupertinoPageRoute(builder: (context) => Home(),),);
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
@@ -125,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                               elevation: 10,
                               onPressed: () {
                                 TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
-                                Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
+                                Navigator.push(context,CupertinoPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
                               },
                               child: Text(
                                 "Sign up",
@@ -292,7 +293,7 @@ class _LoginPageState extends State<LoginPage> {
             MaterialButton(
               elevation: 10,
               onPressed: () {
-                //Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage()));
+                //Navigator.push(context,CupertinoPageRoute(builder: (context) => SignupPage()));
               },
               child: Text(
                 "Forget Password?",

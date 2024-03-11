@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison, avoid_print, use_key_in_widget_constructors, use_super_parameters, prefer_final_fields
-
+import 'package:flutter/cupertino.dart';
 import 'package:Nexus/screens/main.dart';
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/home/home.dart';
@@ -55,7 +55,7 @@ class _SignupPageState extends State<SignupPage> {
         leading: IconButton(
           onPressed: () {
             //Navigator.pop(context);
-            Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
+            Navigator.push(context, CupertinoPageRoute(builder: (context) => HomePage()),);
             //Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
           },
           icon: Icon(
@@ -144,7 +144,7 @@ class _SignupPageState extends State<SignupPage> {
                                       setState(() {
                                         _passwordsMatch = true;
                                       });
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+                                      Navigator.push(context, CupertinoPageRoute(builder: (context) => Home()));
                                     }
                                   } else {
                                     setState(() {
@@ -188,7 +188,7 @@ class _SignupPageState extends State<SignupPage> {
                           MaterialButton(
                             elevation: 10,
                             onPressed: () {
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                              Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                             },
                             child: Text(
                               "Login",

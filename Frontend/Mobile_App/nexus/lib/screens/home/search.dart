@@ -1,20 +1,21 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, non_constant_identifier_names, prefer_typing_uninitialized_variables, prefer_const_declarations, unused_local_variable, use_super_parameters, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, unnecessary_import, unused_element
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, prefer_interpolation_to_compose_strings, unnecessary_import
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:Nexus/screens/home/Inbox.dart';
-import 'package:Nexus/screens/home/Search.dart';
+import 'package:Nexus/screens/home/Home.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Search extends StatefulWidget {
+  const Search({super.key});
+
   @override
-  State<Home> createState() => _HomeState();
+  State<Search> createState() => _SearchState();
 }
 
-class _HomeState extends State<Home> {
+class _SearchState extends State<Search> {
 
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -122,20 +123,20 @@ class _HomeState extends State<Home> {
                   },
                 ),
               ),
-              // PopupMenuItem(
-              //   child: ListTile(
-              //     title: Text(
-              //       '   Folders   ',
-              //       style: TextStyle(
-              //         color: Colors.white,
-              //         fontSize: 16,
-              //       ),
-              //     ),
-              //     onTap: () {
-              //       //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-              //     },
-              //   ),
-              // ),
+              PopupMenuItem(
+                child: ListTile(
+                  title: Text(
+                    '   Folders   ',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                  onTap: () {
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                  },
+                ),
+              ),
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
@@ -199,124 +200,7 @@ class _HomeState extends State<Home> {
         ],
       ),
       body: Container(
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: Container(
-                color: Color(0xFF202020),
-              ),
-            ),
-            Positioned.fill(
-              child: SafeArea(
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Padding(padding: EdgeInsets.symmetric(vertical: 40),),
-                      Text("There is Nothing Here Yet",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 26,
-                        ),
-                      ),
-                      Container(
-                        height: MediaQuery.of(context).size.height / 4,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/no_data_male.png'),
-                            fit: BoxFit.contain,
-                            filterQuality: FilterQuality.high,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 30),
-                      MaterialButton(
-                        minWidth: double.minPositive,
-                        height: 50,
-                        onPressed: () {
-                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-                        },
-                        color: Color(0XFF2B2B2B),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text(
-                          "Create New File",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      MaterialButton(
-                        minWidth: double.minPositive,
-                        height: 50,
-                        onPressed: () {
-                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-                        },
-                        color: Color(0XFF2B2B2B),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text(
-                          "Create New Folder",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      // MaterialButton(
-                      //   minWidth: double.minPositive,
-                      //   height: 50,
-                      //   onPressed: () {
-                      //     //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-                      //   },
-                      //   color: Color(0XFF2B2B2B),
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(15),
-                      //   ),
-                      //   child: Text(
-                      //     "Import",
-                      //     style: TextStyle(
-                      //       fontWeight: FontWeight.w600,
-                      //       fontSize: 18,
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ),
-                      // SizedBox(height: 20),
-                      // MaterialButton(
-                      //   minWidth: double.minPositive,
-                      //   height: 50,
-                      //   onPressed: () {
-                      //     //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-                      //   },
-                      //   color: Color(0XFF2B2B2B),
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(15),
-                      //   ),
-                      //   child: Text(
-                      //     "Templates",
-                      //     style: TextStyle(
-                      //       fontWeight: FontWeight.w600,
-                      //       fontSize: 18,
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(

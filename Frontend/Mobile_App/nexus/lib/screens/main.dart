@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
-import 'package:Nexus/splash.dart';
+import 'package:Nexus/features/splash.dart';
 import 'dart:async'; 
+import 'package:flutter/cupertino.dart';
 void main() {
   runApp(
     MaterialApp(
@@ -70,10 +71,7 @@ class HomePage extends StatelessWidget {
                   height: 60.0,
                   color: Colors.white,
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Home()),
-                    );
+                    Navigator.push(context, CupertinoPageRoute(builder: (context) => Home()));
                   },
                   shape: RoundedRectangleBorder(
                     side: BorderSide(width: 2.0, color: Color(0xFF3B3084)),
@@ -98,7 +96,7 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginPage()),
+                      CupertinoPageRoute(builder: (context) => LoginPage()),
                     );
                   },
                   shape: RoundedRectangleBorder(
@@ -122,7 +120,7 @@ class HomePage extends StatelessWidget {
                   height: 60,
                   onPressed: () {
                     TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
-                    Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
+                    Navigator.pushReplacement(context,CupertinoPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
                   },
                   color: Color(0xFF3B3084),
                   shape: RoundedRectangleBorder(
@@ -152,7 +150,7 @@ icon: Icon(Icons.,
 
 MaterialButton(
   onPressed: () {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+    Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
   },
   onPressed: (() => something(somewhere)),
   child:
