@@ -47,9 +47,9 @@ class MindmapController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $user_id,int $id)
     {
-        $single_mindmap = mindmap::where('id',$id)->select('title','content','editable')->get();
+        $single_mindmap = mindmap::where('user_id',$user_id)->where('id',$id)->select('title','content','editable')->get();
 
         return $single_mindmap -> toJson();
     }
@@ -65,7 +65,7 @@ class MindmapController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, int $id)
     {
 
 
