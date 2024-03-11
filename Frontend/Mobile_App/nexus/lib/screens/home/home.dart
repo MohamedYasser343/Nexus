@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:Nexus/screens/home/Inbox.dart';
+import 'package:Nexus/screens/home/Search.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -315,40 +317,6 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   type: BottomNavigationBarType.fixed,
-      //   showSelectedLabels: false,
-      //   showUnselectedLabels: false,
-      //   items: const <BottomNavigationBarItem>[
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.home),
-            
-      //       label: 'Home',
-            //backgroundColor: Color(0XFF191919),
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.search),
-      //       label: 'Search',
-            //backgroundColor: Color(0XFF191919),
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.add_circle_outline_rounded),
-      //       label: 'Create',
-            //backgroundColor: Color(0XFF191919),
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.move_to_inbox_rounded),
-      //       label: 'Inbox',
-            //backgroundColor: Color(0XFF191919),
-      //     ),
-      //   ],
-      //   currentIndex: _selectedIndex,
-      //   onTap: _onItemTapped,
-      //   unselectedItemColor: Colors.white.withOpacity(0.5),
-      //   selectedItemColor: Colors.white,
-      //   backgroundColor: Color(0XFF191919),
-      //   iconSize: 30,
-      // ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Color(0XFF191919),
@@ -381,13 +349,13 @@ class _HomeState extends State<Home> {
                     Navigator.push(context, CupertinoPageRoute(builder: (context) => Home()));
                     break;
                   case 1:
-                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => SearchScreen()));
+                    Navigator.push(context, CupertinoPageRoute(builder: (context) => Search()));
                     break;
                   case 2:
                     //Navigator.push(context, CupertinoPageRoute(builder: (context) => CreateScreen()));
                     break;
                   case 3:
-                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => InboxScreen()));
+                    Navigator.push(context, CupertinoPageRoute(builder: (context) => Inbox()));
                     break;
                 }
               },
