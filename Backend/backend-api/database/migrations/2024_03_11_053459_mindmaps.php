@@ -15,7 +15,7 @@ return new class extends Migration
 
             $table->id();
             $table->foreignId('user_id')->constrained()-> onDelete('cascade');;//->references('id') ->on('users')
-            $table->string('title')->default('untitled');
+            $table->string('title')->default('untitled')->nullable();
             $table->string('content')->nullable();
             $table->string('connections')->nullable();
             $table->string('positions')->unique();

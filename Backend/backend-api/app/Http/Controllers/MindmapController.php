@@ -68,11 +68,6 @@ class MindmapController extends Controller
     public function update(Request $request, string $id)
     {
 
-        $request->validate([
-            'position' => 'required',
-            'title'=>'required'
-
-          ]);
 
         mindmap::where('id', $id)->update([
 
