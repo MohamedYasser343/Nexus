@@ -53,7 +53,7 @@ class _HomeState extends State<Home> {
           padding: EdgeInsets.only(left: 0),
           child: InkWell(
               onTap: () {
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
+                // Navigator.push(context, CupertinoPageRoute(builder: (context) => SettingsPage()));
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -116,7 +116,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                   },
                 ),
               ),
@@ -130,7 +130,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                   },
                 ),
               ),
@@ -144,7 +144,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                   },
                 ),
               ),
@@ -158,7 +158,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                   },
                 ),
               ),
@@ -172,7 +172,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                   },
                 ),
               ),
@@ -186,7 +186,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                   },
                 ),
               ),
@@ -232,7 +232,7 @@ class _HomeState extends State<Home> {
                         minWidth: double.minPositive,
                         height: 50,
                         onPressed: () {
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                         },
                         color: Color(0XFF2B2B2B),
                         shape: RoundedRectangleBorder(
@@ -252,7 +252,7 @@ class _HomeState extends State<Home> {
                         minWidth: double.minPositive,
                         height: 50,
                         onPressed: () {
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                         },
                         color: Color(0XFF2B2B2B),
                         shape: RoundedRectangleBorder(
@@ -272,7 +272,7 @@ class _HomeState extends State<Home> {
                         minWidth: double.minPositive,
                         height: 50,
                         onPressed: () {
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                         },
                         color: Color(0XFF2B2B2B),
                         shape: RoundedRectangleBorder(
@@ -292,7 +292,7 @@ class _HomeState extends State<Home> {
                         minWidth: double.minPositive,
                         height: 50,
                         onPressed: () {
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                         },
                         color: Color(0XFF2B2B2B),
                         shape: RoundedRectangleBorder(
@@ -369,15 +369,10 @@ class _HomeState extends State<Home> {
               activeColor: Colors.white,
               iconSize: 24,
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              //duration: Duration(milliseconds: 400),
               tabBackgroundColor: Color(0XFF535353),
               color: Colors.white,
               selectedIndex: _selectedIndex,
-              onTabChange: (index) {
-                setState(() {
-                  _selectedIndex = index;
-                });
-              },
+              
               tabs: [
                 GButton(
                   icon: Icons.home,
