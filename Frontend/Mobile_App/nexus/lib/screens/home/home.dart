@@ -372,7 +372,25 @@ class _HomeState extends State<Home> {
               tabBackgroundColor: Color(0XFF535353),
               color: Colors.white,
               selectedIndex: _selectedIndex,
-              
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+                switch (index) {
+                  case 0:
+                    Navigator.push(context, CupertinoPageRoute(builder: (context) => Home()));
+                    break;
+                  case 1:
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => SearchScreen()));
+                    break;
+                  case 2:
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => CreateScreen()));
+                    break;
+                  case 3:
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => InboxScreen()));
+                    break;
+                }
+              },
               tabs: [
                 GButton(
                   icon: Icons.home,
