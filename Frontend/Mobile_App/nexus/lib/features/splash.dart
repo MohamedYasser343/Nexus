@@ -1,4 +1,5 @@
 // ignore_for_file: use_build_context_synchronously, prefer_const_constructors, unused_import, camel_case_types, sized_box_for_whitespace
+import 'package:Nexus/constants/colors.dart';
 import 'package:Nexus/screens/main.dart';
 import 'package:flutter/material.dart';
 import 'dart:async'; 
@@ -16,11 +17,8 @@ class _splashState extends State<splash> {
     _navigatetohome();
   }
   _navigatetohome() async {
-    await Future.delayed(Duration(milliseconds: 3000)); // Wait for 3 seconds
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => HomePage()), // Navigate to HomePage
-    );
+    await Future.delayed(Duration(milliseconds: 3000));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
   }
   @override
   Widget build(BuildContext context) {
@@ -33,7 +31,7 @@ class _splashState extends State<splash> {
       ),
       nextScreen: Container(), // Placeholder screen
       //splashTransition: SplashTransition.rotationTransition,
-      backgroundColor: Color(0xFF747EF5),
+      backgroundColor: colors.secondary,
       //pageTransitionType: PageTransitionType.scale,
     );
   }

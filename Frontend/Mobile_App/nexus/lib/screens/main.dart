@@ -10,21 +10,20 @@ import 'package:flutter_splash_screen/flutter_splash_screen.dart';
 import 'package:Nexus/features/splash.dart';
 import 'dart:async'; 
 import 'package:flutter/cupertino.dart';
+import 'package:Nexus/constants/colors.dart';
 void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       home: AnimatedSplashScreen(
         duration: 3500,
-        splash: Expanded(
-          child: Container(
-            child: Image.asset(
-              'assets/splash_animation.gif',
-              fit: BoxFit.contain,
-            ),
+        splash: Container(
+          child: Image.asset(
+            'assets/splash.gif',
+            fit: BoxFit.cover,
           ),
         ),
-        backgroundColor: Color(0xFF747EF5),
+        backgroundColor: colors.secondary,
         nextScreen: HomePage(),
         pageTransitionType: PageTransitionType.fade,
       ),
@@ -38,13 +37,13 @@ class HomePage extends StatelessWidget {
       children: [
         Positioned.fill(
           child: Container(
-            color: Color(0xFF747EF5),
+            color: colors.secondary,
           ),
         ),
         Positioned(
           child: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: Color(0xFF747EF5),
+            backgroundColor: colors.secondary,
             elevation: 0,
           ),
         ),
@@ -58,7 +57,7 @@ class HomePage extends StatelessWidget {
                   height: MediaQuery.of(context).size.height / 4,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/nexus.png'),
+                      image: AssetImage('assets/images/nexus.png'),
                       fit: BoxFit.contain,
                       filterQuality: FilterQuality.high,
                     ),
@@ -69,19 +68,19 @@ class HomePage extends StatelessWidget {
                   elevation: 10,
                   minWidth: double.infinity,
                   height: 60.0,
-                  color: Colors.white,
+                  color: colors.lightcontainer,
                   onPressed: () {
                     Navigator.push(context, CupertinoPageRoute(builder: (context) => Home()));
                   },
                   shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 2.0, color: Color(0xFF3B3084)),
+                    side: BorderSide(width: 2.0, color: colors.primary2),
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Text(
                     "Home",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      color: Color(0xFF3B3084),
+                      color: colors.primary2,
                       fontSize: 24,
                       fontFamily: 'arial',
                     ),
@@ -92,7 +91,7 @@ class HomePage extends StatelessWidget {
                   elevation: 10,
                   minWidth: double.infinity,
                   height: 60.0,
-                  color: Colors.white,
+                  color: colors.lightcontainer,
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -100,14 +99,14 @@ class HomePage extends StatelessWidget {
                     );
                   },
                   shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 2.0, color: Color(0xFF3B3084)),
+                    side: BorderSide(width: 2.0, color: colors.primary2),
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Text(
                     "Login",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      color: Color(0xFF3B3084),
+                      color: colors.primary2,
                       fontSize: 24,
                       fontFamily: 'arial',
                     ),
@@ -122,15 +121,15 @@ class HomePage extends StatelessWidget {
                     TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
                     Navigator.pushReplacement(context,CupertinoPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
                   },
-                  color: Color(0xFF3B3084),
+                  color: colors.primary2,
                   shape: RoundedRectangleBorder(
-                    side: BorderSide(color: Colors.white),
+                    side: BorderSide(color: colors.lightcontainer),
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Text(
                     "Sign up",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: colors.textwhite,
                       fontWeight: FontWeight.w600,
                       fontSize: 24,
                       fontFamily: 'arial',

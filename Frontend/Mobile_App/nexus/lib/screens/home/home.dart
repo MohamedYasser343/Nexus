@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:Nexus/screens/home/Inbox.dart';
 import 'package:Nexus/screens/home/Search.dart';
+import 'package:Nexus/constants/colors.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -30,8 +31,8 @@ class _HomeState extends State<Home> {
 
   void initializeUserImage() {
     userImage = userGender
-        ? AssetImage('assets/male_user_pp_with_nexus.png')
-        : AssetImage('assets/female_user_pp_with_nexus.png');
+        ? AssetImage('assets/icons/male_user_pp_with_nexus.png')
+        : AssetImage('assets/icons/female_user_pp_with_nexus.png');
   }
 
   @override
@@ -44,13 +45,13 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final userNameMassage = 'Hello, ' + UserFirstName;
     return Scaffold(
-      backgroundColor: Color(0XFF191919),
+      backgroundColor: colors.primarybackground,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
         toolbarHeight: 70,
-        backgroundColor: Color(0XFF191919),
+        backgroundColor: colors.dark,
         leading: Padding(
           padding: EdgeInsets.only(left: 0),
           child: InkWell(
@@ -80,14 +81,14 @@ class _HomeState extends State<Home> {
                         userNameMassage,
                         style: TextStyle(
                           fontSize: 20,
-                          color: Colors.white.withOpacity(0.8),
+                          color: colors.textwhite.withOpacity(0.8),
                         ),
                       ),
                       Text(
                         userEmail,
                         style: TextStyle(
                           fontSize: 12,
-                          color: Colors.white.withOpacity(0.4),
+                          color: colors.textwhite.withOpacity(0.4),
                         ),
                       ),
                     ],
@@ -104,7 +105,7 @@ class _HomeState extends State<Home> {
             offset: Offset(10, 50),
             enableFeedback: true,
             icon: Icon(Icons.more_vert_rounded,
-              color: Colors.white,
+              color: colors.textwhite,
               size: 25,
               ),
             itemBuilder: (BuildContext context) => [
@@ -113,7 +114,7 @@ class _HomeState extends State<Home> {
                   title: Text(
                     '   My Account   ',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: colors.textwhite,
                       fontSize: 16,
                     ),
                   ),
@@ -127,7 +128,7 @@ class _HomeState extends State<Home> {
               //     title: Text(
               //       '   Folders   ',
               //       style: TextStyle(
-              //         color: Colors.white,
+              //         color: colors.textwhite,
               //         fontSize: 16,
               //       ),
               //     ),
@@ -141,7 +142,7 @@ class _HomeState extends State<Home> {
                   title: Text(
                     '   Trash   ',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: colors.textwhite,
                       fontSize: 16,
                     ),
                   ),
@@ -155,7 +156,7 @@ class _HomeState extends State<Home> {
                   title: Text(
                     '   Settings   ',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: colors.textwhite,
                       fontSize: 16,
                     ),
                   ),
@@ -169,7 +170,7 @@ class _HomeState extends State<Home> {
                   title: Text(
                     '   Help   ',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: colors.textwhite,
                       fontSize: 16,
                     ),
                   ),
@@ -183,7 +184,7 @@ class _HomeState extends State<Home> {
                   title: Text(
                     '   Log Out   ',
                   style: TextStyle(
-                      color: Colors.red,
+                      color: colors.textred,
                       fontSize: 16,
                     ),
                   ),
@@ -193,7 +194,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ],
-            color: Color(0xFF202020),
+            color: colors.dark,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
         ],
@@ -203,7 +204,7 @@ class _HomeState extends State<Home> {
           children: [
             Positioned.fill(
               child: Container(
-                color: Color(0xFF202020),
+                color: colors.dark,
               ),
             ),
             Positioned.fill(
@@ -216,7 +217,7 @@ class _HomeState extends State<Home> {
                       Padding(padding: EdgeInsets.symmetric(vertical: 40),),
                       Text("There is Nothing Here Yet",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: colors.textwhite,
                           fontSize: 26,
                         ),
                       ),
@@ -224,7 +225,7 @@ class _HomeState extends State<Home> {
                         height: MediaQuery.of(context).size.height / 4,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/no_data_male.png'),
+                            image: AssetImage('assets/images/no_data_male.png'),
                             fit: BoxFit.contain,
                             filterQuality: FilterQuality.high,
                           ),
@@ -237,7 +238,7 @@ class _HomeState extends State<Home> {
                         onPressed: () {
                           //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                         },
-                        color: Color(0XFF2B2B2B),
+                        color: colors.darkcontainer,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -246,7 +247,7 @@ class _HomeState extends State<Home> {
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 18,
-                            color: Colors.white,
+                            color: colors.textwhite,
                           ),
                         ),
                       ),
@@ -257,7 +258,7 @@ class _HomeState extends State<Home> {
                         onPressed: () {
                           //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                         },
-                        color: Color(0XFF2B2B2B),
+                        color: colors.darkcontainer,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -266,7 +267,7 @@ class _HomeState extends State<Home> {
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 18,
-                            color: Colors.white,
+                            color: colors.textwhite,
                           ),
                         ),
                       ),
@@ -277,7 +278,7 @@ class _HomeState extends State<Home> {
                       //   onPressed: () {
                       //     //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                       //   },
-                      //   color: Color(0XFF2B2B2B),
+                      //   color: colors.darkcontainer,
                       //   shape: RoundedRectangleBorder(
                       //     borderRadius: BorderRadius.circular(15),
                       //   ),
@@ -286,7 +287,7 @@ class _HomeState extends State<Home> {
                       //     style: TextStyle(
                       //       fontWeight: FontWeight.w600,
                       //       fontSize: 18,
-                      //       color: Colors.white,
+                      //       color: colors.textwhite,
                       //     ),
                       //   ),
                       // ),
@@ -297,7 +298,7 @@ class _HomeState extends State<Home> {
                       //   onPressed: () {
                       //     //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                       //   },
-                      //   color: Color(0XFF2B2B2B),
+                      //   color: colors.darkcontainer,
                       //   shape: RoundedRectangleBorder(
                       //     borderRadius: BorderRadius.circular(15),
                       //   ),
@@ -306,7 +307,7 @@ class _HomeState extends State<Home> {
                       //     style: TextStyle(
                       //       fontWeight: FontWeight.w600,
                       //       fontSize: 18,
-                      //       color: Colors.white,
+                      //       color: colors.textwhite,
                       //     ),
                       //   ),
                       // ),
@@ -320,11 +321,11 @@ class _HomeState extends State<Home> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Color(0XFF191919),
+          color: colors.primarybackground,
           boxShadow: [
             BoxShadow(
               blurRadius: 20,
-              color: Color(0xFF747EF5).withOpacity(.2),
+              color: colors.accent2.withOpacity(0.2),
             )
           ],
         ),
@@ -332,14 +333,14 @@ class _HomeState extends State<Home> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: GNav(
-              rippleColor: Color(0XFF535353),
-              hoverColor: Color(0XFF535353),
+              rippleColor: colors.textsecondary,
+              hoverColor: colors.textsecondary,
               gap: 8,
-              activeColor: Colors.white,
+              activeColor: colors.lightcontainer,
               iconSize: 24,
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              tabBackgroundColor: Color(0XFF535353),
-              color: Colors.white,
+              tabBackgroundColor: colors.textsecondary,
+              color: colors.lightcontainer,
               selectedIndex: _selectedIndex,
               onTabChange: (index) {
                 setState(() {
@@ -353,7 +354,7 @@ class _HomeState extends State<Home> {
                     Navigator.push(context, CupertinoPageRoute(builder: (context) => Search()));
                     break;
                   case 2:
-                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => CreateScreen()));
+                    showPopupMenu(context);
                     break;
                   case 3:
                     Navigator.push(context, CupertinoPageRoute(builder: (context) => Inbox()));
@@ -384,4 +385,42 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+}
+void showPopupMenu(BuildContext context) {
+  showMenu(
+    context: context,
+    position: RelativeRect.fromLTRB(70, 710, 0, 0),
+    items: [
+      PopupMenuItem(
+        child: ListTile(
+          title: Text(
+            'Create New File',
+            style: TextStyle(
+              color: colors.textwhite,
+              fontSize: 16,
+            ),
+          ),
+          onTap: () {
+            // Handle Create New File action
+          },
+        ),
+      ),
+      PopupMenuItem(
+        child: ListTile(
+          title: Text(
+            'Create New Folder',
+            style: TextStyle(
+              color: colors.textwhite,
+              fontSize: 16,
+            ),
+          ),
+          onTap: () {
+            // Handle Create New Folder action
+          },
+        ),
+      ),
+    ],
+    color: colors.dark,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+  );
 }
