@@ -123,20 +123,6 @@ class _SearchState extends State<Search> {
                   },
                 ),
               ),
-              // PopupMenuItem(
-              //   child: ListTile(
-              //     title: Text(
-              //       '   Folders   ',
-              //       style: TextStyle(
-              //         color: Colors.white,
-              //         fontSize: 16,
-              //       ),
-              //     ),
-              //     onTap: () {
-              //       //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-              //     },
-              //   ),
-              // ),
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
