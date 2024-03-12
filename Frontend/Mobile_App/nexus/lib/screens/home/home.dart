@@ -353,7 +353,7 @@ class _HomeState extends State<Home> {
                     Navigator.push(context, CupertinoPageRoute(builder: (context) => Search()));
                     break;
                   case 2:
-                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => CreateScreen()));
+                    showPopupMenu(context);
                     break;
                   case 3:
                     Navigator.push(context, CupertinoPageRoute(builder: (context) => Inbox()));
@@ -384,4 +384,42 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+}
+void showPopupMenu(BuildContext context) {
+  showMenu(
+    context: context,
+    position: RelativeRect.fromLTRB(70, 710, 0, 0),
+    items: [
+      PopupMenuItem(
+        child: ListTile(
+          title: Text(
+            'Create New File',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+          ),
+          onTap: () {
+            // Handle Create New File action
+          },
+        ),
+      ),
+      PopupMenuItem(
+        child: ListTile(
+          title: Text(
+            'Create New Folder',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+          ),
+          onTap: () {
+            // Handle Create New Folder action
+          },
+        ),
+      ),
+    ],
+    color: Color(0xFF202020),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+  );
 }

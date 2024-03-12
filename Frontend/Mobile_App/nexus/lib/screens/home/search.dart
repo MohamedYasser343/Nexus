@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, prefer_interpolation_to_compose_strings, unnecessary_import
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, prefer_interpolation_to_compose_strings, unnecessary_import, prefer_const_literals_to_create_immutables
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -123,20 +123,20 @@ class _SearchState extends State<Search> {
                   },
                 ),
               ),
-              PopupMenuItem(
-                child: ListTile(
-                  title: Text(
-                    '   Folders   ',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                  onTap: () {
-                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-                  },
-                ),
-              ),
+              // PopupMenuItem(
+              //   child: ListTile(
+              //     title: Text(
+              //       '   Folders   ',
+              //       style: TextStyle(
+              //         color: Colors.white,
+              //         fontSize: 16,
+              //       ),
+              //     ),
+              //     onTap: () {
+              //       //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+              //     },
+              //   ),
+              // ),
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
@@ -237,7 +237,7 @@ class _SearchState extends State<Search> {
                     Navigator.push(context, CupertinoPageRoute(builder: (context) => Search()));
                     break;
                   case 2:
-                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => CreateScreen()));
+                    showPopupMenu(context);
                     break;
                   case 3:
                     Navigator.push(context, CupertinoPageRoute(builder: (context) => Inbox()));
@@ -268,4 +268,42 @@ class _SearchState extends State<Search> {
       ),
     );
   }
+}
+void showPopupMenu(BuildContext context) {
+  showMenu(
+    context: context,
+    position: RelativeRect.fromLTRB(70, 710, 0, 0),
+    items: [
+      PopupMenuItem(
+        child: ListTile(
+          title: Text(
+            'Create New File',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+          ),
+          onTap: () {
+            // Handle Create New File action
+          },
+        ),
+      ),
+      PopupMenuItem(
+        child: ListTile(
+          title: Text(
+            'Create New Folder',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+          ),
+          onTap: () {
+            // Handle Create New Folder action
+          },
+        ),
+      ),
+    ],
+    color: Color(0xFF202020),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+  );
 }

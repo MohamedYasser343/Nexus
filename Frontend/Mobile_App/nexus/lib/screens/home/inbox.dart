@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, unnecessary_import, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, unnecessary_import, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -43,64 +43,35 @@ class _InboxState extends State<Inbox> {
 
   @override
   Widget build(BuildContext context) {
-    final userNameMassage = 'Hello, ' + UserFirstName;
     return Scaffold(
       backgroundColor: Color(0XFF191919),
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
-        toolbarHeight: 70,
         backgroundColor: Color(0XFF191919),
-        leading: Padding(
-          padding: EdgeInsets.only(left: 0),
-          child: InkWell(
-              onTap: () {
-                // Navigator.push(context, CupertinoPageRoute(builder: (context) => SettingsPage()));
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  IconButton(
-                    icon: Image(
-                      image: userImage,
-                    ),
-                    onPressed: () {
-                      // Handle the onPressed event
-                    },
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        userNameMassage,
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white.withOpacity(0.8),
-                        ),
-                      ),
-                      Text(
-                        userEmail,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.white.withOpacity(0.4),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+        title: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.keyboard_arrow_down_rounded,
+                color: Colors.white,
+                size: 34,
               ),
-            ),
+              Text(
+                'Inbox',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'arial',
+                  fontSize: 32,
+                ),
+              ),
+            ],
+          ),
         ),
         actions: <Widget>[
-          // Padding(
-          //   padding: EdgeInsets.symmetric(horizontal: 90),
-          // ),
           PopupMenuButton(
             offset: Offset(10, 50),
             enableFeedback: true,
@@ -123,20 +94,20 @@ class _InboxState extends State<Inbox> {
                   },
                 ),
               ),
-              PopupMenuItem(
-                child: ListTile(
-                  title: Text(
-                    '   Folders   ',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                  onTap: () {
-                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-                  },
-                ),
-              ),
+              // PopupMenuItem(
+              //   child: ListTile(
+              //     title: Text(
+              //       '   Folders   ',
+              //       style: TextStyle(
+              //         color: Colors.white,
+              //         fontSize: 16,
+              //       ),
+              //     ),
+              //     onTap: () {
+              //       //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+              //     },
+              //   ),
+              // ),
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
@@ -237,7 +208,7 @@ class _InboxState extends State<Inbox> {
                     Navigator.push(context, CupertinoPageRoute(builder: (context) => Search()));
                     break;
                   case 2:
-                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => CreateScreen()));
+                    showPopupMenu(context);
                     break;
                   case 3:
                     Navigator.push(context, CupertinoPageRoute(builder: (context) => Inbox()));
@@ -268,4 +239,42 @@ class _InboxState extends State<Inbox> {
       ),
     );
   }
+}
+void showPopupMenu(BuildContext context) {
+  showMenu(
+    context: context,
+    position: RelativeRect.fromLTRB(70, 710, 0, 0),
+    items: [
+      PopupMenuItem(
+        child: ListTile(
+          title: Text(
+            'Create New File',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+          ),
+          onTap: () {
+            // Handle Create New File action
+          },
+        ),
+      ),
+      PopupMenuItem(
+        child: ListTile(
+          title: Text(
+            'Create New Folder',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+          ),
+          onTap: () {
+            // Handle Create New Folder action
+          },
+        ),
+      ),
+    ],
+    color: Color(0xFF202020),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+  );
 }
