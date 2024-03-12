@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:Nexus/screens/home/Home.dart';
 import 'package:Nexus/screens/home/Search.dart';
+import 'package:Nexus/constants/colors.dart';
 
 class Inbox extends StatefulWidget {
   const Inbox({super.key});
@@ -31,8 +32,8 @@ class _InboxState extends State<Inbox> {
 
   void initializeUserImage() {
     userImage = userGender
-        ? AssetImage('assets/male_user_pp_with_nexus.png')
-        : AssetImage('assets/female_user_pp_with_nexus.png');
+        ? AssetImage('assets/icons/male_user_pp_with_nexus.png')
+        : AssetImage('assets/icons/female_user_pp_with_nexus.png');
   }
 
   @override
@@ -44,12 +45,12 @@ class _InboxState extends State<Inbox> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFF191919),
+      backgroundColor: colors.primarybackground,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
-        backgroundColor: Color(0XFF191919),
+        backgroundColor: colors.primarybackground,
         title: Container(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -57,13 +58,13 @@ class _InboxState extends State<Inbox> {
             children: [
               Icon(
                 Icons.keyboard_arrow_down_rounded,
-                color: Colors.white,
+                color: colors.textwhite,
                 size: 34,
               ),
               Text(
                 'Inbox',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: colors.textwhite,
                   fontFamily: 'arial',
                   fontSize: 32,
                 ),
@@ -76,7 +77,7 @@ class _InboxState extends State<Inbox> {
             offset: Offset(10, 50),
             enableFeedback: true,
             icon: Icon(Icons.more_vert_rounded,
-              color: Colors.white,
+              color: colors.textwhite,
               size: 25,
               ),
             itemBuilder: (BuildContext context) => [
@@ -85,7 +86,7 @@ class _InboxState extends State<Inbox> {
                   title: Text(
                     '   My Account   ',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: colors.textwhite,
                       fontSize: 16,
                     ),
                   ),
@@ -99,7 +100,7 @@ class _InboxState extends State<Inbox> {
               //     title: Text(
               //       '   Folders   ',
               //       style: TextStyle(
-              //         color: Colors.white,
+              //         color: colors.textwhite,
               //         fontSize: 16,
               //       ),
               //     ),
@@ -113,7 +114,7 @@ class _InboxState extends State<Inbox> {
                   title: Text(
                     '   Trash   ',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: colors.textwhite,
                       fontSize: 16,
                     ),
                   ),
@@ -127,7 +128,7 @@ class _InboxState extends State<Inbox> {
                   title: Text(
                     '   Settings   ',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: colors.textwhite,
                       fontSize: 16,
                     ),
                   ),
@@ -141,7 +142,7 @@ class _InboxState extends State<Inbox> {
                   title: Text(
                     '   Help   ',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: colors.textwhite,
                       fontSize: 16,
                     ),
                   ),
@@ -155,7 +156,7 @@ class _InboxState extends State<Inbox> {
                   title: Text(
                     '   Log Out   ',
                   style: TextStyle(
-                      color: Colors.red,
+                      color: colors.textred,
                       fontSize: 16,
                     ),
                   ),
@@ -165,21 +166,59 @@ class _InboxState extends State<Inbox> {
                 ),
               ),
             ],
-            color: Color(0xFF202020),
+            color: colors.dark,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
         ],
       ),
       body: Container(
-
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Container(
+                color: colors.dark,
+              ),
+            ),
+            Positioned.fill(
+              child: SafeArea(
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(padding: EdgeInsets.symmetric(vertical: 40),),
+                      Text("There is No Notification Yet",
+                        style: TextStyle(
+                          color: colors.textwhite,
+                          fontSize: 26,
+                        ),
+                      ),
+                      SizedBox(height: 30),
+                      Container(
+                        height: MediaQuery.of(context).size.height / 4,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/no_notification.png'),
+                            fit: BoxFit.contain,
+                            filterQuality: FilterQuality.high,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Color(0XFF191919),
+          color: colors.primarybackground,
           boxShadow: [
             BoxShadow(
               blurRadius: 20,
-              color: Color(0xFF747EF5).withOpacity(.2),
+              color: colors.accent2.withOpacity(.2),
             )
           ],
         ),
@@ -187,14 +226,14 @@ class _InboxState extends State<Inbox> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: GNav(
-              rippleColor: Color(0XFF535353),
-              hoverColor: Color(0XFF535353),
+              rippleColor: colors.textsecondary,
+              hoverColor: colors.textsecondary,
               gap: 8,
-              activeColor: Colors.white,
+              activeColor: colors.textwhite,
               iconSize: 24,
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              tabBackgroundColor: Color(0XFF535353),
-              color: Colors.white,
+              tabBackgroundColor: colors.textsecondary,
+              color: colors.textwhite,
               selectedIndex: _selectedIndex,
               onTabChange: (index) {
                 setState(() {
@@ -250,7 +289,7 @@ void showPopupMenu(BuildContext context) {
           title: Text(
             'Create New File',
             style: TextStyle(
-              color: Colors.white,
+              color: colors.textwhite,
               fontSize: 16,
             ),
           ),
@@ -264,7 +303,7 @@ void showPopupMenu(BuildContext context) {
           title: Text(
             'Create New Folder',
             style: TextStyle(
-              color: Colors.white,
+              color: colors.textwhite,
               fontSize: 16,
             ),
           ),
@@ -274,7 +313,7 @@ void showPopupMenu(BuildContext context) {
         ),
       ),
     ],
-    color: Color(0xFF202020),
+    color: colors.dark,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
   );
 }
