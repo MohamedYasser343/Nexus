@@ -52,7 +52,7 @@ class _SignupPageState extends State<SignupPage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: colors.secondary,
+        backgroundColor: colors.accent2,
         leading: IconButton(
           onPressed: () {
             //Navigator.pop(context);
@@ -68,7 +68,7 @@ class _SignupPageState extends State<SignupPage> {
       ),
       body: Container(
         padding: EdgeInsets.only(top: 30),
-        color: colors.secondary,
+        color: colors.accent2,
         child: Stack(
           children: [
             Container(
