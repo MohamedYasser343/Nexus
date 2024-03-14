@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, prefer_interpolation_to_compose_strings, unnecessary_import, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, prefer_interpolation_to_compose_strings, unnecessary_import, prefer_const_literals_to_create_immutables, depend_on_referenced_packages, avoid_unnecessary_containers
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -6,6 +6,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:Nexus/screens/home/Inbox.dart';
 import 'package:Nexus/screens/home/Home.dart';
 import 'package:Nexus/constants/colors.dart';
+import 'package:cupertino_icons/cupertino_icons.dart';
 
 class Search extends StatefulWidget {
   const Search({super.key});
@@ -23,6 +24,20 @@ class _SearchState extends State<Search> {
     });
   }
 
+late TextEditingController textController;
+@override
+  void initState() {
+    super.initState();
+    textController = TextEditingController();
+    initializeUserImage();
+  }
+
+  @override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
+  }
+
   bool User_has_files = false;
   bool userGender = true;
   var UserFirstName = 'User';
@@ -34,12 +49,6 @@ class _SearchState extends State<Search> {
     userImage = userGender
         ? AssetImage('assets/icons/male_user_pp_with_nexus.png')
         : AssetImage('assets/icons/female_user_pp_with_nexus.png');
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    initializeUserImage();
   }
 
   @override
@@ -186,8 +195,31 @@ class _SearchState extends State<Search> {
           ),
         ],
       ),
-      body: Container(
+      body: Column(
+        children: [
+          Container(
+            child: Padding(
+              padding: EdgeInsets.only(top: 30, bottom: 16, left: 30,right: 30),
+              child: CupertinoSearchTextField(
+                style: TextStyle(color: colors.textwhite) ,
+                prefixIcon: Icon(CupertinoIcons.search,
+                color: colors.divider,),
+                suffixIcon: Icon(CupertinoIcons.xmark_circle_fill,
+                color: colors.divider,),
+                backgroundColor: colors.darkcontainer,
+                controller: textController,
+                placeholder: 'Search',
+                placeholderStyle: TextStyle(
+                  color: colors.divider
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 10,),
+          Container(
 
+          )
+        ],
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
