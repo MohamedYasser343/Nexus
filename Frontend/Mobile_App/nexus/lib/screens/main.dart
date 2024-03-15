@@ -23,7 +23,7 @@ void main() {
             fit: BoxFit.cover,
           ),
         ),
-        backgroundColor: colors.secondary,
+        backgroundColor: colors.accent2,
         nextScreen: HomePage(),
         pageTransitionType: PageTransitionType.fade,
       ),
@@ -37,13 +37,13 @@ class HomePage extends StatelessWidget {
       children: [
         Positioned.fill(
           child: Container(
-            color: colors.secondary,
+            color: colors.accent2,
           ),
         ),
         Positioned(
           child: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: colors.secondary,
+            backgroundColor: colors.accent2,
             elevation: 0,
           ),
         ),

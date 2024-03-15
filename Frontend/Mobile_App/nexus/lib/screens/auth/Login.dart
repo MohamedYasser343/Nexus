@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
-        backgroundColor: colors.secondary,
+        backgroundColor: colors.accent2,
         leading: IconButton(
           onPressed: () {
             //Navigator.pop(context);
@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: Container(
         padding: EdgeInsets.only(top: 60),
-        color: colors.secondary,
+        color: colors.accent2,
         child: Stack(
           children: [
             Container(
