@@ -45,13 +45,13 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final userNameMassage = 'Hello, ' + UserFirstName;
     return Scaffold(
-      backgroundColor: colors.primarybackground,
+      backgroundColor: colors.dark,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
         toolbarHeight: 70,
-        backgroundColor: colors.dark,
+        backgroundColor: colors.primarybackground,
         leading: Padding(
           padding: EdgeInsets.only(left: 0),
           child: InkWell(

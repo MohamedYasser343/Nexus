@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, prefer_interpolation_to_compose_strings, unnecessary_import, prefer_const_literals_to_create_immutables, depend_on_referenced_packages, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, prefer_interpolation_to_compose_strings, unnecessary_import, prefer_const_literals_to_create_immutables, depend_on_referenced_packages, avoid_unnecessary_containers, unused_import, unused_element
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -196,6 +196,8 @@ late TextEditingController textController;
         ],
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
             child: Padding(
@@ -215,9 +217,70 @@ late TextEditingController textController;
               ),
             ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 10),
           Container(
-
+            child: Text("Try Searching For: ",
+              style: TextStyle(
+                color: colors.textwhite,
+                fontFamily: "arial",
+                fontSize: 26,
+                fontWeight: FontWeight.w500
+              ),
+            ),
+          ),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment:MainAxisAlignment.center,
+            children: [
+              Container(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5),
+                  child: MaterialButton(
+                    minWidth: double.minPositive,
+                    height: 50,
+                    onPressed: () {
+                      //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                    },
+                    color: colors.darkcontainer,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Text(
+                      "Create New File",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                        color: colors.textwhite,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            Container(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 5),
+                child: MaterialButton(
+                  minWidth: double.minPositive,
+                  height: 50,
+                  onPressed: () {
+                      //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                    },
+                  color: colors.darkcontainer,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Text(
+                    "Create New File",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                      color: colors.textwhite,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            ]
           )
         ],
       ),

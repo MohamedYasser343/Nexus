@@ -45,7 +45,7 @@ class _InboxState extends State<Inbox> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colors.primarybackground,
+      backgroundColor: colors.dark,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
