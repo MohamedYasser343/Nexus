@@ -104,7 +104,7 @@ class _HomeState extends State<Home> {
           PopupMenuButton(
             offset: Offset(10, 50),
             enableFeedback: true,
-            icon: Icon(Icons.more_vert_rounded,
+            icon: Icon(CupertinoIcons.ellipsis_vertical,
               color: colors.textwhite,
               size: 25,
               ),
@@ -363,19 +363,19 @@ class _HomeState extends State<Home> {
               },
               tabs: [
                 GButton(
-                  icon: Icons.home,
+                  icon: CupertinoIcons.home,
                   text: 'Home',
                 ),
                 GButton(
-                  icon: Icons.search,
+                  icon: CupertinoIcons.search,
                   text: 'Search',
                 ),
                 GButton(
-                  icon: Icons.add_circle_outline_rounded,
+                  icon: CupertinoIcons.plus_circle,
                   text: 'Create',
                 ),
                 GButton(
-                  icon: Icons.move_to_inbox_rounded,
+                  icon: CupertinoIcons.tray_arrow_down,
                   text: 'Inbox',
                 ),
               ],
