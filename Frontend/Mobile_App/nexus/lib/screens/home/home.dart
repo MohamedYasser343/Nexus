@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, non_constant_identifier_names, prefer_typing_uninitialized_variables, prefer_const_declarations, unused_local_variable, use_super_parameters, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, unnecessary_import, unused_element
+// ignore_for_file: prefer_const_constructors, camel_case_types, non_constant_identifier_names, prefer_typing_uninitialized_variables, prefer_const_declarations, unused_local_variable, use_super_parameters, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, unnecessary_import, unused_element, sort_child_properties_last
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -52,51 +52,45 @@ class _HomeState extends State<Home> {
         automaticallyImplyLeading: false,
         toolbarHeight: 70,
         backgroundColor: colors.primarybackground,
-        leading: Padding(
-          padding: EdgeInsets.only(left: 0),
-          child: InkWell(
-              onTap: () {
-                // Navigator.push(context, CupertinoPageRoute(builder: (context) => SettingsPage()));
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  IconButton(
-                    icon: Image(
-                      image: userImage,
+        leading: 
+          InkWell(
+            onTap: () {
+              // Navigator.push(context, CupertinoPageRoute(builder: (context) => SettingsPage()));
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 28,
+                  backgroundImage: userImage,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      userNameMassage,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: colors.textwhite.withOpacity(0.8),
+                      ),
                     ),
-                    onPressed: () {
-                      // Handle the onPressed event
-                    },
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        userNameMassage,
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: colors.textwhite.withOpacity(0.8),
-                        ),
+                    Text(
+                      userEmail,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: colors.textwhite.withOpacity(0.4),
                       ),
-                      Text(
-                        userEmail,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: colors.textwhite.withOpacity(0.4),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-        ),
+          ),
         actions: <Widget>[
           // Padding(
           //   padding: EdgeInsets.symmetric(horizontal: 90),
@@ -424,3 +418,26 @@ void showPopupMenu(BuildContext context) {
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
   );
 }
+// Card( 
+//   color: Colors.transparent,
+//   elevation: 0,
+//   child: ListTile(
+//     leading: CircleAvatar(
+//       radius: 28,
+//       backgroundImage: userImage,
+//     ),
+//     title: Text(userNameMassage,
+//       style: TextStyle(
+//         fontSize: 20,
+//         color: colors.textwhite.withOpacity(0.8),
+//       ),
+//     ),
+//     subtitle: Text(
+//       userEmail,
+//       style: TextStyle(
+//         fontSize: 12,
+//         color: colors.textwhite.withOpacity(0.4),
+//       ),
+//     ),
+//   ),
+// ),
