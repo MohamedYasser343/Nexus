@@ -43,7 +43,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final userNameMassage = 'Hello, ' + UserFirstName;
     return Scaffold(
       backgroundColor: colors.dark,
       resizeToAvoidBottomInset: false,
@@ -66,12 +65,25 @@ class _HomeState extends State<Home> {
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
-                  userNameMassage,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: colors.textwhite.withOpacity(0.8),
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Hello, ' ,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: colors.textwhite.withOpacity(0.8),
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    Text(
+                      UserFirstName,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: colors.textwhite.withOpacity(0.8),
+                      ),
+                    ),
+                  ]
                 ),
                 Text(
                   userEmail,
@@ -85,9 +97,6 @@ class _HomeState extends State<Home> {
           ],
         ),
         actions: <Widget>[
-          // Padding(
-          //   padding: EdgeInsets.symmetric(horizontal: 90),
-          // ),
           PopupMenuButton(
             offset: Offset(10, 50),
             enableFeedback: true,
