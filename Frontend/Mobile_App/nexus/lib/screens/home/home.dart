@@ -67,9 +67,10 @@ class _HomeState extends State<Home> {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'Hello, ' ,
+                      ' Hello,  ' ,
                       style: TextStyle(
                         fontSize: 20,
                         color: colors.textwhite.withOpacity(0.8),
