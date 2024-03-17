@@ -52,45 +52,38 @@ class _HomeState extends State<Home> {
         automaticallyImplyLeading: false,
         toolbarHeight: 70,
         backgroundColor: colors.primarybackground,
-        leading: 
-          InkWell(
-            onTap: () {
-              // Navigator.push(context, CupertinoPageRoute(builder: (context) => SettingsPage()));
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 28,
+              backgroundImage: userImage,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  radius: 28,
-                  backgroundImage: userImage,
+                Text(
+                  userNameMassage,
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: colors.textwhite.withOpacity(0.8),
+                  ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 5),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      userNameMassage,
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: colors.textwhite.withOpacity(0.8),
-                      ),
-                    ),
-                    Text(
-                      userEmail,
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: colors.textwhite.withOpacity(0.4),
-                      ),
-                    ),
-                  ],
+                Text(
+                  userEmail,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: colors.textwhite.withOpacity(0.4),
+                  ),
                 ),
               ],
             ),
-          ),
+          ],
+        ),
         actions: <Widget>[
           // Padding(
           //   padding: EdgeInsets.symmetric(horizontal: 90),
