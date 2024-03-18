@@ -57,7 +57,56 @@ class _HomeState extends State<Home> {
             return IconButton(
               padding: EdgeInsets.only(left: 15, right: 0),
               onPressed: (){
-                
+                showMenu(
+                  color: colors.dark,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  context: context,
+                  position: RelativeRect.fromLTRB(0, 100, 10, 0),
+                  items: [
+                    PopupMenuItem(
+                      child: ListTile(
+                        title: Text(
+                          '   Manage Your Account   ',
+                          style: TextStyle(
+                            color: colors.textwhite,
+                            fontSize: 16,
+                          ),
+                        ),
+                        onTap: () {
+                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                        },
+                      ),
+                    ),
+                    PopupMenuItem(
+                      child: ListTile(
+                        title: Text(
+                          '   Add Another Account   ',
+                          style: TextStyle(
+                            color: colors.textwhite,
+                            fontSize: 16,
+                          ),
+                        ),
+                        onTap: () {
+                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                        },
+                      ),
+                    ),
+                    PopupMenuItem(
+                      child: ListTile(
+                        title: Text(
+                          '   Log Out   ',
+                        style: TextStyle(
+                            color: colors.textred,
+                            fontSize: 16,
+                          ),
+                        ),
+                        onTap: () {
+                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                        },
+                      ),
+                    ),
+                  ],
+                );
               },
               icon: Image(
                   image: userImage,
