@@ -47,56 +47,60 @@ class _HomeState extends State<Home> {
       backgroundColor: colors.dark,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        leadingWidth: 70,
         elevation: 0,
         automaticallyImplyLeading: false,
         toolbarHeight: 70,
         backgroundColor: colors.primarybackground,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 28,
-              backgroundImage: userImage,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      ' Hello,  ' ,
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: colors.textwhite.withOpacity(0.8),
-                        fontWeight: FontWeight.bold
-                      ),
-                    ),
-                    Text(
-                      UserFirstName,
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: colors.textwhite.withOpacity(0.8),
-                      ),
-                    ),
-                  ]
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              padding: EdgeInsets.only(left: 15, right: 0),
+              onPressed: (){
+                
+              },
+              icon: Image(
+                  image: userImage,
+                  filterQuality: FilterQuality.high,
+                  fit: BoxFit.fill,
                 ),
-                Text(
-                  userEmail,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: colors.textwhite.withOpacity(0.4),
-                  ),
-                ),
-              ],
-            ),
-          ],
+            );
+          },
         ),
+        title: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    ' Hello,  ' ,
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: colors.textwhite.withOpacity(0.8),
+                      fontWeight: FontWeight.bold
+                    ),
+                  ),
+                  Text(
+                    UserFirstName,
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: colors.textwhite.withOpacity(0.8),
+                    ),
+                  ),
+                ]
+              ),
+              Text(
+                userEmail,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: colors.textwhite.withOpacity(0.4),
+                ),
+              ),
+            ],
+          ),
         actions: <Widget>[
           PopupMenuButton(
             offset: Offset(10, 50),
@@ -106,48 +110,6 @@ class _HomeState extends State<Home> {
               size: 25,
               ),
             itemBuilder: (BuildContext context) => [
-              PopupMenuItem(//padding: EdgeInsets.symmetric(horizontal: 20),
-                child: ListTile(
-                  title: Text(
-                    '   My Account   ',
-                    style: TextStyle(
-                      color: colors.textwhite,
-                      fontSize: 16,
-                    ),
-                  ),
-                  onTap: () {
-                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-                  },
-                ),
-              ),
-              // PopupMenuItem(
-              //   child: ListTile(
-              //     title: Text(
-              //       '   Folders   ',
-              //       style: TextStyle(
-              //         color: colors.textwhite,
-              //         fontSize: 16,
-              //       ),
-              //     ),
-              //     onTap: () {
-              //       //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-              //     },
-              //   ),
-              // ),
-              PopupMenuItem(
-                child: ListTile(
-                  title: Text(
-                    '   Trash   ',
-                    style: TextStyle(
-                      color: colors.textwhite,
-                      fontSize: 16,
-                    ),
-                  ),
-                  onTap: () {
-                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-                  },
-                ),
-              ),
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
@@ -165,7 +127,7 @@ class _HomeState extends State<Home> {
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
-                    '   Help   ',
+                    '   Trash   ',
                     style: TextStyle(
                       color: colors.textwhite,
                       fontSize: 16,
@@ -179,9 +141,9 @@ class _HomeState extends State<Home> {
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
-                    '   Log Out   ',
-                  style: TextStyle(
-                      color: colors.textred,
+                    '   Help   ',
+                    style: TextStyle(
+                      color: colors.textwhite,
                       fontSize: 16,
                     ),
                   ),
