@@ -1,6 +1,6 @@
 <div align="center">
     <div>
-        <img src="https://github.com/MohamedYasser343/Nexus/assets/splash_animation.gif" alt="Nexus" style="width: 100px; height: auto; " />
+        <img src="https://github.com/MohamedYasser343/Nexus/blob/main/assets/splash_animation.gif" alt="Nexus" style="width: 100px; height: auto; " />
     </div>
     <h1>Nexus</h1>
     <h3>Nuxus: Bridging the gaps, building the future</h3>
