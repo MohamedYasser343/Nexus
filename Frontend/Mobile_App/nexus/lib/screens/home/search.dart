@@ -16,7 +16,6 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-
   int _selectedIndex = 1;
   void _onItemTapped(int index) {
     setState(() {
@@ -24,8 +23,8 @@ class _SearchState extends State<Search> {
     });
   }
 
-late TextEditingController textController;
-@override
+  late TextEditingController textController;
+  @override
   void initState() {
     super.initState();
     textController = TextEditingController();
@@ -65,47 +64,47 @@ late TextEditingController textController;
         leading: Padding(
           padding: EdgeInsets.only(left: 0),
           child: InkWell(
-              onTap: () {
-                // Navigator.push(context, CupertinoPageRoute(builder: (context) => SettingsPage()));
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  IconButton(
-                    icon: Image(
-                      image: userImage,
+            onTap: () {
+              // Navigator.push(context, CupertinoPageRoute(builder: (context) => SettingsPage()));
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: Image(
+                    image: userImage,
+                  ),
+                  onPressed: () {
+                    // Handle the onPressed event
+                  },
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      userNameMassage,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: colors.textwhite.withOpacity(0.8),
+                      ),
                     ),
-                    onPressed: () {
-                      // Handle the onPressed event
-                    },
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        userNameMassage,
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: colors.textwhite.withOpacity(0.8),
-                        ),
+                    Text(
+                      userEmail,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: colors.textwhite.withOpacity(0.4),
                       ),
-                      Text(
-                        userEmail,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: colors.textwhite.withOpacity(0.4),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
+          ),
         ),
         actions: <Widget>[
           // Padding(
@@ -114,12 +113,14 @@ late TextEditingController textController;
           PopupMenuButton(
             offset: Offset(10, 50),
             enableFeedback: true,
-            icon: Icon(Icons.more_vert_rounded,
+            icon: Icon(
+              Icons.more_vert_rounded,
               color: colors.textwhite,
               size: 25,
-              ),
+            ),
             itemBuilder: (BuildContext context) => [
-              PopupMenuItem(//padding: EdgeInsets.symmetric(horizontal: 20),
+              PopupMenuItem(
+                //padding: EdgeInsets.symmetric(horizontal: 20),
                 child: ListTile(
                   title: Text(
                     '   My Account   ',
@@ -179,7 +180,7 @@ late TextEditingController textController;
                 child: ListTile(
                   title: Text(
                     '   Log Out   ',
-                  style: TextStyle(
+                    style: TextStyle(
                       color: colors.textred,
                       fontSize: 16,
                     ),
@@ -191,7 +192,8 @@ late TextEditingController textController;
               ),
             ],
             color: colors.dark,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
         ],
       ),
@@ -201,61 +203,38 @@ late TextEditingController textController;
         children: [
           Container(
             child: Padding(
-              padding: EdgeInsets.only(top: 30, bottom: 16, left: 30,right: 30),
+              padding:
+                  EdgeInsets.only(top: 30, bottom: 16, left: 30, right: 30),
               child: CupertinoSearchTextField(
-                style: TextStyle(color: colors.textwhite) ,
-                prefixIcon: Icon(CupertinoIcons.search,
-                color: colors.divider,),
-                suffixIcon: Icon(CupertinoIcons.xmark_circle_fill,
-                color: colors.divider,),
+                style: TextStyle(color: colors.textwhite),
+                prefixIcon: Icon(
+                  CupertinoIcons.search,
+                  color: colors.divider,
+                ),
+                suffixIcon: Icon(
+                  CupertinoIcons.xmark_circle_fill,
+                  color: colors.divider,
+                ),
                 backgroundColor: colors.darkcontainer,
                 controller: textController,
                 placeholder: 'Search',
-                placeholderStyle: TextStyle(
-                  color: colors.divider
-                ),
+                placeholderStyle: TextStyle(color: colors.divider),
               ),
             ),
           ),
           SizedBox(height: 10),
           Container(
-            child: Text("Try Searching For: ",
+            child: Text(
+              "Try Searching For: ",
               style: TextStyle(
-                color: colors.textwhite,
-                fontFamily: "arial",
-                fontSize: 26,
-                fontWeight: FontWeight.w500
-              ),
+                  color: colors.textwhite,
+                  fontFamily: "arial",
+                  fontSize: 26,
+                  fontWeight: FontWeight.w500),
             ),
           ),
           SizedBox(height: 20),
-          Row(
-            mainAxisAlignment:MainAxisAlignment.center,
-            children: [
-              Container(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 5),
-                  child: MaterialButton(
-                    minWidth: double.minPositive,
-                    height: 50,
-                    onPressed: () {
-                      //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-                    },
-                    color: colors.darkcontainer,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Text(
-                      "Create New File",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                        color: colors.textwhite,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Container(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 5),
@@ -263,8 +242,8 @@ late TextEditingController textController;
                   minWidth: double.minPositive,
                   height: 50,
                   onPressed: () {
-                      //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
-                    },
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                  },
                   color: colors.darkcontainer,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -280,8 +259,31 @@ late TextEditingController textController;
                 ),
               ),
             ),
-            ]
-          )
+            Container(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 5),
+                child: MaterialButton(
+                  minWidth: double.minPositive,
+                  height: 50,
+                  onPressed: () {
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                  },
+                  color: colors.darkcontainer,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Text(
+                    "Create New File",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                      color: colors.textwhite,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ])
         ],
       ),
       bottomNavigationBar: Container(
@@ -313,34 +315,37 @@ late TextEditingController textController;
                 });
                 switch (index) {
                   case 0:
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) => Home()));
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => Home()));
                     break;
                   case 1:
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) => Search()));
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => Search()));
                     break;
                   case 2:
                     showPopupMenu(context);
                     break;
                   case 3:
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) => Inbox()));
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => Inbox()));
                     break;
                 }
               },
               tabs: [
                 GButton(
-                  icon: Icons.home,
+                  icon: CupertinoIcons.house,
                   text: 'Home',
                 ),
                 GButton(
-                  icon: Icons.search,
+                  icon: CupertinoIcons.search,
                   text: 'Search',
                 ),
                 GButton(
-                  icon: Icons.add_circle_outline_rounded,
+                  icon: CupertinoIcons.plus_circle,
                   text: 'Create',
                 ),
                 GButton(
-                  icon: Icons.move_to_inbox_rounded,
+                  icon: CupertinoIcons.tray_arrow_down,
                   text: 'Inbox',
                 ),
               ],
@@ -351,6 +356,7 @@ late TextEditingController textController;
     );
   }
 }
+
 void showPopupMenu(BuildContext context) {
   showMenu(
     context: context,
