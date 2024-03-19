@@ -95,6 +95,14 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     PopupMenuItem(
+                      child: Divider(
+                        indent: 15,
+                        endIndent: 15,
+                        thickness: 0.5,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    PopupMenuItem(
                       child: ListTile(
                         title: Text(
                           'Log Out',
