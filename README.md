@@ -1,6 +1,6 @@
 <div align="center">
     <div>
-        <img src="https://github.com/MohamedYasser343/Nexus/assets/154730935/6acd756b-783d-4533-9890-e8b1aea40f91" alt="Nexus" style="width: 100px; height: auto; " />
+        <img src="assets/154730935/6acd756b-783d-4533-9890-e8b1aea40f91" alt="Nexus" style="width: 100px; height: auto; " />
     </div>
     <h1>Nexus</h1>
     <h3>Nuxus: Bridging the gaps, building the future</h3>
