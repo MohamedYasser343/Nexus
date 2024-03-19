@@ -265,19 +265,19 @@ class _InboxState extends State<Inbox> {
               },
               tabs: [
                 GButton(
-                  icon: Icons.home,
+                  icon: CupertinoIcons.house,
                   text: 'Home',
                 ),
                 GButton(
-                  icon: Icons.search,
+                  icon: CupertinoIcons.search,
                   text: 'Search',
                 ),
                 GButton(
-                  icon: Icons.add_circle_outline_rounded,
+                  icon: CupertinoIcons.plus_circle,
                   text: 'Create',
                 ),
                 GButton(
-                  icon: Icons.move_to_inbox_rounded,
+                  icon: CupertinoIcons.tray_arrow_down_fill,
                   text: 'Inbox',
                 ),
               ],
