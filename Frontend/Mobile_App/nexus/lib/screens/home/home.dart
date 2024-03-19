@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types, non_constant_identifier_names, prefer_typing_uninitialized_variables, prefer_const_declarations, unused_local_variable, use_super_parameters, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, unnecessary_import, unused_element, sort_child_properties_last
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:Nexus/screens/home/Inbox.dart';
@@ -14,7 +15,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
   bool User_has_files = false;
   bool userGender = true;
   var UserFirstName = 'User';
-  var userEmail = 'User@demo.com';
+  var userEmail = 'user@demo.com';
 
   late AssetImage userImage;
 
@@ -56,17 +56,19 @@ class _HomeState extends State<Home> {
           builder: (BuildContext context) {
             return IconButton(
               padding: EdgeInsets.only(left: 15, right: 0),
-              onPressed: (){
+              onPressed: () {
                 showMenu(
                   color: colors.dark,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
                   context: context,
                   position: RelativeRect.fromLTRB(0, 100, 10, 0),
                   items: [
                     PopupMenuItem(
                       child: ListTile(
                         title: Text(
-                          '   Manage Your Account   ',
+                          'Manage Your Account',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             color: colors.textwhite,
                             fontSize: 16,
@@ -80,7 +82,8 @@ class _HomeState extends State<Home> {
                     PopupMenuItem(
                       child: ListTile(
                         title: Text(
-                          '   Add Another Account   ',
+                          'Add Another Account',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             color: colors.textwhite,
                             fontSize: 16,
@@ -92,10 +95,20 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     PopupMenuItem(
+                      height: 0.5,
+                      child: Divider(
+                        indent: 15,
+                        endIndent: 15,
+                        thickness: 0.5,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    PopupMenuItem(
                       child: ListTile(
                         title: Text(
-                          '   Log Out   ',
-                        style: TextStyle(
+                          'Log Out',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
                             color: colors.textred,
                             fontSize: 16,
                           ),
@@ -109,28 +122,27 @@ class _HomeState extends State<Home> {
                 );
               },
               icon: Image(
-                  image: userImage,
-                  filterQuality: FilterQuality.high,
-                  fit: BoxFit.fill,
-                ),
+                image: userImage,
+                filterQuality: FilterQuality.high,
+                fit: BoxFit.fill,
+              ),
             );
           },
         ),
         title: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    ' Hello,  ' ,
+                    ' Hello,  ',
                     style: TextStyle(
-                      fontSize: 20,
-                      color: colors.textwhite.withOpacity(0.8),
-                      fontWeight: FontWeight.bold
-                    ),
+                        fontSize: 20,
+                        color: colors.textwhite.withOpacity(0.8),
+                        fontWeight: FontWeight.bold),
                   ),
                   Text(
                     UserFirstName,
@@ -139,30 +151,31 @@ class _HomeState extends State<Home> {
                       color: colors.textwhite.withOpacity(0.8),
                     ),
                   ),
-                ]
+                ]),
+            Text(
+              "  " + userEmail,
+              style: TextStyle(
+                fontSize: 12,
+                color: colors.textwhite.withOpacity(0.4),
               ),
-              Text(
-                userEmail,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: colors.textwhite.withOpacity(0.4),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
+        ),
         actions: <Widget>[
           PopupMenuButton(
             offset: Offset(10, 50),
             enableFeedback: true,
-            icon: Icon(CupertinoIcons.ellipsis_vertical,
+            icon: Icon(
+              CupertinoIcons.ellipsis_vertical,
               color: colors.textwhite,
               size: 25,
-              ),
+            ),
             itemBuilder: (BuildContext context) => [
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
-                    '   Settings   ',
+                    'Settings',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       color: colors.textwhite,
                       fontSize: 16,
@@ -176,7 +189,8 @@ class _HomeState extends State<Home> {
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
-                    '   Trash   ',
+                    'Trash',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       color: colors.textwhite,
                       fontSize: 16,
@@ -190,7 +204,8 @@ class _HomeState extends State<Home> {
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
-                    '   Help   ',
+                    'Help',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       color: colors.textwhite,
                       fontSize: 16,
@@ -203,7 +218,8 @@ class _HomeState extends State<Home> {
               ),
             ],
             color: colors.dark,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
         ],
       ),
@@ -222,8 +238,11 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(padding: EdgeInsets.symmetric(vertical: 40),),
-                      Text("There is Nothing Here Yet",
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 40),
+                      ),
+                      Text(
+                        "There is Nothing Here Yet",
                         style: TextStyle(
                           color: colors.textwhite,
                           fontSize: 26,
@@ -356,22 +375,25 @@ class _HomeState extends State<Home> {
                 });
                 switch (index) {
                   case 0:
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) => Home()));
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => Home()));
                     break;
                   case 1:
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) => Search()));
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => Search()));
                     break;
                   case 2:
                     showPopupMenu(context);
                     break;
                   case 3:
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) => Inbox()));
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => Inbox()));
                     break;
                 }
               },
               tabs: [
                 GButton(
-                  icon: CupertinoIcons.home,
+                  icon: CupertinoIcons.house_fill,
                   text: 'Home',
                 ),
                 GButton(
@@ -394,6 +416,7 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
 void showPopupMenu(BuildContext context) {
   showMenu(
     context: context,

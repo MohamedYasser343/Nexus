@@ -15,7 +15,6 @@ class Inbox extends StatefulWidget {
 }
 
 class _InboxState extends State<Inbox> {
-
   int _selectedIndex = 3;
   void _onItemTapped(int index) {
     setState(() {
@@ -76,12 +75,14 @@ class _InboxState extends State<Inbox> {
           PopupMenuButton(
             offset: Offset(10, 50),
             enableFeedback: true,
-            icon: Icon(Icons.more_vert_rounded,
+            icon: Icon(
+              Icons.more_vert_rounded,
               color: colors.textwhite,
               size: 25,
-              ),
+            ),
             itemBuilder: (BuildContext context) => [
-              PopupMenuItem(//padding: EdgeInsets.symmetric(horizontal: 20),
+              PopupMenuItem(
+                //padding: EdgeInsets.symmetric(horizontal: 20),
                 child: ListTile(
                   title: Text(
                     '   My Account   ',
@@ -155,7 +156,7 @@ class _InboxState extends State<Inbox> {
                 child: ListTile(
                   title: Text(
                     '   Log Out   ',
-                  style: TextStyle(
+                    style: TextStyle(
                       color: colors.textred,
                       fontSize: 16,
                     ),
@@ -167,7 +168,8 @@ class _InboxState extends State<Inbox> {
               ),
             ],
             color: colors.dark,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
         ],
       ),
@@ -186,8 +188,11 @@ class _InboxState extends State<Inbox> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(padding: EdgeInsets.symmetric(vertical: 40),),
-                      Text("There is No Notification Yet",
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 40),
+                      ),
+                      Text(
+                        "There is No Notification Yet",
                         style: TextStyle(
                           color: colors.textwhite,
                           fontSize: 26,
@@ -198,7 +203,8 @@ class _InboxState extends State<Inbox> {
                         height: MediaQuery.of(context).size.height / 4,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/no_notification.png'),
+                            image:
+                                AssetImage('assets/images/no_notification.png'),
                             fit: BoxFit.contain,
                             filterQuality: FilterQuality.high,
                           ),
@@ -241,34 +247,37 @@ class _InboxState extends State<Inbox> {
                 });
                 switch (index) {
                   case 0:
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) => Home()));
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => Home()));
                     break;
                   case 1:
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) => Search()));
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => Search()));
                     break;
                   case 2:
                     showPopupMenu(context);
                     break;
                   case 3:
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) => Inbox()));
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => Inbox()));
                     break;
                 }
               },
               tabs: [
                 GButton(
-                  icon: Icons.home,
+                  icon: CupertinoIcons.house,
                   text: 'Home',
                 ),
                 GButton(
-                  icon: Icons.search,
+                  icon: CupertinoIcons.search,
                   text: 'Search',
                 ),
                 GButton(
-                  icon: Icons.add_circle_outline_rounded,
+                  icon: CupertinoIcons.plus_circle,
                   text: 'Create',
                 ),
                 GButton(
-                  icon: Icons.move_to_inbox_rounded,
+                  icon: CupertinoIcons.tray_arrow_down_fill,
                   text: 'Inbox',
                 ),
               ],
@@ -279,6 +288,7 @@ class _InboxState extends State<Inbox> {
     );
   }
 }
+
 void showPopupMenu(BuildContext context) {
   showMenu(
     context: context,
