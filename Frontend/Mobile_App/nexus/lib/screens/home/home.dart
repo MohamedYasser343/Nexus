@@ -95,6 +95,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     PopupMenuItem(
+                      height: 0.5,
                       child: Divider(
                         indent: 15,
                         endIndent: 15,
@@ -392,7 +393,7 @@ class _HomeState extends State<Home> {
               },
               tabs: [
                 GButton(
-                  icon: CupertinoIcons.home,
+                  icon: CupertinoIcons.house_fill,
                   text: 'Home',
                 ),
                 GButton(
