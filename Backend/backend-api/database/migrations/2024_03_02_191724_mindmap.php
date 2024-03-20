@@ -12,18 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('mindmap', function (Blueprint $table){
-
             $table->id();
-            $table->foreignId('user_id')->constrained();//->references('id') ->on('users') -> onDelete('cascade');
-            $table->string('title')->default('untitled');
-            $table->string('content')->nullable();
-            $table->string('connections')->nullable();
-            $table->string('positions')->unique();
-            $table->boolean('editable')->default(true);
-
-
-
-
+            $table->string('title');
+            $table->string('notes')->nullable();
+            $table->string('image')->nullable();
+            $table->timestamps();
         });
     }
 
