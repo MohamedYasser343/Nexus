@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\mindmap;
+use App\Models\mindmaps;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -54,7 +54,7 @@ class user_data extends Model
 {
     public function mindmaps()
     {
-        return $this->hasMany(mindmap::class);
+        return $this->hasMany(mindmaps::class);
     }
 
 }
