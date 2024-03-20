@@ -23,11 +23,6 @@ Route::post('login', [UserController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('user-profile', [UserController::class, 'userProfile']);
     Route::post('update-profile', [UserController::class, 'updateProfile']);
-    Route::get('user/{user_id}/index', [MindmapController::class,'index']) ;// add integrity later
-    Route::get('user/{user_id}/show/{id}', [MindmapController::class,'show']) ;
-    Route::post('user/{user_id}/store', [MindmapController::class,'store']) ;//add integrity later
-    Route::patch('user/{user_id}/edit/{id}', [MindmapController::class,'update']) ;
-    Route::delete('user/{user_id}/delete/{id}', [MindmapController::class,'destroy']) ;
     Route::post('logout', [UserController::class, 'logout']);
 });
 
