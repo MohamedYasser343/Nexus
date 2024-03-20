@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison, avoid_print, use_key_in_widget_constructors, use_super_parameters, prefer_final_fields
-
+import 'package:flutter/cupertino.dart';
 import 'package:Nexus/screens/main.dart';
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/home/home.dart';
 import 'package:Nexus/screens/auth/Login.dart';
 import 'package:international_phone_number_field/international_phone_number_field.dart';
 import 'package:flutter/services.dart';
+import 'package:Nexus/constants/colors.dart';
 
 void main() {
   runApp(MyApp());
@@ -49,29 +50,30 @@ class _SignupPageState extends State<SignupPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
-        backgroundColor: Color(0xFF747EF5),
+        backgroundColor: colors.accent2,
         leading: IconButton(
           onPressed: () {
             //Navigator.pop(context);
-            Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
+            Navigator.push(context, CupertinoPageRoute(builder: (context) => HomePage()),);
             //Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
           },
           icon: Icon(
             Icons.arrow_back_ios_rounded,
             size: 35,
-            color: Color(0xFF3B3084),
+            color: colors.primary2,
           ),
         ),
       ),
       body: Container(
         padding: EdgeInsets.only(top: 30),
-        color: Color(0xFF747EF5),
+        color: colors.accent2,
         child: Stack(
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Color(0xFF453F87),
+                color: colors.primary2,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40.0),
                   topRight: Radius.circular(40.0),
@@ -96,7 +98,7 @@ class _SignupPageState extends State<SignupPage> {
                             fontFamily: 'arial',
                             fontSize: 35,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: colors.textwhite,
                           ),
                         ),
                       ),
@@ -124,7 +126,7 @@ class _SignupPageState extends State<SignupPage> {
                                   child: Text(
                                     'Passwords do not match',
                                     style: TextStyle(
-                                      color: Colors.orange.shade900,
+                                      color: colors.error,
                                     ),
                                   ),
                                 ),
@@ -143,7 +145,7 @@ class _SignupPageState extends State<SignupPage> {
                                       setState(() {
                                         _passwordsMatch = true;
                                       });
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+                                      Navigator.push(context, CupertinoPageRoute(builder: (context) => Home()));
                                     }
                                   } else {
                                     setState(() {
@@ -156,16 +158,17 @@ class _SignupPageState extends State<SignupPage> {
                                     );
                                   }
                                 },
-                                color: Colors.white,
+                                color: colors.textwhite,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15),
                                 ),
                                 child: Text(
                                   "Sign Up",
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 24,
-                                    color: Color(0xFF3B3084),
+                                    fontFamily: 'arial',
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w400,
+                                    color: colors.primary2,
                                   ),
                                 ),
                               ),
@@ -180,14 +183,14 @@ class _SignupPageState extends State<SignupPage> {
                           Text(
                             "Already have an Account?",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: colors.textwhite,
                             ),
                           ),
                           SizedBox(width: 0),
                           MaterialButton(
                             elevation: 10,
                             onPressed: () {
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                              Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                             },
                             child: Text(
                               "Login",
@@ -195,9 +198,9 @@ class _SignupPageState extends State<SignupPage> {
                                 fontFamily: 'arial',
                                 fontWeight: FontWeight.w600,
                                 fontSize: 18,
-                                color: Colors.white,
+                                color: colors.textwhite,
                                 decoration: TextDecoration.underline,
-                                decorationColor: Colors.white,
+                                decorationColor: colors.textwhite,
                               ),
                             ),
                           ),
@@ -221,7 +224,7 @@ Widget buildFullNameField() {
         children: [
           Icon(
             Icons.person_rounded,
-            color: Colors.white,
+            color: colors.textwhite,
           ),
           SizedBox(width: 5),
           Text(
@@ -229,7 +232,7 @@ Widget buildFullNameField() {
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w400,
-              color: Colors.white,
+              color: colors.textwhite,
             ),
           ),
         ],
@@ -245,35 +248,35 @@ Widget buildFullNameField() {
                 }
                 return null;
               },
-              cursorColor: Colors.white,
+              cursorColor: colors.textwhite,
               style: TextStyle(
-                color: Colors.white,
+                color: colors.textwhite,
               ),
               decoration: InputDecoration(
-                fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+                fillColor: colors.accent.withOpacity(0.2),
                 filled: true,
                 hintText: "Enter your First Name",
                 hintStyle: TextStyle(
-                  color: Colors.white.withOpacity(0.7),
+                  color: colors.textwhite.withOpacity(0.7),
                   fontSize: 12,
                 ),
                 contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xFF747EF5)),
+                  borderSide: BorderSide(color: colors.accent),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: colors.textwhite),
                 ),
                 border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: colors.textwhite),
                 ),
                 // error decoration
-                errorStyle: TextStyle(color: Colors.orange),
+                errorStyle: TextStyle(color: colors.error),
                 errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xFF747EF5)),
+                  borderSide: BorderSide(color: colors.accent),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: colors.textwhite),
                 ),
               ),
             ),
@@ -287,35 +290,35 @@ Widget buildFullNameField() {
                 }
                 return null;
               },
-              cursorColor: Colors.white,
+              cursorColor: colors.textwhite,
               style: TextStyle(
-                color: Colors.white,
+                color: colors.textwhite,
               ),
               decoration: InputDecoration(
-                fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+                fillColor: colors.accent.withOpacity(0.2),
                 filled: true,
                 hintText: "Enter your Last Name",
                 hintStyle: TextStyle(
-                  color: Colors.white.withOpacity(0.7),
+                  color: colors.textwhite.withOpacity(0.7),
                   fontSize: 12,
                 ),
                 contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xFF747EF5)),
+                  borderSide: BorderSide(color: colors.accent2),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: colors.textwhite),
                 ),
                 border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: colors.textwhite),
                 ),
                 // error decoration
-                errorStyle: TextStyle(color: Colors.orange),
+                errorStyle: TextStyle(color: colors.error),
                 errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Color(0xFF747EF5)),
+                  borderSide: BorderSide(color: colors.accent2),
                 ),
                 focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: colors.textwhite),
                 ),
               ),
             ),
@@ -334,7 +337,7 @@ Widget buildFullNameField() {
           children: const [
             Icon(
               Icons.account_circle,
-              color: Colors.white,
+              color: colors.textwhite,
             ),
             SizedBox(width: 5),
             Text(
@@ -342,7 +345,7 @@ Widget buildFullNameField() {
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w400,
-                color: Colors.white,
+                color: colors.textwhite,
               ),
             ),
           ],
@@ -357,34 +360,34 @@ Widget buildFullNameField() {
             }
             return null;
           },
-          cursorColor: Colors.white,
+          cursorColor: colors.textwhite,
           style: const TextStyle(
-            color: Colors.white,
+            color: colors.textwhite,
           ),
           decoration: InputDecoration(
-            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+            fillColor: colors.accent.withOpacity(0.2),
             filled: true,
             hintText: "Enter your User Name",
             hintStyle: const TextStyle(
-              color: Colors.white70,
+              color: colors.textwhite,
               fontSize: 12,
             ),
             contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF747EF5)),
+              borderSide: BorderSide(color: colors.accent2),
             ),
             focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
             border: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
-            errorStyle: const TextStyle(color: Colors.orange),
+            errorStyle: const TextStyle(color: colors.error),
             errorBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF747EF5)),
+              borderSide: BorderSide(color: colors.accent2),
             ),
             focusedErrorBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
           ),
         ),
@@ -400,7 +403,7 @@ Widget buildFullNameField() {
           children: const [
             Icon(
               Icons.email_rounded,
-              color: Colors.white,
+              color: colors.textwhite,
             ),
             SizedBox(width: 5),
             Text(
@@ -408,7 +411,7 @@ Widget buildFullNameField() {
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w400,
-                color: Colors.white,
+                color: colors.textwhite,
               ),
             ),
           ],
@@ -423,34 +426,34 @@ Widget buildFullNameField() {
             }
             return null;
           },
-          cursorColor: Colors.white,
+          cursorColor: colors.textwhite,
           style: const TextStyle(
-            color: Colors.white,
+            color: colors.textwhite,
           ),
           decoration: InputDecoration(
-            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+            fillColor: colors.accent.withOpacity(0.2),
             filled: true,
             hintText: "Enter your Email",
             hintStyle: const TextStyle(
-              color: Colors.white70,
+              color: colors.textwhite,
               fontSize: 12,
             ),
             contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF747EF5)),
+              borderSide: BorderSide(color: colors.accent2),
             ),
             focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
             border: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
-            errorStyle: const TextStyle(color: Colors.orange),
+            errorStyle: const TextStyle(color: colors.error),
             errorBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF747EF5)),
+              borderSide: BorderSide(color: colors.accent2),
             ),
             focusedErrorBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
           ),
         ),
@@ -467,7 +470,7 @@ Widget buildPhoneNumberField() {
           children: [
             Icon(
               Icons.phone_iphone_rounded,
-              color: Colors.white,
+              color: colors.textwhite,
             ),
             SizedBox(width: 5),
             Text(
@@ -475,7 +478,7 @@ Widget buildPhoneNumberField() {
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w400,
-                color: Colors.white,
+                color: colors.textwhite,
               ),
             ),
           ],
@@ -494,22 +497,22 @@ Widget buildPhoneNumberField() {
             print(fullNumber); // This will print the full phone number with dial code
           },
           dialogConfig: DialogConfig(
-            backgroundColor: const Color(0xFF453F87),
-            searchBoxBackgroundColor: Color.fromARGB(255, 103, 96, 185),
-            searchBoxIconColor: const Color(0xFFFAFAFA),
+            backgroundColor: colors.primary2,
+            searchBoxBackgroundColor: colors.secondary,
+            searchBoxIconColor: colors.lightcontainer,
             countryItemHeight: 55,
             flatFlag: true,
             topBarColor: Color.fromARGB(255, 41, 31, 100),
-            selectedItemColor: Color.fromARGB(255, 81, 74, 154),
+            selectedItemColor: colors.primary2,
             selectedIcon: Padding(
               padding: EdgeInsets.only(left: 10),
             ),
             textStyle: TextStyle(
-                color: const Color(0xFFFAFAFA).withOpacity(0.7),
+                color: colors.lightcontainer.withOpacity(0.7),
                 fontSize: 14,
                 fontWeight: FontWeight.w600),
             searchBoxTextStyle: TextStyle(
-                color: const Color(0xFFFAFAFA).withOpacity(0.7),
+                color: colors.lightcontainer.withOpacity(0.7),
                 fontSize: 14,
                 fontWeight: FontWeight.w600),
             titleStyle: const TextStyle(
@@ -517,21 +520,21 @@ Widget buildPhoneNumberField() {
                 fontSize: 18,
                 fontWeight: FontWeight.w700),
             searchBoxHintStyle: TextStyle(
-                color: const Color(0xFFFAFAFA).withOpacity(0.7),
+                color: colors.lightcontainer.withOpacity(0.7),
                 fontSize: 14,
                 fontWeight: FontWeight.w600),
           ),
           countryConfig: CountryConfig(
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+                color: colors.accent.withOpacity(0.2),
                 border: Border.all(
-                    width: 1, color: const Color(0xFF747EF5)),
+                    width: 1, color: colors.accent2),
                 borderRadius: BorderRadius.circular(8),
               ),
               flatFlag: false,
               noFlag: false,
               textStyle: const TextStyle(
-                  color: Colors.white,
+                  color: colors.textwhite,
                   fontSize: 14,
                   fontWeight: FontWeight.w600)),
           validator: (input) {
@@ -541,9 +544,9 @@ Widget buildPhoneNumberField() {
             return null;
           },
           phoneConfig: PhoneConfig(
-            focusedColor: Colors.white,
-            enabledColor: Color(0xFF6D59BD),
-            errorColor: Colors.orange,
+            focusedColor: colors.textwhite,
+            enabledColor: colors.secondary,
+            errorColor: colors.error,
             labelStyle: null,
             labelText: null,
             floatingLabelStyle: null,
@@ -555,7 +558,7 @@ Widget buildPhoneNumberField() {
             decoration: BoxDecoration(
               color: Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
               border: Border.all(
-                    width: 1, color: const Color(0xFF747EF5)),
+                    width: 1, color: colors.accent2),
                 borderRadius: BorderRadius.circular(8),
             ),
             popUpErrorText: true,
@@ -565,13 +568,13 @@ Widget buildPhoneNumberField() {
             autovalidateMode: AutovalidateMode.onUserInteraction,
             errorTextMaxLength: 2,
             errorPadding: EdgeInsets.only(top: 14,left: MediaQuery.of(context).size.width * 0.19),
-            errorStyle: TextStyle(color: Colors.orange, fontSize: 12, height: 1),
+            errorStyle: TextStyle(color: colors.error, fontSize: 12, height: 1),
             textStyle: const TextStyle(
-                color: Colors.white,
+                color: colors.textwhite,
                 fontSize: 16,
                 fontWeight: FontWeight.w400),
             hintStyle: TextStyle(
-                color: Colors.white.withOpacity(0.7),
+                color: colors.textwhite.withOpacity(0.7),
                 fontSize: 12,),
           ), code: '', dial_code: '', number: '',
         ),
@@ -590,7 +593,7 @@ Widget buildPhoneNumberField() {
                 children: const [
                   Icon(
                     Icons.lock,
-                    color: Colors.white,
+                    color: colors.textwhite,
                   ),
                   SizedBox(width: 5),
                   Text(
@@ -598,7 +601,7 @@ Widget buildPhoneNumberField() {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
-                      color: Colors.white,
+                      color: colors.textwhite,
                     ),
                   ),
                 ],
@@ -617,35 +620,35 @@ Widget buildPhoneNumberField() {
             return null;
           },
           controller: _passwordController,
-          cursorColor: Colors.white,
+          cursorColor: colors.textwhite,
           style: const TextStyle(
-            color: Colors.white,
+            color: colors.textwhite,
           ),
           obscureText: passwordVisible1,
           decoration: InputDecoration(
-            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+            fillColor: colors.accent.withOpacity(0.2),
             filled: true,
             hintText: "Enter your Password",
             hintStyle: const TextStyle(
-              color: Colors.white70,
+              color: colors.textwhite,
               fontSize: 12,
             ),
             contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF747EF5)),
+              borderSide: BorderSide(color: colors.accent2),
             ),
             focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
             border: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
-            errorStyle: const TextStyle(color: Colors.orange),
+            errorStyle: const TextStyle(color: colors.error),
             errorBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF747EF5)),
+              borderSide: BorderSide(color: colors.accent2),
             ),
             focusedErrorBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
             suffixIcon: IconButton(
               onPressed: () {
@@ -659,7 +662,7 @@ Widget buildPhoneNumberField() {
                   Text(
                     passwordVisible1 ? "Show" : "Hide",
                     style: TextStyle(
-                      color: Color.fromARGB(255, 172, 179, 248),
+                      color: colors.accent2.withOpacity(0.1),
                     ),
                   ),
                   SizedBox(width: 2,),
@@ -683,7 +686,7 @@ Widget buildPhoneNumberField() {
                 children: const [
                   Icon(
                     Icons.lock,
-                    color: Colors.white,
+                    color: colors.textwhite,
                   ),
                   SizedBox(width: 5),
                   Text(
@@ -691,7 +694,7 @@ Widget buildPhoneNumberField() {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
-                      color: Colors.white,
+                      color: colors.textwhite,
                     ),
                   ),
                 ],
@@ -710,35 +713,35 @@ Widget buildPhoneNumberField() {
             return null;
           },
           controller: _confirmPasswordController,
-          cursorColor: Colors.white,
+          cursorColor: colors.textwhite,
           style: const TextStyle(
-            color: Colors.white,
+            color: colors.textwhite,
           ),
           obscureText: passwordVisible2,
           decoration: InputDecoration(
-            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+            fillColor: colors.accent.withOpacity(0.2),
             filled: true,
             hintText: "Enter your Password Again",
             hintStyle: const TextStyle(
-              color: Colors.white70,
+              color: colors.textwhite,
               fontSize: 12,
             ),
             contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF747EF5)),
+              borderSide: BorderSide(color: colors.accent2),
             ),
             focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
             border: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
-            errorStyle: const TextStyle(color: Colors.orange),
+            errorStyle: const TextStyle(color: colors.error),
             errorBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF747EF5)),
+              borderSide: BorderSide(color: colors.accent2),
             ),
             focusedErrorBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
             suffixIcon: IconButton(
               onPressed: () {
@@ -752,7 +755,7 @@ Widget buildPhoneNumberField() {
                   Text(
                     passwordVisible2 ? "Show" : "Hide",
                     style: TextStyle(
-                      color: Color.fromARGB(255, 172, 179, 248),
+                      color: colors.accent2.withOpacity(0.1),
                     ),
                   ),
                   SizedBox(width: 2,),

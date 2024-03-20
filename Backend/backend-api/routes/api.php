@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\mindmap_controller;
+use App\Http\Controllers\MindmapController;
 use App\Http\Controllers\UserController;
 use Illuminate\Auth\Events\Authenticated;
 use Illuminate\Support\Facades\Route;
@@ -22,11 +23,11 @@ Route::post('login', [UserController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('user-profile', [UserController::class, 'userProfile']);
     Route::post('update-profile', [UserController::class, 'updateProfile']);
-    Route::get('user/{user_id}/index', [mindmap_controller::class,'index']) ;// add integrity later
-    Route::get('/show/{id}', [mindmap_controller::class,'show']) ;
-    Route::post('/store', [mindmap_controller::class,'store']) ;//add integrity later
-    Route::patch('/edit', [mindmap_controller::class,'update']) ;
-    Route::delete('/delete/{id}', [mindmap_controller::class,'destroy']) ;
+    Route::get('user/{user_id}/index', [MindmapController::class,'index']) ;// add integrity later
+    Route::get('user/{user_id}/show/{id}', [MindmapController::class,'show']) ;
+    Route::post('user/{user_id}/store', [MindmapController::class,'store']) ;//add integrity later
+    Route::patch('user/{user_id}/edit/{id}', [MindmapController::class,'update']) ;
+    Route::delete('user/{user_id}/delete/{id}', [MindmapController::class,'destroy']) ;
     Route::post('logout', [UserController::class, 'logout']);
 });
 

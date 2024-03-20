@@ -3,6 +3,8 @@ import 'package:Nexus/screens/main.dart';
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/auth/signup.dart';
 import 'package:Nexus/screens/home/home.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:Nexus/constants/colors.dart';
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -16,28 +18,29 @@ class _LoginPageState extends State<LoginPage> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFF747EF5),
+        automaticallyImplyLeading: false,
+        backgroundColor: colors.accent2,
         leading: IconButton(
           onPressed: () {
             //Navigator.pop(context);
-            Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);
+            Navigator.push(context, CupertinoPageRoute(builder: (context) => HomePage()),);
             //Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
           },
           icon: Icon(
             Icons.arrow_back_ios_rounded,
             size: 35,
-            color: Color(0xFF3B3084),
+            color: colors.primary2,
           ),
         ),
       ),
       body: Container(
         padding: EdgeInsets.only(top: 60),
-        color: Color(0xFF747EF5),
+        color: colors.accent2,
         child: Stack(
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Color(0xFF453F87),
+                color: colors.primary2,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40.0),
                   topRight: Radius.circular(40.0),
@@ -64,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                               fontFamily: 'arial',
                               fontSize: 35,
                               fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                              color: colors.textwhite,
                             ),
                           ),
                         ),
@@ -83,17 +86,17 @@ class _LoginPageState extends State<LoginPage> {
                                 height: 60,
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
-                                    Navigator.push(context,MaterialPageRoute(builder: (context) => Home(),),);
+                                    Navigator.push(context,CupertinoPageRoute(builder: (context) => Home(),),);
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                         content:
-                                            Text('Please fill in all fields'),
+                                          Text('Please fill in all fields'),
                                       ),
                                     );
                                   }
                                 },
-                                color: Colors.white,
+                                color: colors.lightcontainer,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15),
                                 ),
@@ -102,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                                   style: TextStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 24,
-                                    color: Color(0xFF3B3084),
+                                    color: colors.primary,
                                   ),
                                 ),
                               ),
@@ -116,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                             Text(
                               "Don't have an account?",
                               style: TextStyle(
-                                color: Colors.white,
+                                color: colors.textwhite,
                               ),
                             ),
                             SizedBox(width: 3),
@@ -124,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                               elevation: 10,
                               onPressed: () {
                                 TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
-                                Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
+                                Navigator.push(context,CupertinoPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
                               },
                               child: Text(
                                 "Sign up",
@@ -132,9 +135,9 @@ class _LoginPageState extends State<LoginPage> {
                                   fontFamily: 'arial',
                                   fontWeight: FontWeight.w600,
                                   fontSize: 18,
-                                  color: Colors.white,
+                                  color: colors.textwhite,
                                   decoration: TextDecoration.underline,
-                                  decorationColor: Colors.white,
+                                  decorationColor: colors.textwhite,
                                 ),
                               ),
                             ),
@@ -149,7 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                               child: Container(
                                 width: MediaQuery.of(context).size.width / 3 - 60,
                                 height: 2,
-                                color: Colors.grey,
+                                color: colors.divider,
                               ),
                             ),
                             Padding(
@@ -157,7 +160,7 @@ class _LoginPageState extends State<LoginPage> {
                             Text(
                               "or Login With",
                               style: TextStyle(
-                                color: Colors.white,
+                                color: colors.textwhite,
                               ),
                             ),
                             Padding(
@@ -167,7 +170,7 @@ class _LoginPageState extends State<LoginPage> {
                               child: Container(
                                 width: MediaQuery.of(context).size.width / 3 - 60,
                                 height: 2,
-                                color: Colors.grey,
+                                color: colors.divider,
                               ),
                             ),
                           ],
@@ -180,7 +183,7 @@ class _LoginPageState extends State<LoginPage> {
                           icon: Container(
                             width: 48,
                             height: 48,
-                            child: Image.asset('assets/google_icon.png'),
+                            child: Image.asset('assets/icons/google_icon.png'),
                           ),
                         ),
                         Padding(
@@ -204,7 +207,7 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             Icon(
               Icons.email_outlined,
-              color: Colors.white,
+              color: colors.textwhite,
             ),
             SizedBox(width: 5),
             Text(
@@ -212,7 +215,7 @@ class _LoginPageState extends State<LoginPage> {
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w400,
-                color: Colors.white,
+                color: colors.textwhite,
               ),
             ),
           ],
@@ -227,35 +230,35 @@ class _LoginPageState extends State<LoginPage> {
             }
             return null;
           },
-          cursorColor: Colors.white,
+          cursorColor: colors.textwhite,
           style: TextStyle(
-            color: Colors.white,
+            color: colors.textwhite,
           ),
           decoration: InputDecoration(
-            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+            fillColor: colors.secondary.withOpacity(0.7),
             filled: true,
             hintText: "Enter your Email",
             hintStyle: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+              color: colors.textwhite.withOpacity(0.7),
               fontSize: 12,
             ),
             contentPadding:
                 EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF747EF5)),
+              borderSide: BorderSide(color: colors.accent2),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
             border: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
-            errorStyle: TextStyle(color: Colors.orange),
+            errorStyle: TextStyle(color: colors.error),
             errorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF747EF5)),
+              borderSide: BorderSide(color: colors.accent2),
             ),
             focusedErrorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
           ),
         ),
@@ -274,7 +277,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   Icon(
                     Icons.lock,
-                    color: Colors.white,
+                    color: colors.textwhite,
                   ),
                   SizedBox(width: 5),
                   Text(
@@ -282,7 +285,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
-                      color: Colors.white,
+                      color: colors.textwhite,
                     ),
                   ),
                 ],
@@ -291,7 +294,7 @@ class _LoginPageState extends State<LoginPage> {
             MaterialButton(
               elevation: 10,
               onPressed: () {
-                //Navigator.push(context,MaterialPageRoute(builder: (context) => SignupPage()));
+                //Navigator.push(context,CupertinoPageRoute(builder: (context) => SignupPage()));
               },
               child: Text(
                 "Forget Password?",
@@ -299,9 +302,9 @@ class _LoginPageState extends State<LoginPage> {
                   fontFamily: 'arial',
                   fontWeight: FontWeight.w600,
                   fontSize: 14,
-                  color: Colors.white,
+                  color: colors.textwhite,
                   decoration: TextDecoration.underline,
-                  decorationColor: Colors.white,
+                  decorationColor: colors.textwhite,
                 ),
               ),
             ),
@@ -317,36 +320,36 @@ class _LoginPageState extends State<LoginPage> {
             }
             return null;
           },
-          cursorColor: Colors.white,
+          cursorColor: colors.textwhite,
           style: TextStyle(
-            color: Colors.white,
+            color: colors.textwhite,
           ),
           obscureText: passwordVisible,
           decoration: InputDecoration(
-            fillColor: const Color.fromARGB(255, 103, 96, 185).withOpacity(0.7),
+            fillColor: colors.secondary.withOpacity(0.7),
             filled: true,
             hintText: "Enter your Password",
             hintStyle: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+              color: colors.textwhite.withOpacity(0.7),
               fontSize: 12,
             ),
             contentPadding:
                 EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF747EF5)),
+              borderSide: BorderSide(color: colors.accent2),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
             border: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
-            errorStyle: TextStyle(color: Colors.orange),
+            errorStyle: TextStyle(color: colors.error),
             errorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF747EF5)),
+              borderSide: BorderSide(color: colors.accent2),
             ),
             focusedErrorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: colors.textwhite),
             ),
             suffixIcon: IconButton(
               onPressed: () {
@@ -360,13 +363,13 @@ class _LoginPageState extends State<LoginPage> {
                   Text(
                     passwordVisible ? "Show" : "Hide",
                     style: TextStyle(
-                      color: Color.fromARGB(255, 172, 179, 248),
+                      color: colors.accent2.withOpacity(0.1),
                     ),
                   ),
                   SizedBox(width: 2,),
                   // Icon(
                   // passwordVisible ? Icons.visibility : Icons.visibility_off,
-                  // color: Colors.grey,
+                  // color: colors.divider,
                   // ),
                 ],
               ),

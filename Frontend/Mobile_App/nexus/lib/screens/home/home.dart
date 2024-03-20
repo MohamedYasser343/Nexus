@@ -1,8 +1,12 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, non_constant_identifier_names, prefer_typing_uninitialized_variables, prefer_const_declarations, unused_local_variable, use_super_parameters, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, camel_case_types, non_constant_identifier_names, prefer_typing_uninitialized_variables, prefer_const_declarations, unused_local_variable, use_super_parameters, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, unnecessary_import, unused_element, sort_child_properties_last
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:Nexus/screens/home/Inbox.dart';
+import 'package:Nexus/screens/home/Search.dart';
+import 'package:Nexus/constants/colors.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -11,7 +15,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
@@ -22,14 +25,14 @@ class _HomeState extends State<Home> {
   bool User_has_files = false;
   bool userGender = true;
   var UserFirstName = 'User';
-  var userEmail = 'User@demo.com';
+  var userEmail = 'user@demo.com';
 
   late AssetImage userImage;
 
   void initializeUserImage() {
     userImage = userGender
-        ? AssetImage('assets/male_user_pp_with_nexus.png')
-        : AssetImage('assets/female_user_pp_with_nexus.png');
+        ? AssetImage('assets/icons/male_user_pp_with_nexus.png')
+        : AssetImage('assets/icons/female_user_pp_with_nexus.png');
   }
 
   @override
@@ -40,159 +43,183 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final userNameMassage = 'Hello, ' + UserFirstName;
     return Scaffold(
-      backgroundColor: Color(0XFF191919),
+      backgroundColor: colors.dark,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        leadingWidth: 70,
         elevation: 0,
         automaticallyImplyLeading: false,
         toolbarHeight: 70,
-        backgroundColor: Color(0XFF191919),
-        leading: Padding(
-          padding: EdgeInsets.only(left: 0),
-          child: InkWell(
-              onTap: () {
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  IconButton(
-                    icon: Image(
-                      image: userImage,
+        backgroundColor: colors.primarybackground,
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              padding: EdgeInsets.only(left: 15, right: 0),
+              onPressed: () {
+                showMenu(
+                  color: colors.dark,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  context: context,
+                  position: RelativeRect.fromLTRB(0, 100, 10, 0),
+                  items: [
+                    PopupMenuItem(
+                      child: ListTile(
+                        title: Text(
+                          'Manage Your Account',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: colors.textwhite,
+                            fontSize: 16,
+                          ),
+                        ),
+                        onTap: () {
+                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                        },
+                      ),
                     ),
-                    onPressed: () {
-                      // Handle the onPressed event
-                    },
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        userNameMassage,
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white.withOpacity(0.8),
+                    PopupMenuItem(
+                      child: ListTile(
+                        title: Text(
+                          'Add Another Account',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: colors.textwhite,
+                            fontSize: 16,
+                          ),
                         ),
+                        onTap: () {
+                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                        },
                       ),
-                      Text(
-                        userEmail,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.white.withOpacity(0.4),
+                    ),
+                    PopupMenuItem(
+                      height: 0.5,
+                      child: Divider(
+                        indent: 15,
+                        endIndent: 15,
+                        thickness: 0.5,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    PopupMenuItem(
+                      child: ListTile(
+                        title: Text(
+                          'Log Out',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: colors.textred,
+                            fontSize: 16,
+                          ),
                         ),
+                        onTap: () {
+                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                        },
                       ),
-                    ],
+                    ),
+                  ],
+                );
+              },
+              icon: Image(
+                image: userImage,
+                filterQuality: FilterQuality.high,
+                fit: BoxFit.fill,
+              ),
+            );
+          },
+        ),
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    ' Hello,  ',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: colors.textwhite.withOpacity(0.8),
+                        fontWeight: FontWeight.bold),
                   ),
-                ],
+                  Text(
+                    UserFirstName,
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: colors.textwhite.withOpacity(0.8),
+                    ),
+                  ),
+                ]),
+            Text(
+              "  " + userEmail,
+              style: TextStyle(
+                fontSize: 12,
+                color: colors.textwhite.withOpacity(0.4),
               ),
             ),
+          ],
         ),
         actions: <Widget>[
-          // Padding(
-          //   padding: EdgeInsets.symmetric(horizontal: 90),
-          // ),
           PopupMenuButton(
             offset: Offset(10, 50),
             enableFeedback: true,
-            icon: Icon(Icons.more_vert_rounded,
-              color: Colors.white,
+            icon: Icon(
+              CupertinoIcons.ellipsis_vertical,
+              color: colors.textwhite,
               size: 25,
-              ),
+            ),
             itemBuilder: (BuildContext context) => [
-              PopupMenuItem(//padding: EdgeInsets.symmetric(horizontal: 20),
+              PopupMenuItem(
                 child: ListTile(
                   title: Text(
-                    '   My Account   ',
+                    'Settings',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: colors.textwhite,
                       fontSize: 16,
                     ),
                   ),
                   onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                   },
                 ),
               ),
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
-                    '   Folders   ',
+                    'Trash',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: colors.textwhite,
                       fontSize: 16,
                     ),
                   ),
                   onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                   },
                 ),
               ),
               PopupMenuItem(
                 child: ListTile(
                   title: Text(
-                    '   Trash   ',
+                    'Help',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: colors.textwhite,
                       fontSize: 16,
                     ),
                   ),
                   onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                  },
-                ),
-              ),
-              PopupMenuItem(
-                child: ListTile(
-                  title: Text(
-                    '   Settings   ',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                  onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                  },
-                ),
-              ),
-              PopupMenuItem(
-                child: ListTile(
-                  title: Text(
-                    '   Help   ',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                  onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                  },
-                ),
-              ),
-              PopupMenuItem(
-                child: ListTile(
-                  title: Text(
-                    '   Log Out   ',
-                  style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 16,
-                    ),
-                  ),
-                  onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                   },
                 ),
               ),
             ],
-            color: Color(0xFF202020),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            color: colors.dark,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
         ],
       ),
@@ -201,7 +228,7 @@ class _HomeState extends State<Home> {
           children: [
             Positioned.fill(
               child: Container(
-                color: Color(0xFF202020),
+                color: colors.dark,
               ),
             ),
             Positioned.fill(
@@ -211,10 +238,13 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(padding: EdgeInsets.symmetric(vertical: 40),),
-                      Text("There is Nothing Here Yet",
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 40),
+                      ),
+                      Text(
+                        "There is Nothing Here Yet",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: colors.textwhite,
                           fontSize: 26,
                         ),
                       ),
@@ -222,19 +252,20 @@ class _HomeState extends State<Home> {
                         height: MediaQuery.of(context).size.height / 4,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/no_data_male.png'),
+                            image: AssetImage('assets/images/no_data_male.png'),
                             fit: BoxFit.contain,
                             filterQuality: FilterQuality.high,
                           ),
                         ),
                       ),
+                      SizedBox(height: 30),
                       MaterialButton(
                         minWidth: double.minPositive,
                         height: 50,
                         onPressed: () {
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                         },
-                        color: Color(0XFF2B2B2B),
+                        color: colors.darkcontainer,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -243,7 +274,7 @@ class _HomeState extends State<Home> {
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 18,
-                            color: Colors.white,
+                            color: colors.textwhite,
                           ),
                         ),
                       ),
@@ -252,9 +283,9 @@ class _HomeState extends State<Home> {
                         minWidth: double.minPositive,
                         height: 50,
                         onPressed: () {
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                          //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
                         },
-                        color: Color(0XFF2B2B2B),
+                        color: colors.darkcontainer,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -263,50 +294,50 @@ class _HomeState extends State<Home> {
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 18,
-                            color: Colors.white,
+                            color: colors.textwhite,
                           ),
                         ),
                       ),
                       SizedBox(height: 20),
-                      MaterialButton(
-                        minWidth: double.minPositive,
-                        height: 50,
-                        onPressed: () {
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                        },
-                        color: Color(0XFF2B2B2B),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text(
-                          "Import",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      MaterialButton(
-                        minWidth: double.minPositive,
-                        height: 50,
-                        onPressed: () {
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                        },
-                        color: Color(0XFF2B2B2B),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text(
-                          "Templates",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                      // MaterialButton(
+                      //   minWidth: double.minPositive,
+                      //   height: 50,
+                      //   onPressed: () {
+                      //     //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                      //   },
+                      //   color: colors.darkcontainer,
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   child: Text(
+                      //     "Import",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.w600,
+                      //       fontSize: 18,
+                      //       color: colors.textwhite,
+                      //     ),
+                      //   ),
+                      // ),
+                      // SizedBox(height: 20),
+                      // MaterialButton(
+                      //   minWidth: double.minPositive,
+                      //   height: 50,
+                      //   onPressed: () {
+                      //     //Navigator.push(context, CupertinoPageRoute(builder: (context) => LoginPage()));
+                      //   },
+                      //   color: colors.darkcontainer,
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(15),
+                      //   ),
+                      //   child: Text(
+                      //     "Templates",
+                      //     style: TextStyle(
+                      //       fontWeight: FontWeight.w600,
+                      //       fontSize: 18,
+                      //       color: colors.textwhite,
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
@@ -315,47 +346,13 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   type: BottomNavigationBarType.fixed,
-      //   showSelectedLabels: false,
-      //   showUnselectedLabels: false,
-      //   items: const <BottomNavigationBarItem>[
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.home),
-            
-      //       label: 'Home',
-            //backgroundColor: Color(0XFF191919),
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.search),
-      //       label: 'Search',
-            //backgroundColor: Color(0XFF191919),
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.add_circle_outline_rounded),
-      //       label: 'Create',
-            //backgroundColor: Color(0XFF191919),
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.move_to_inbox_rounded),
-      //       label: 'Inbox',
-            //backgroundColor: Color(0XFF191919),
-      //     ),
-      //   ],
-      //   currentIndex: _selectedIndex,
-      //   onTap: _onItemTapped,
-      //   unselectedItemColor: Colors.white.withOpacity(0.5),
-      //   selectedItemColor: Colors.white,
-      //   backgroundColor: Color(0XFF191919),
-      //   iconSize: 30,
-      // ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Color(0XFF191919),
+          color: colors.primarybackground,
           boxShadow: [
             BoxShadow(
               blurRadius: 20,
-              color: Color(0xFF747EF5).withOpacity(.2),
+              color: colors.accent2.withOpacity(0.2),
             )
           ],
         ),
@@ -363,39 +360,55 @@ class _HomeState extends State<Home> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
             child: GNav(
-              rippleColor: Color(0XFF535353),
-              hoverColor: Color(0XFF535353),
+              rippleColor: colors.textsecondary,
+              hoverColor: colors.textsecondary,
               gap: 8,
-              activeColor: Colors.white,
+              activeColor: colors.lightcontainer,
               iconSize: 24,
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              //duration: Duration(milliseconds: 400),
-              tabBackgroundColor: Color(0XFF535353),
-              color: Colors.white,
-              tabs: [
-                GButton(
-                  icon: Icons.home,
-                  text: 'Home',
-                ),
-                GButton(
-                  icon: Icons.search,
-                  text: 'Search',
-                ),
-                GButton(
-                  icon: Icons.add_circle_outline_rounded,
-                  text: 'Create',
-                ),
-                GButton(
-                  icon: Icons.move_to_inbox_rounded,
-                  text: 'Inbox',
-                ),
-              ],
+              tabBackgroundColor: colors.textsecondary,
+              color: colors.lightcontainer,
               selectedIndex: _selectedIndex,
               onTabChange: (index) {
                 setState(() {
                   _selectedIndex = index;
                 });
+                switch (index) {
+                  case 0:
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => Home()));
+                    break;
+                  case 1:
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => Search()));
+                    break;
+                  case 2:
+                    showPopupMenu(context);
+                    break;
+                  case 3:
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => Inbox()));
+                    break;
+                }
               },
+              tabs: [
+                GButton(
+                  icon: CupertinoIcons.house_fill,
+                  text: 'Home',
+                ),
+                GButton(
+                  icon: CupertinoIcons.search,
+                  text: 'Search',
+                ),
+                GButton(
+                  icon: CupertinoIcons.plus_circle,
+                  text: 'Create',
+                ),
+                GButton(
+                  icon: CupertinoIcons.tray_arrow_down,
+                  text: 'Inbox',
+                ),
+              ],
             ),
           ),
         ),
@@ -403,3 +416,65 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+void showPopupMenu(BuildContext context) {
+  showMenu(
+    context: context,
+    position: RelativeRect.fromLTRB(70, 710, 0, 0),
+    items: [
+      PopupMenuItem(
+        child: ListTile(
+          title: Text(
+            'Create New File',
+            style: TextStyle(
+              color: colors.textwhite,
+              fontSize: 16,
+            ),
+          ),
+          onTap: () {
+            // Handle Create New File action
+          },
+        ),
+      ),
+      PopupMenuItem(
+        child: ListTile(
+          title: Text(
+            'Create New Folder',
+            style: TextStyle(
+              color: colors.textwhite,
+              fontSize: 16,
+            ),
+          ),
+          onTap: () {
+            // Handle Create New Folder action
+          },
+        ),
+      ),
+    ],
+    color: colors.dark,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+  );
+}
+// Card( 
+//   color: Colors.transparent,
+//   elevation: 0,
+//   child: ListTile(
+//     leading: CircleAvatar(
+//       radius: 28,
+//       backgroundImage: userImage,
+//     ),
+//     title: Text(userNameMassage,
+//       style: TextStyle(
+//         fontSize: 20,
+//         color: colors.textwhite.withOpacity(0.8),
+//       ),
+//     ),
+//     subtitle: Text(
+//       userEmail,
+//       style: TextStyle(
+//         fontSize: 12,
+//         color: colors.textwhite.withOpacity(0.4),
+//       ),
+//     ),
+//   ),
+// ),
