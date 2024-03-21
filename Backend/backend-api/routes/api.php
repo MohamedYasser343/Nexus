@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\mindmap_controller;
-use App\Http\Controllers\MindmapController;
+use App\Http\Controllers\MindmapsController;
+use App\Http\Controllers\NodesController;
+use App\Http\Controllers\EdgesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Auth\Events\Authenticated;
 use Illuminate\Support\Facades\Route;
@@ -21,17 +23,29 @@ Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
+    // user routes
     Route::get('user-profile', [UserController::class, 'userProfile']);
     Route::post('update-profile', [UserController::class, 'updateProfile']);
-    Route::get('user/{user_id}/index', [MindmapController::class,'index']) ;// add integrity later
-    Route::get('user/{user_id}/show/{id}', [MindmapController::class,'show']) ;
-    Route::post('user/{user_id}/store', [MindmapController::class,'store']) ;//add integrity later
-    Route::patch('user/{user_id}/edit/{id}', [MindmapController::class,'update']) ;
-    Route::delete('user/{user_id}/delete/{id}', [MindmapController::class,'destroy']) ;
     Route::post('logout', [UserController::class, 'logout']);
+
+    // mindmaps routes
+    Route::get('/mindmaps', [MindmapsController::class, 'index']);
+    Route::post('/mindmaps', [MindmapsController::class, 'store']);
+    Route::get('/mindmaps/{mindmap}', [MindmapsController::class, 'show']);
+    Route::put('/mindmaps/{mindmap}', [MindmapsController::class, 'update']);
+    Route::delete('/mindmaps/{mindmap}', [MindmapsController::class, 'destroy']);
+
+    // nodes routes
+    Route::get('/nodes', [NodesController::class, 'index']);
+    Route::post('/nodes', [NodesController::class, 'store']);
+    Route::get('/nodes/{node}', [NodesController::class, 'show']);
+    Route::put('/nodes/{node}', [NodesController::class, 'update']);
+    Route::delete('/nodes/{node}', [NodesController::class, 'destroy']);
+
+    // edges routes
+    Route::get('/edges', [EdgesController::class, 'index']);
+    Route::post('/edges', [EdgesController::class, 'store']);
+    Route::get('/edges/{edge}', [EdgesController::class, 'show']);
+    Route::put('/edges/{edge}', [EdgesController::class, 'update']);
+    Route::delete('/edges/{edge}', [EdgesController::class, 'destroy']);
 });
-
-
-
-
-

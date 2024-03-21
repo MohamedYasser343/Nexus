@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:Nexus/screens/main.dart';
 import 'package:flutter/material.dart';
 import 'package:Nexus/screens/home/home.dart';
-import 'package:Nexus/screens/auth/login.dart';
+import 'package:Nexus/screens/auth/Login.dart';
 import 'package:international_phone_number_field/international_phone_number_field.dart';
 import 'package:flutter/services.dart';
 import 'package:Nexus/constants/colors.dart';
