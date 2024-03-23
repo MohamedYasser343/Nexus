@@ -6,11 +6,12 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:flutter_splash_screen/flutter_splash_screen.dart'; 
+import 'package:flutter_splash_screen/flutter_splash_screen.dart';
 import 'package:Nexus/features/splash.dart';
-import 'dart:async'; 
+import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:Nexus/constants/colors.dart';
+
 void main() {
   runApp(
     MaterialApp(
@@ -30,6 +31,7 @@ void main() {
     ),
   );
 }
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -70,7 +72,8 @@ class HomePage extends StatelessWidget {
                   height: 60.0,
                   color: colors.lightcontainer,
                   onPressed: () {
-                    Navigator.push(context, CupertinoPageRoute(builder: (context) => Home()));
+                    Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => Home()));
                   },
                   shape: RoundedRectangleBorder(
                     side: BorderSide(width: 2.0, color: colors.primary2),
@@ -118,8 +121,14 @@ class HomePage extends StatelessWidget {
                   minWidth: double.infinity,
                   height: 60,
                   onPressed: () {
-                    TextEditingController phoneNumberController = TextEditingController(); // Create a new controller
-                    Navigator.pushReplacement(context,CupertinoPageRoute(builder: (context) => SignupPage(phoneNumberController: phoneNumberController)),);
+                    TextEditingController phoneNumberController =
+                        TextEditingController(); // Create a new controller
+                    Navigator.pushReplacement(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (context) => SignupPage(
+                              phoneNumberController: phoneNumberController)),
+                    );
                   },
                   color: colors.primary2,
                   shape: RoundedRectangleBorder(
@@ -145,7 +154,6 @@ class HomePage extends StatelessWidget {
   }
 }
 /*
-icon: Icon(Icons.,
 
 MaterialButton(
   onPressed: () {
