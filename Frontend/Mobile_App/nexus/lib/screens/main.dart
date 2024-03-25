@@ -162,11 +162,9 @@ MaterialButton(
   onPressed: (() => something(somewhere)),
   child:
 )
-
 Padding(
   padding: EdgeInsets.symmetric(horizontal: 5),
 ),
-
 Padding(
   padding: EdgeInsets.symmetric(horizontal: 15),
   child: Container(
